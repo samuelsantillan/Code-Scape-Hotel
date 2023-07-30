@@ -1,0 +1,94 @@
+/* Room.css */
+
+/* Establece el tamaño máximo de las imágenes dentro del carrusel */
+.carousel .slide img {
+    max-width: 50%;
+    max-height: 400px; /* Ajusta esta altura según tus preferencias */
+    margin: 0 auto; /* Centra las imágenes horizontalmente */
+  }
+
+  /* Room.css */
+
+/* Estilos para el carrusel */
+.carousel-root {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Estilos para las imágenes del carrusel */
+  .carousel .slide img {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 0 auto;
+  }
+  
+  /* Estilos para las previsualizaciones debajo del carrusel */
+  .carousel .thumbs-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .carousel .thumbs {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Estilos para la sección de texto "Individual" y precio */
+.card-title {
+    padding: 8px; /* Añade un poco de espacio alrededor del texto */
+    border-radius: 5px; /* Agrega esquinas redondeadas para suavizar el aspecto */
+  }
+
+  .background-color-page {
+    background-color: #ecd3bc; /* Cambia el color de fondo de toda la página */
+  }
+  
+  .color-fonts {
+    color: #97704E; /* Cambia el color del texto a un tono específico (por ejemplo, marrón claro) */
+    font-size: 16px; /* Ajusta el tamaño de fuente según tus preferencias */
+    font-weight: bold; /* Opcional: ajusta el peso de la fuente (por ejemplo, negrita) */
+  }
+
+  
+/* Resto de estilos... */
+
+/* Estilos para el contenedor que contiene el ícono y el texto */
+.icon-container {
+    display: flex; /* Establece el contenedor como flexbox */
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+  
+  /* Estilos para el ícono */
+  .icon-container svg {
+    margin-right: 8px; /* Agrega un espacio entre el ícono y el texto */
+  }
+  
+  /* Estilos para el texto */
+  .icon-container h3 {
+    margin: 0; /* Elimina el margen predeterminado del h3 */
+  }
+  
+  /* Resto de estilos... */
+
+  /* Room.css */
+
+/* Resto de estilos... */
+
+/* Estilos para el contenedor que contiene los 4 elementos */
+.room-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 800px; /* Ajusta el ancho máximo del contenedor según tus preferencias */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+  }
+  
+  /* Estilos para cada elemento en el contenedor */
+  .room-element {
+    flex-basis: 48%; /* Ajusta el ancho base de cada elemento según tus preferencias */
+    margin-bottom: 16px; /* Ajusta el margen inferior entre los elementos según tus preferencias */
+  }
+  
+  /* Resto de estilos... */
+
+  
