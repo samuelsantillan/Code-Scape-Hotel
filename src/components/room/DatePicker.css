@@ -1,0 +1,46 @@
+/* DateRangePicker.css */
+
+.date-range-picker-container {
+    width: 100%; /* Ocupa el ancho de su contenedor */
+    max-width: 400px; /* Establece un ancho máximo para evitar que se extienda demasiado */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+  
+    /* Resto de estilos, sin cambios */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Resto de estilos, sin cambios */
+  .date-range-picker-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .date-picker-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .date-picker {
+    flex: 1;
+    margin: 1rem;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .button-container {
+    text-align: center;
+    margin-top: 10px;
+  }

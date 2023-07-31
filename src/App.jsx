@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div >
       {/* <h1 className='font-title'>1 Cama doble</h1> */}
-      <RoomGrid />
+      <ReservationForm />
       {/* <RoomList rooms={roomsData} /> */}
       {/* <ReservationForm rooms={roomsData} /> */}
     </div>
