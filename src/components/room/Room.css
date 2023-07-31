@@ -39,9 +39,7 @@
     border-radius: 5px; /* Agrega esquinas redondeadas para suavizar el aspecto */
   }
 
-  .background-color-page {
-    background-color: #ecd3bc; /* Cambia el color de fondo de toda la página */
-  }
+
   
   .color-fonts {
     color: #97704E; /* Cambia el color del texto a un tono específico (por ejemplo, marrón claro) */
@@ -68,11 +66,6 @@
     margin: 0; /* Elimina el margen predeterminado del h3 */
   }
   
-  /* Resto de estilos... */
-
-  /* Room.css */
-
-/* Resto de estilos... */
 
 /* Estilos para el contenedor que contiene los 4 elementos */
 .room-container {
@@ -83,12 +76,19 @@
     margin: 0 auto; /* Centra el contenedor horizontalmente */
   }
   
-  /* Estilos para cada elemento en el contenedor */
   .room-element {
     flex-basis: 48%; /* Ajusta el ancho base de cada elemento según tus preferencias */
     margin-bottom: 16px; /* Ajusta el margen inferior entre los elementos según tus preferencias */
   }
   
-  /* Resto de estilos... */
+ 
+  .font-title{
+    font-weight: bold;
+    font-size: 24px;
+  }
 
-  
+  .card .btn-primary {
+    width: 100%;
+    background-color: #2b1c12;
+    border-color: #2b1c12;
+  }

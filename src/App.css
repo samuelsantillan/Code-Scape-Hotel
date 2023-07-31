@@ -1,14 +1,13 @@
 /* App.css */
 
-.background-color-page {
-  background-color: #ecd3bc; /* Cambia el color de fondo de toda la página */
-}
+
 
 .font{
 
-margin-left: 1rem;
+  margin-left: 1rem;
   color: #2B1C12; /* Sin comillas alrededor del color */
   font-size: 30px; /* Con la unidad 'rem' para el tamaño de fuente */
   font-weight: bold;
   margin-bottom: 1rem; /* Con la unidad 'rem' para el margen inferior */
 }
+
