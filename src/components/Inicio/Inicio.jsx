@@ -1,4 +1,4 @@
-import IntroSection from './Secciones/IntroSection';
+import IntroSection from './Secciones/IntroSection/IntroSection';
 
 
 

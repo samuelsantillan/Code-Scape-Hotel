@@ -1,0 +1,56 @@
+#root{
+    --lightBeige: #ecd3bc;
+    --brown: #97704e;
+    --darkBrown: #140d09; /*--darkBrown: #201711;original#2b1c12;  --darkBrown: #18100b;*/
+}
+.brownText {
+    color: var(--brown);
+}
+.lightText {
+    color: var(--lightBeige);
+}
+.darkText {
+    color: var(--darkBrown);
+}
+Section.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: url(https://media.staticontent.com/media/pictures/baedae04-3529-41ee-a19b-f9d80bc26167);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.textIntroContainer {
+    position: relative;
+    top: 80vh;
+    padding-left: 15%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.titleIntro {
+    font-size: calc(26px + 22*(100vw - 500px)/1500);
+    text-shadow: 2px 2px 4px var(--darkBrown);
+    font-family: 'Playfair Display', serif;
+}
+.subtitleIntro {
+    font-family: 'Nunito Sans', sans-serif;
+}
+@keyframes scroll {
+	0% {
+		transform: translateY(0);
+	}
+	30% {
+		transform: translateY(100px);
+	}
+}
+
+svg #wheel {
+	animation: scroll ease 1.5s infinite;
+}
+.scrollDownIconContainer {
+    position: relative;
+    top: 75vh;
+    display: flex;
+    justify-content: center;
+}
