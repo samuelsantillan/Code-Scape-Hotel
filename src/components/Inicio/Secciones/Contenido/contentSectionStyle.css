@@ -1,0 +1,191 @@
+.textSection {
+  margin: 0 auto;
+  max-width: 860px;
+  text-align: center;
+  padding: calc(4.16667vw * 2) 4.16667vw;
+}
+.textWelcome {
+  color: var(--darkBrown);
+  text-align: center;
+  letter-spacing: .06875rem;
+  font-size: calc(20px + 3 * ((100vw - 768px) / 672));
+}
+.textFocus {
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.img-fluid {
+  object-fit: cover;
+}
+Button.roomBtn {
+  width: 8rem;
+  border: 2px solid var(--brown);
+  border-radius: 0;
+  color: var(--brown);
+  font-weight: 500;
+  inline-size: auto;
+  margin-left: 5%;
+}
+.cardContent.img{
+  filter: brightness(100%) contrast(100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+.cardContent.img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,transparent,rgba(0,0,0,.81));
+  z-index: -1;
+}
+.imgEvento {
+  background-image: url(https://www.estilodv.com/public/images/guia/3582-patios-de-cafayate-eventos.jpg);
+}
+.imgExperiencia {
+  background-image: url(https://descubrevalledeuco.com/wp-content/uploads/2021/11/1309-la-estancia-de-cafayate-cabalgatas-1024x576.jpg);
+}
+.imgHistoria {
+  background-image: url(https://cf.bstatic.com/xdata/images/hotel/max1024x768/5916721.jpg?k=393afe128cfcb17ded7c6197cdc5d060659c94440387df60457c36dedddd7831&o=&hp=1);
+}
+
+.roomImg {
+  width: 30rem;
+  height: 40rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: 'background-image 0.7s ease-in'
+}
+
+.titleCard {
+  font-weight: bolder;
+  color: var(--lightBeige);
+  z-index: 2;
+}
+.parallax {
+  background-image: url(https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/c6c2b973.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+Section.roomSection {
+  padding-bottom: calc(20vh - 150px);
+ }
+/*MEDIA QUERIES*/
+@media (max-width: 980px) {
+  .textCol {
+    text-align: center;
+  }
+  .restaurantImg img {
+    height: 80vh;
+    width: 100%;
+  }
+  .finalImgSection .parallax {
+    width: 100%;
+    height: 20vh;
+  }
+  .cardContent.img {
+    height: 20rem;
+    width: 100%;
+  }
+  Section.roomSection {
+    min-height: calc(90vh - 250px);
+  }
+}
+@media screen and (max-width: 587px) {
+  .roomsInfoCol,
+  .restaurantTextCol {
+    transform: translateY(-35px);
+    background-color: white;
+    width: 90vw;
+    margin: auto;
+  }
+  .restaurantSection,
+  .restaurantTextCol {
+    background-color: var(--brown);
+    color: white;
+
+  }
+}
+@media (min-width: 980px) {
+  .roomImg,
+  .restaurantImg img {
+    height: 60vh;
+    width: 25vw;
+    box-shadow: 25px 25px 0 -2.5px #97704e, 25px 25px 0 0 #97704e;
+  }
+  .cardList {
+    display: flex;
+  }
+ .cardItem {
+    flex: 1;
+    width: calc(100% / 3);
+  }
+  .cardContent.img {
+    height: 40rem;
+    width: 100%;
+  }
+  .finalImgSection .parallax {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+  }
+  Section.roomSection {
+    min-height: 70vh;
+  }
+  Section.restaurantSection {
+    padding-top: 5%;
+    min-height: 45rem;
+  }
+  .roomsInfoCol {
+    order: 1;
+  }
+  .roomsImgCol {
+    order: 2;
+  }
+}
+
+ /*ANIMATIONS */
+ @-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+

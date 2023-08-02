@@ -1,5 +1,5 @@
-import IntroSection from './Secciones/IntroSection/IntroSection';
-
+import IntroSection from './Secciones/Encabezado/IntroSection';
+import ContentSection from './Secciones/Contenido/contentSection';
 
 
 const Inicio = () => {
@@ -7,6 +7,7 @@ const Inicio = () => {
     return (
         <>
             <IntroSection />
+            <ContentSection />
         </>
     );
 };
