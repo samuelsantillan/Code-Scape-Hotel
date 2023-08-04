@@ -1,0 +1,23 @@
+
+
+.container-formulario {
+  height: 100vh;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 60vb;
+  background-color: rgb(151,113,77);
+  padding:10px ;
+  border-radius: 5%;
+}
+ .contenedor {
+  background: rgb(236,212,188);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+ }
