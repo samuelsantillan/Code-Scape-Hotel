@@ -9,7 +9,7 @@ const RoomGrid = () => {
         <div className="container">
             <div className="row">
                 {roomsData.map((room, index) => (
-                    <div key={index} className="col-md-4 mb-4">
+                    <div key={index} className="col-md-4 mb-4 my-5">
                         <Room roomData={room} />
                     </div>
                 ))}

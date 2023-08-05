@@ -3,7 +3,6 @@
 
 
 .font{
-
   margin-left: 1rem;
   color: #2B1C12; /* Sin comillas alrededor del color */
   font-size: 30px; /* Con la unidad 'rem' para el tamaño de fuente */
@@ -11,3 +10,7 @@
   margin-bottom: 1rem; /* Con la unidad 'rem' para el margen inferior */
 }
 
+
+.fondo{
+  background-color: #2b1c12;
+}

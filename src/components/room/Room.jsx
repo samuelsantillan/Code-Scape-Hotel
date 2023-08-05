@@ -12,9 +12,8 @@ const Room = ({ roomData }) => {
   const { type, price, availableDates, images } = roomData;
 
   return (
-    <div className='card' >
+    <div className='room-card' >
       <div className='card-body'>
-        <h2 className='font-title'>{type}</h2>
         {/* <p className='card-text color-fonts'> Precio: {price}</p> */}
         <Carousel>
             {images.map((image, index) => (
@@ -23,9 +22,9 @@ const Room = ({ roomData }) => {
                 </div>
             ))}
         </Carousel>
-        <h1 className='font-title'>Detalles</h1>
-        <div className='room-container'>
-          <div className='room-element'>
+        <h2 className='font-title m-3'>{type}</h2>
+        <div className='room-container mx-3'>
+          <div className='room-element mb-3'>
             <IconContainer icon={<FaShower />} name='Ducha' />
           </div>
           <div className='room-element'>
@@ -39,7 +38,8 @@ const Room = ({ roomData }) => {
         </div>
       </div>
         <div className='text-center '>
-          <button className='btn btn-primary '>Realizar Reserva</button>
+          <button className='btn btn-details m-3'>Más detalles  </button>
+          <button className='btn btn-booking m-3 '>Realizar Reserva</button>
         </div>  
       </div>
     </div>
