@@ -1,0 +1,24 @@
+
+.footer {
+    background-color: var(--darkBrown);
+    color: var(--lightBeige);
+}
+
+a.enlacesFooter {
+    color: var(--lightBeige);
+    font-weight: 500;
+}
+
+input {
+    border: none;
+    color: var(--lightBeige);
+    background: none;
+    border-bottom: 2px solid var(--lightBeige);
+}
+
+input::placeholder {
+    color: var(--brown); 
+}
+.logo {
+    width:calc(18rem - 20px);
+  }
