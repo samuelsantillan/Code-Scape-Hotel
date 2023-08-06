@@ -5,7 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logoBeige from '../../assets/svg/logoBeige.svg';
 import './footerStyle.css';
 const Footer = () => {
-  
+  const [email, setEmail] = useState('');
+  const [emailIsValid, setemailIsValid] = useState(true);
+
+  const handleEmailChange = (event) => {
+    const newEmail = event.target.value;
+    setEmail(newEmail);
+    validateEmail(newEmail);
+  };
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setemailIsValid(emailRegex.test(email));
+  }
+  const handleSubscribe = () => {
+    if (emailIsValid){
+      setEmail('');
+    }
+  }
   return (
     <footer>
       <Container>
@@ -18,9 +34,10 @@ const Footer = () => {
             placeholder="Correo Electrónico"
             className="inputNewsletter"
             value={email}
+            onChange={handleEmailChange}
            />
               </label>
-             <button type="submit" className='btnNewsletter'> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{color: "#ecd3bc",}} /></button>
+             <button type="submit" className='btnNewsletter' onClick={handleSubscribe}> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{color: "#ecd3bc",}} /></button>
               
             </div>
             <div className="p-1">+54 1038681 422229 / 421753</div>
