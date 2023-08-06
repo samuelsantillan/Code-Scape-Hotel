@@ -1,17 +1,27 @@
-import './footerStyle.css';
+import {useState} from 'react';
 import { Container } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import logoBeige from '../../assets/svg/logoBeige.svg';
+import './footerStyle.css';
 const Footer = () => {
+  
   return (
-    <footer className="footer">
+    <footer>
       <Container>
         <div className="footerWrap row p-5 align-content-center justify-content-around">
           <section className="col-sm-12 col-md-3 col-lg-3 col-xl-3 text-center text-md-start">
             <div className="p-1">Suscribite a nuestra <em>Newsletter</em></div>
             <div className="p-1">
               <label>
-                <input type="text" placeholder="Correo Electrónico" />
+              <input type="text"
+            placeholder="Correo Electrónico"
+            className="inputNewsletter"
+            value={email}
+           />
               </label>
+             <button type="submit" className='btnNewsletter'> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{color: "#ecd3bc",}} /></button>
+              
             </div>
             <div className="p-1">+54 1038681 422229 / 421753</div>
             <div className="p-1 brownText">codescape@hotel.com</div>
@@ -45,12 +55,12 @@ const Footer = () => {
               <p className="lightBrownText">Ruta 68 y Ruta 40, 4400 Cafayate, Argentina</p>
             </div>
             <div className="p-2 d-flex align-items-center justify-content-end">
-              <a href="/como-llegar" className="brownText">CÓMO LLEGAR</a>
+              <a href="/como-llegar" className="lightBrownText">CÓMO LLEGAR <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></a>
             </div>
-            <div className="p-2 d-flex align-items-center justify-content-end">
-              <ul className="list-unstyled m-0">
-                <li><a href="https://www.instagram.com/" className="linkFooter brownText">Instagram</a></li>
-                <li><a href="https://www.facebook.com/" className="linkFooter brownText">Facebook</a></li>
+            <div className="p-2 d-flex align-items-center">
+              <ul className="list-unstyled m-0 d-flex">
+                <li><a href="https://www.instagram.com/" className="linkFooter lightBrownText socialLink"><FontAwesomeIcon icon="fa-brands fa-instagram" /></a></li>
+                <li><a href="https://www.facebook.com/" className="linkFooter lightBrownText socialLink"><FontAwesomeIcon icon="fa-brands fa-facebook-f" /></a></li>
               </ul>
             </div>
           </section>
