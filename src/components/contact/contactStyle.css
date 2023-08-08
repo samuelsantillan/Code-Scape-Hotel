@@ -1,0 +1,112 @@
+.introSection{
+    height: 100vh;
+    width: 100%;
+    background-image: url(https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/f32c6cf4.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.titleContact {
+    position: relative;
+    top: 50%;
+    color: white;
+    text-shadow: 2px 2px 4px var(--darkBrown);
+    font-family: var(--cormorant);
+}
+.titleBanner {
+    color: var(--lightBeige);
+}
+.bannerContent {
+    height: 100%;
+}
+
+.bannerContent .col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bannerSection, .bannerSection .container{
+    height: 40vh;
+    background-color: var(--darkestBrown);
+}
+.subtitleBanner{
+    letter-spacing: 0.3rem;
+}
+.titleForm {
+    font-size: 2.2rem;
+    color: var(--brown);
+    font-weight: 500;
+    font-family: var(--cormorant);
+    letter-spacing: 0.3rem;
+}
+.contactForm {
+    flex-direction: column;
+}
+.bgMarron {
+    background-color:var(--darkestBrown);
+}
+.imgContact img{
+    object-fit: cover;
+    height: 100%;
+}
+.form-control {
+    background-color: rgb(50, 36, 27);
+    color: var(--lightBeige);
+    border-radius: 5px;
+    border: 1px solid var(--brown);
+    height: 4rem;
+    margin: 20px 0px;
+}
+
+.form-control:focus {
+    background-color: var(--brown);
+    transition: 0.5s;
+}
+
+.form-control:focus::placeholder {
+    color: #281c16;
+    transition: 0.5s;
+    font-weight: 500;
+}
+
+.textArea {
+    height: 6rem;
+}
+
+.form-control::placeholder,.form-text {
+    color: rgb(237, 221, 198);
+}
+
+
+.btnSend {
+    text-align: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--lightBeige);
+    border: 1px solid var(--lightBeige);
+    font-size: 1rem;
+    min-width:100%;
+}
+
+
+.form-text {
+    margin-bottom: 10px;
+    color: var(--brown);
+}
+
+@media  screen and (max-width: 768px) {
+    .btnSend {
+        width: 90vw;
+    }
+    
+}
+.brownDarkText {
+    color: var(--lightBrown);
+}
+.brownText {
+    color: var(--brown);
+}
+.lightText {
+    color: var(--lightBeige);
+}
