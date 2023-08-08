@@ -47,7 +47,6 @@ footer {
     padding: 0.7vw;
 }
 
-.socialLink:hover {
+.socialLink:hover, .locationLink:hover {
     color: var(--lightBeige);
-    transform: scale(1.1s);
 }

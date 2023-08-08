@@ -72,7 +72,7 @@ const Footer = () => {
               <p className="lightBrownText">Ruta 68 y Ruta 40, 4400 Cafayate, Argentina</p>
             </div>
             <div className="p-2 d-flex align-items-center justify-content-end">
-              <a href="/como-llegar" className="lightBrownText">CÓMO LLEGAR <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></a>
+              <a href="https://goo.gl/maps/y52oLiUj8wVceMyr8" className="lightBrownText locationLink">CÓMO LLEGAR <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></a>
             </div>
             <div className="p-2 d-flex align-items-center">
               <ul className="list-unstyled m-0 d-flex">
