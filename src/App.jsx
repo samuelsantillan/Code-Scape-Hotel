@@ -1,13 +1,15 @@
-import './App.css'
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Contact from './components/contact/Contact'
-function App() {
-
+import { BrowserRouter } from 'react-router-dom';
+import Router from './routes/Router';
+import './App.css'
+const App = () => {
   return (
-    <>
-      <Contact />
-    </>
-  )
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
+

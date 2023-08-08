@@ -15,8 +15,19 @@ const Contact = () => {
                         </Col>
                         <Col>
                             <h5 className='brownText' >+54 1038681 422229 / 421753 - CODESPACE</h5>
-                            <h5 className='brownText'>codescape@hotel.com</h5>
+                            <h5 className='brownText'>hotel@codescape.com</h5>
                             <hr className='lightText' />
+                        </Col>
+                    </Row>
+                    <Row className='bannerContent experiencias'>
+                        <Col>
+                            <h5 className='brownText'>eventos@codescape.com</h5>
+                            <h5 className='brownText'>experiencias@codescape.com</h5>
+                            <hr className='lightText' />
+                        </Col>
+                        <Col className='leftCol'>
+                            <p className='brownText subtitleBanner'>EXPERIENCIAS & EVENTOS</p>
+                            <h3 className='titleBanner'>Servicios de Reserva y Detalles</h3>
                         </Col>
                     </Row>
                 </Container>
@@ -24,11 +35,14 @@ const Contact = () => {
             <section className='formSection'>
                 <Container fluid>
                     <Row>
-                        <Col className="bgMarron">
+                        <Col
+                            className="d-none d-md-block p-0 imgContact">
+                            <Image src="https://images.almundo.com/201/2000000/1330000/1322200/1322111/7869ceea_z.jpg" alt="Foto hotel" fluid />
+                        </Col>
+                        <Col>
                             <h3 className="d-flex justify-content-center my-4 titleForm">
                                 CONTÁCTANOS
                             </h3>
-
                             <form className="contactForm px-sm-5 d-flex justify-content-center align-items-center">
                                 <input type="email" className="form-control px-5" id="email-input" placeholder="Correo Electrónico"
                                     pattern="[a-zA-Z0-9!#$%&'_+-]([\.]?[a-zA-Z0-9!#$%&'_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?"
@@ -60,10 +74,6 @@ const Contact = () => {
                                     </Row>
                                 </Container>
                             </form>
-                        </Col>
-                        <Col
-                            className="d-none d-md-block p-0 imgContact">
-                            <Image src="https://images.almundo.com/201/2000000/1330000/1322200/1322111/7869ceea_z.jpg" alt="Foto hotel" fluid/>
                         </Col>
                     </Row>
                 </Container>
