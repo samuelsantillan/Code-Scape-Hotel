@@ -1,8 +1,3 @@
-#root{
-    --lightBeige: #ecd3bc;
-    --brown: #97704e;
-    --darkBrown: #140d09; /*--darkBrown: #201711;original#2b1c12;  --darkBrown: #18100b;*/
-}
 .brownText {
     color: var(--brown);
 }

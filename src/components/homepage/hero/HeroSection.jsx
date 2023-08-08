@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import './introStyle.css';
-const IntroSection = () => {
+import './heroStyle.css';
+const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -61,4 +61,4 @@ const IntroSection = () => {
   )
 }
 
-export default IntroSection
+export default HeroSection
