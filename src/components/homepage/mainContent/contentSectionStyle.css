@@ -1,7 +1,7 @@
-* body {
+body {
   font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--white);
 }
-
 .textSection {
   margin: 0 auto;
   max-width: 860px;
@@ -126,7 +126,10 @@ Button.roomBtn {
   inline-size: auto;
   margin-left: 5%;
 }
-
+.roomBtn:hover {
+  background-color: var(--brown);
+  color: var(--white);
+}
 .imgEvento {
   background-image: url(https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/288df18c.jpg);
 }
@@ -189,7 +192,7 @@ Section.roomSection {
     text-align: center;
   }
 
-  .restaurantImg img {
+  .restaurantImg {
     height: 80vh;
     width: 100%;
   }
@@ -218,7 +221,9 @@ Section.roomSection {
     width: 90vw;
     margin: auto;
   }
-
+  .cardsSection {
+    height: 125vh;
+  }
   .restaurantSection,
   .restaurantTextCol {
     background-color: var(--brown);
@@ -233,10 +238,11 @@ Section.roomSection {
     padding-top: 20%;
   }
   .roomImg,
-  .restaurantImg img {
+  .restaurantImg {
     height: 60vh;
     width: 25vw;
     box-shadow: 25px 25px 0 -2.5px #97704e, 25px 25px 0 0 #97704e;
+    transition: background-image 0.6s ease-in-out;
   }
 
   .cardList {
