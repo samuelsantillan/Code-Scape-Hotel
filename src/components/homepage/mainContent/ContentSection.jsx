@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
-import  ScrollAnimation  from '../../animations/ScrollAnimation';
+import  FadeIn from '../../../animations/FadeIn';
 import './contentSectionStyle.css';
 
 const ContentSection = () => {
@@ -21,7 +21,7 @@ const ContentSection = () => {
                         sido testigos de cautivadoras historias desde 1892. ¡Una experiencia única te espera!</p>
                 </Container>
             </section>
-            <ScrollAnimation>
+            <FadeIn>
                 <section className='roomSection'>
                     <Container>
                         <Row>
@@ -71,7 +71,7 @@ const ContentSection = () => {
                         </Row>
                     </Container>
                 </section>
-            </ScrollAnimation>
+            </FadeIn>
             <section className='cardsSection'>
                 <Container fluid>
                     <Row className='cardsRow'>
@@ -130,7 +130,7 @@ const ContentSection = () => {
                     </Row>
                 </Container>
             </section>
-            <ScrollAnimation>
+            <FadeIn>
                 <section className='restaurantSection'>
                     <Container>
                         <Row>
@@ -156,7 +156,7 @@ const ContentSection = () => {
                         </Row>
                     </Container>
                 </section>
-            </ScrollAnimation>
+            </FadeIn>
             <section className='finalImgSection'>
                 <div className="parallax"></div>
             </section>

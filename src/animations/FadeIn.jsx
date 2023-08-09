@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const ScrollAnimation = ({ children }) => {
+const FadeIn = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -34,4 +34,4 @@ const ScrollAnimation = ({ children }) => {
   );
 };
 
-export default ScrollAnimation
+export default FadeIn
