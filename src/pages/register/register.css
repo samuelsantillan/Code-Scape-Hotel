@@ -8,16 +8,53 @@
   align-items: center;
 }
 
-form {
-  width: 60vb;
-  background-color: rgb(151,113,77);
-  padding:10px ;
-  border-radius: 5%;
-}
- .contenedor {
-  background: rgb(236,212,188);
+.contenedor {
+ 
   display: flex;
   justify-content: center;
   align-items: center;
   height: 90vh;
+ 
+
  }
+
+form {
+  width: 60vb;
+  padding:10px ;
+  box-shadow: 25px 25px 0 -2.5px #97704e, 25px 25px 0 0 #97704e;
+  border-color: rgb(0, 0, 0);
+  border-width: 1px;
+  border-style: solid;
+}
+
+ form.control {
+  color: aqua;
+ }
+
+
+ button-test {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #ecd3bc;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #ecd3bc;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #ecd3bc;
+}
+
+button-test:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 #ecd3bc;
+}
+
+button-test:active {
+  transform: scale(0.9);
+}
