@@ -3,44 +3,47 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../register/register.css'
 
-
+document.querySelector('.img__btn').addEventListener('click', function() {
+  document.querySelector('.cont').classList.toggle('s--signup');
+});
 
 const Register = () => {
   return (
-  <div className='container'>
-   <div class="container2">
-  <div class="form-login">
-    <h2>Bienvenido de nuevo</h2>
+    
+  
+  <div className='main-container'>
+  <div className='cont'>
+  <div className='form sign-in'>
+    <h2>Bienvenido</h2>
     <label>
       <span>Email</span>
       <input type="email" />
     </label>
     <label>
-
-      <span>Password</span>
+      <span>Contraseña</span>
       <input type="password" />
     </label>
-    <p class="recovery-password">Recuperar contraseña </p>
-    <button type="button" class="submit">Iniciar sesion</button>
-
+ <div className='button-register'>
+    <button type="button" className='submit'>Registrate</button>
+    </div>
   </div>
-  <div class="container3">
-    <div class="img">
-      <div class="img-register">
-        <h2>¿No tenes cuenta?</h2>
-        <p>Registrate</p>
+  <div className='sub-cont'>
+    <div className='img'>
+      <div className='img__text m--up'>
+        <h2>¿sos nuevo?</h2>
+        
       </div>
-      <div class="img-login">
-        <h2>¿Ya tenes una cuenta?</h2>
-        <p>Ingresá</p>
+      <div className='img__text m--in'>
+        <h2>¿Ya tenes cuenta?</h2>
+        <p>Ingresá aqui</p>
       </div>
-      <div class="img-btn">
-        <span class="register">registrate </span>
-        <span class="login">Ingresá</span>
+      <div className='img__btn'>
+        <span className='m--up'>Registrate</span>
+        <span className='m--in'>Inicia sesion</span>
       </div>
     </div>
-    <div class="form-register">
-      <h2>Registrate aqui</h2>
+    <div className='form sign-up'>
+      
       <label>
         <span>Nombre</span>
         <input type="text" />
@@ -53,15 +56,12 @@ const Register = () => {
         <span>Contraseña</span>
         <input type="password" />
       </label>
-      <button type="button" class="submit">Sign Up</button>
+      <button type="button" className='submit'>Registrate</button>
    
     </div>
   </div>
 </div>
-
-
-
-  </div>
+</div>
   )
 }
 
