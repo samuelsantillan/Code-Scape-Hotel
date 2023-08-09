@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import videoSource from '../../../assets/heroVideo.mp4'
 import './heroStyle.css';
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -10,6 +11,10 @@ const HeroSection = () => {
   return (
     <>
       <section className='hero'>
+        <video className="videoBackground" autoPlay muted loop>
+          <source src={videoSource} type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
         <AnimatePresence>
           {isLoaded && (
             <motion.div
