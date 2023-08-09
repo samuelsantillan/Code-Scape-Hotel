@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Container, Row, Col, Image} from 'react-bootstrap';
+import { Container, Row, Col, Image } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
+import  ScrollAnimation  from '../../animations/ScrollAnimation';
 import './contentSectionStyle.css';
 
 const ContentSection = () => {
@@ -20,6 +21,7 @@ const ContentSection = () => {
                         sido testigos de cautivadoras historias desde 1892. ¡Una experiencia única te espera!</p>
                 </Container>
             </section>
+            <ScrollAnimation>
                 <section className='roomSection'>
                     <Container>
                         <Row>
@@ -69,6 +71,7 @@ const ContentSection = () => {
                         </Row>
                     </Container>
                 </section>
+            </ScrollAnimation>
             <section className='cardsSection'>
                 <Container fluid>
                     <Row className='cardsRow'>
@@ -127,6 +130,7 @@ const ContentSection = () => {
                     </Row>
                 </Container>
             </section>
+            <ScrollAnimation>
                 <section className='restaurantSection'>
                     <Container>
                         <Row>
@@ -139,8 +143,6 @@ const ContentSection = () => {
                                             src="https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/c8ba6d52.jpg?impolicy=resizecrop&rw=1200&ra=fit"
                                             alt="Foto Hotel"
                                             fluid
-                                            onMouseOver={() => handleRoomHover('https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/c8ba6d52.jpg?impolicy=resizecrop&rw=1200&ra=fit')}
-                                            onMouseOut={() => handleRoomHover()}
                                         />
                                     </div>
                                 </div>
@@ -154,6 +156,7 @@ const ContentSection = () => {
                         </Row>
                     </Container>
                 </section>
+            </ScrollAnimation>
             <section className='finalImgSection'>
                 <div className="parallax"></div>
             </section>
