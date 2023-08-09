@@ -4,6 +4,7 @@ import ReservationForm from './components/room/ReservationForm';
 import './App.css'
 import RoomGrid from './components/room/RoomGrid';
 import NavBarBorrar from './components/room/navbarBorrar';
+import RoomPreview from './components/room/RoomPreview';
 
 
 
@@ -13,6 +14,7 @@ const App = () => {
       {/* <h1 className='font-title'>1 Cama doble</h1> */}
       <NavBarBorrar />
       <RoomGrid />
+      <RoomPreview />
       {/* <RoomList rooms={roomsData} /> */}
       {/* <ReservationForm rooms={roomsData} /> */}
     </div>
