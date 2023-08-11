@@ -6,6 +6,7 @@ import RoomGrid from "./components/room/RoomGrid";
 import NavBarBorrar from "./components/room/navbarBorrar";
 import RoomPreview from "./components/room/RoomPreview";
 import RoomPagePreview from "./components/RoomPagePreview";
+import roomsData from './components/room/roomsData'
 
 const App = () => {
   return (
@@ -16,8 +17,6 @@ const App = () => {
       
      <RoomPagePreview />
 
-      {/* <RoomList rooms={roomsData} /> */}
-      {/* <ReservationForm rooms={roomsData} /> */}
     </div>
   );
 };

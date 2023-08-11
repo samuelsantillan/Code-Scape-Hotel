@@ -2,6 +2,8 @@ import React from "react";
 import "./RoomPreview.css";
 import { Container, Row, Col, Image } from "react-bootstrap";
 
+
+
 const RoomPreview = (props) => {
   const { IsImageFirst } = props;
 
