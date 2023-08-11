@@ -38,6 +38,9 @@ span.navbar-toggler-icon {
   color: var(--lightBeige);
   background-image: url("../../assets/svg/menuIcon.svg");
 }
+button.navbar-toggler {
+  border: none;
+}
 .scrolled .nav-link,
 .scrolled .navbar-brand{
   color: var(--lightBeige);
