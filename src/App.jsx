@@ -7,16 +7,16 @@ import NavBarBorrar from "./components/room/navbarBorrar";
 import RoomPreview from "./components/room/RoomPreview";
 import RoomPagePreview from "./components/RoomPagePreview";
 import roomsData from './components/room/roomsData'
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
     <div>
-      {/* <h1 className='font-title'>1 Cama doble</h1> */}
       <NavBarBorrar />
-      {/* <RoomGrid /> */}
       
      <RoomPagePreview />
-
+     
+     <Footer />
     </div>
   );
 };

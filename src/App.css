@@ -1,6 +1,18 @@
 /* App.css */
 
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap');
+#root{
+    --nunito: 'Nunito Sans', sans-serif;
+    --cormorant: 'Cormorant Garamond', serif;
+    --lightBeige: #ecd3bc;
+    --lightBrown: #97704e;
+    --brown:#6e5137;
+    --darkBrown: #1d130c;
+    --darkestBrown: #150e09;
+}
+
+
 
 .font{
   margin-left: 1rem;
