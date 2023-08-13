@@ -4,6 +4,7 @@ import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import "./navbarStyle.css";
 import whiteLogo from '../../assets/svg/logoWhite.svg';
 import beigeLogo from '../../assets/svg/logoBeige.svg';
+
 const NavbarComponent = () => {
   const isLargeScreen = useMediaQuery({ minWidth: 992 });
   const [expand, setExpand] = useState(isLargeScreen);

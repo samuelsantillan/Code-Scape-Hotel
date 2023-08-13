@@ -1,6 +1,8 @@
 import React from "react";
 import "./RoomPreview.css";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import Room from "./Room";
+import roomsData from "./roomsData";
 
 
 
@@ -20,17 +22,8 @@ const RoomPreview = (props) => {
               >
                 <div className="restaurantImg">
                   <div className="image-wrapper">
-                    <Image
-                      src={props.image}
-                      alt="Foto Hotel"
-                      fluid
-                      // onMouseOver={() =>
-                      //   handleRoomHover(
-                      //     '"https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/c8ba6d52.jpg?impolicy=resizecrop&rw=1200&ra=fit"'
-                      //   )
-                      // }
-                      // onMouseOut={() => handleRoomHover()}
-                    />
+                  <Room roomData={roomsData} className="fluid" />
+                
                   </div>
                 </div>
               </Col>

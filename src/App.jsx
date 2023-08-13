@@ -9,13 +9,13 @@ import RoomPagePreview from "./components/RoomPagePreview";
 import roomsData from './components/room/roomsData'
 import Footer from "./components/Footer/Footer";
 import NavbarComponent from "./components/Navbar/NavbarComponent";
+import Room from "./components/room/Room";
 
 const App = () => {
   return (
     <div>
       <NavbarComponent />      
      <RoomPagePreview />
-     
      <Footer />
     </div>
   );

@@ -8,10 +8,6 @@
     .textCol {
       text-align: center;
     }
-    .restaurantImg img {
-      height: 80vh;
-      width: 100%;
-    }
     .finalImgSection .parallax {
       width: 100%;
       height: 20vh;
@@ -41,9 +37,7 @@
   }
   @media (min-width: 980px) {
     .roomImg,
-    .restaurantImg img {
-      height: 60vh;
-      width: 35vw;
+    .restaurantImg {
       box-shadow: 25px 25px 0 -2.5px #97704e, 25px 25px 0 0 #97704e;
     }
     .cardList {
