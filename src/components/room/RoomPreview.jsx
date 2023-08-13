@@ -20,9 +20,9 @@ const RoomPreview = (props) => {
                 lg={6}
                 className="d-flex justify-content-center"
               >
-                <div className="restaurantImg">
+                <div className="">
                   <div className="image-wrapper">
-                  <Room roomData={roomsData} className="fluid" />
+                  <Room roomData={roomsData}  />
                 
                   </div>
                 </div>
@@ -45,17 +45,8 @@ const RoomPreview = (props) => {
               >
                 <div className="restaurantImg">
                   <div className="image-wrapper">
-                    <Image
-                      src={props.image}
-                      alt="Foto Hotel"
-                      fluid
-                      // onMouseOver={() =>
-                      //   handleRoomHover(
-                      //     "https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/c8ba6d52.jpg?impolicy=resizecrop&rw=1200&ra=fit"
-                      //   )
-                      // }
-                      // onMouseOut={() => handleRoomHover()}
-                    />
+                  <Room roomData={roomsData}  />
+
                   </div>
                 </div>
               </Col>
