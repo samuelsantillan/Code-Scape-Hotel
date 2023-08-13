@@ -8,12 +8,12 @@ import RoomPreview from "./components/room/RoomPreview";
 import RoomPagePreview from "./components/RoomPagePreview";
 import roomsData from './components/room/roomsData'
 import Footer from "./components/Footer/Footer";
+import NavbarComponent from "./components/Navbar/NavbarComponent";
 
 const App = () => {
   return (
     <div>
-      <NavBarBorrar />
-      
+      <NavbarComponent />      
      <RoomPagePreview />
      
      <Footer />
