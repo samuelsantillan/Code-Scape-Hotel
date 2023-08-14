@@ -4,29 +4,13 @@ import { faX, faArrowLeftLong, faArrowRightLong } from '@fortawesome/free-solid-
 import './galleryStyle.css';
 
 const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState('todas');
   const [slideNumber, setSlideNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);
   const scrollableListRef = useRef(null);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState('todas');
 
-  const handleTouchStart = (e) => {
-    setStartX(e.touches[0].pageX - scrollableListRef.current.offsetLeft);
-    setScrollLeft(scrollableListRef.current.scrollLeft);
-  };
-
-  const handleTouchMove = (e) => {
-    if (!startX) return;
-    const x = e.touches[0].pageX - scrollableListRef.current.offsetLeft;
-    const walk = (x - startX) * 3;
-
-    scrollableListRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleTouchEnd = () => {
-    setStartX(0);
-  };
   const images = [
     { url: 'https://i.ibb.co/F5PWr2x/exterior1.jpg', categories: ['exterior'] },
     { url: 'https://i.ibb.co/MCPhyVw/restaurante1.jpg', categories: ['restaurante'] },
@@ -35,8 +19,8 @@ const Gallery = () => {
     { url: 'https://i.ibb.co/CvnHHtm/servicios2.jpg', categories: ['servicios'] },
     { url: 'https://i.ibb.co/bLzmtTB/restaurante2.jpg', categories: ['restaurante'] },
     { url: 'https://i.ibb.co/QXb0t2q/comunes2.jpg', categories: ['comunes'] },
-    { url: 'https://i.ibb.co/0nMJgM7/exterior2.jpg', categories: ['exterior'] },    
-    { url: 'https://i.ibb.co/sR0JvXC/restaurante3.jpg', categories: ['restaurante'] }, 
+    { url: 'https://i.ibb.co/0nMJgM7/exterior2.jpg', categories: ['exterior'] },
+    { url: 'https://i.ibb.co/sR0JvXC/restaurante3.jpg', categories: ['restaurante'] },
     { url: 'https://i.ibb.co/2ZFrJRn/comunes3.jpg', categories: ['comunes'] },
     { url: 'https://i.ibb.co/dJ6x6wr/servicios1.jpg', categories: ['servicios'] },
     { url: 'https://i.ibb.co/WVzrtyr/habitacion4.jpg', categories: ['habitaciones'] },
@@ -52,20 +36,37 @@ const Gallery = () => {
     { url: 'https://i.ibb.co/sbw6vm4/habitacion3.jpg', categories: ['habitaciones'] },
     { url: 'https://i.ibb.co/P5BjHNG/exterior5.jpg', categories: ['exterior'] },
     { url: 'https://i.ibb.co/rpxxxDZ/exterior6.jpg', categories: ['exterior'] }
-
-    
-
-
   ];
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    setSlideNumber(0);
-    scrollableListRef.current.scrollTo({
-      left: scrollableListRef.current.querySelector(`.${category}`).offsetLeft,
-      behavior: 'smooth'
-    });
+
+  const handleTouchStart = (e) => {
+    setStartX(e.touches[0].pageX);
+    setScrollLeft(scrollableListRef.current.scrollLeft);
   };
 
+  const handleTouchMove = (e) => {
+    if (startX === null) return;
+    const x = e.touches[0].pageX;
+    const walk = (x - startX) * 2;
+
+    scrollableListRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setStartX(null);
+  };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+
+    const categoryElement = scrollableListRef.current.querySelector(`.${category}`);
+
+    if (categoryElement) {
+      scrollableListRef.current.scrollTo({
+        left: categoryElement.offsetLeft,
+        behavior: 'smooth',
+      });
+    }
+  };
   const handleOpenModal = (index) => {
     setSlideNumber(index);
     setOpenModal(true);
@@ -92,7 +93,7 @@ const Gallery = () => {
   return (
     <>
       <section className='heroSection'>
-        <div className='title'>
+        <div className='title fadeIn'>
           <h1 className='titleGallery'>GALERÍA</h1>
           <div className='line' />
         </div>
@@ -104,12 +105,16 @@ const Gallery = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}>
           <ul className="categories btnGroup">
-            <li><button onClick={() => handleCategoryChange('todas')} className={selectedCategory === 'todas' ? 'active' : ''}>Todas</button></li>
-            <li><button onClick={() => handleCategoryChange('habitaciones')} className={selectedCategory === 'habitaciones' ? 'active' : ''}>Habitaciones</button></li>
-            <li><button onClick={() => handleCategoryChange('exterior')} className={selectedCategory === 'exterior' ? 'active' : ''}>Exterior</button></li>
-            <li><button onClick={() => handleCategoryChange('comunes')} className={selectedCategory === 'comunes' ? 'active' : ''}>Áreas comunes</button></li>
-            <li><button onClick={() => handleCategoryChange('restaurante')} className={selectedCategory === 'restaurante' ? 'active' : ''}>Restaurante</button></li>
-            <li><button onClick={() => handleCategoryChange('servicios')} className={selectedCategory === 'servicios' ? 'active' : ''}>Servicios</button></li>
+            {['todas', 'habitaciones', 'exterior', 'comunes', 'restaurante', 'servicios'].map((category) => (
+              <li key={category}>
+                <button
+                  onClick={() => handleCategoryChange(category)}
+                  className={selectedCategory === category ? 'active' : ''}
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="container">
@@ -121,7 +126,7 @@ const Gallery = () => {
                     src={image.url}
                     alt={`Image ${index}`}
                     onClick={() => handleOpenModal(index)}
-                    className="img-fluid image"
+                    className="img-fluid imageGallery"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </div>
@@ -135,7 +140,7 @@ const Gallery = () => {
             <FontAwesomeIcon icon={faArrowLeftLong} className='btnPrev' onClick={prevSlide} />
             <FontAwesomeIcon icon={faArrowRightLong} className='btnNext' onClick={nextSlide} />
             <div className='fullScreenImage'>
-                <img src={filteredImages[slideNumber].url} alt='' />
+              <img src={filteredImages[slideNumber].url} alt='' />
             </div>
           </div>
         )}
