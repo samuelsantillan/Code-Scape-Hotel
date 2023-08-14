@@ -187,9 +187,3 @@
     user-select: none;
   }
   
-  
-  @media (max-width: 991px) {
-    .images {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-  }

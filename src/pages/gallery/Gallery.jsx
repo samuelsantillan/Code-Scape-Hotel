@@ -115,7 +115,7 @@ const Gallery = () => {
         <div className="container">
           <div className="row">
             {filteredImages.map((image, index) => (
-              <div className="col col-md-4 col-sm-6" key={index}>
+              <div className="col col-md-4 col-sm-6 col-6" key={index}>
                 <div className="imageContainer">
                   <img
                     src={image.url}
