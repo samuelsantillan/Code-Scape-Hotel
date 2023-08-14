@@ -1,13 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarComponent from './components/Navbar/NavbarComponent'
 import './App.css'
-
+import Layout from './layout/Layout';
 
 
 function App() {
   return (
     <>
-      <NavbarComponent />
+    <Layout></Layout>
     </>
   )
 }

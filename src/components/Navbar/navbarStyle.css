@@ -35,7 +35,9 @@
 span.navbar-toggler-icon {
   width: 40px;
   height: 32px;
-  color: var(--lightBeige);
+  background-image: url("../../assets/svg/menuIconWhite.svg");
+}
+.scrolled span.navbar-toggler-icon{
   background-image: url("../../assets/svg/menuIcon.svg");
 }
 button.navbar-toggler {
