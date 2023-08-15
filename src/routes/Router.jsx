@@ -1,12 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import Contact from '../pages/contact/Contact';
 import Inicio from '../pages/Inicio';
+import Gallery from '../pages/gallery/Gallery';
+import Contact from '../pages/contact/Contact';
 
 const Router = () => {
   return (
     <Routes>
       <Route path="/" exact element={<Inicio />} />
-     <Route path="/contacto" element={<Contact />} />
+      <Route path="/galeria" element={<Gallery />} />
+      <Route path="/contacto" element={<Contact />} />
+
     </Routes>
   );
 }
