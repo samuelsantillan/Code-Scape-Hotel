@@ -52,7 +52,7 @@ const NavbarComponent = () => {
                 <Nav.Link href="/habitaciones">Habitaciones</Nav.Link>
                 <Nav.Link href="/galeria">Galería</Nav.Link>
                 <Nav.Link href="/nosotros">Nosotros</Nav.Link>
-                <Nav.Link href="/nosotros">Contacto</Nav.Link>
+                <Nav.Link href="/contacto">Contacto</Nav.Link>
               </Nav>
               <Nav.Link className="my-2">Iniciar Sesión</Nav.Link>
             </Offcanvas.Body>

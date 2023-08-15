@@ -49,19 +49,19 @@ const ContentSection = () => {
                                 </AnimatePresence>
                             </Col>
                             <Col xs={12} md={6} className='col roomsInfoCol ps-5'>
-                                <p className='brownText ps-4 beforeTitle'>HOTEL</p>
+                                <p className='brownText ps-4 beforeTitle textSecondary'>HOTEL</p>
                                 <h3 className='brownDarkText ps-4 fs-1'>Nuestras Habitaciones</h3>
                                 <ul className='roomList'>
                                     <li>
                                         <p
-                                            className={`brownText ${activeRoom === 'https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/bc56b37f.jpg?impolicy=resizecrop&rw=1200&ra=fit' ? 'active' : ''}`}
+                                            className={`textSecondary brownText ${activeRoom === 'https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/bc56b37f.jpg?impolicy=resizecrop&rw=1200&ra=fit' ? 'active' : ''}`}
                                             onMouseOver={() => handleRoomHover('https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/bc56b37f.jpg?impolicy=resizecrop&rw=1200&ra=fit')}
                                             onMouseOut={() => handleRoomHover(null)}>Vistas al jardín</p>
                                         <hr className='separatorRooms' />
                                     </li>
                                     <li>
                                         <p
-                                            className={`brownText ${activeRoom === 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/325316705.jpg?k=86b84499e0bd9f2c0549bc9d7212b0fae2beedff476a17a2df6414f614d9594e&o=' ? 'active' : ''}`}
+                                            className={`textSecondary brownText ${activeRoom === 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/325316705.jpg?k=86b84499e0bd9f2c0549bc9d7212b0fae2beedff476a17a2df6414f614d9594e&o=' ? 'active' : ''}`}
                                             onMouseOver={() => handleRoomHover('https://cf.bstatic.com/xdata/images/hotel/max1024x768/325316705.jpg?k=86b84499e0bd9f2c0549bc9d7212b0fae2beedff476a17a2df6414f614d9594e&o=')}
                                             onMouseOut={() => handleRoomHover(null)}
                                         >Colonial</p>
@@ -69,7 +69,7 @@ const ContentSection = () => {
                                     </li>
                                     <li>
                                         <p
-                                            className={`brownText ${activeRoom === 'https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/ccacd26d.jpg?impolicy=resizecrop&rw=1200&ra=fit' ? 'active' : ''}`}
+                                            className={`textSecondary brownText ${activeRoom === 'https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/ccacd26d.jpg?impolicy=resizecrop&rw=1200&ra=fit' ? 'active' : ''}`}
                                             onMouseOver={() => handleRoomHover('https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/ccacd26d.jpg?impolicy=resizecrop&rw=1200&ra=fit')}
                                             onMouseOut={() => handleRoomHover(null)}
                                         >Galería</p>
@@ -93,11 +93,11 @@ const ContentSection = () => {
                                             <h3 className="cardContentTitle">VIVÍ EVENTOS ÚNICOS</h3>
                                             <div className="cardContentText pe-4">
                                                 <ul>
-                                                    <li><p>Casamientos</p></li>
-                                                    <li><p>Cumpleaños</p></li>
-                                                    <li><p>Conferencias</p></li>
-                                                    <li><p>Workshops</p></li>
-                                                    <li><p>Días de campo</p></li>
+                                                    <li><p className='textSecondary'>Casamientos</p></li>
+                                                    <li><p className='textSecondary'>Cumpleaños</p></li>
+                                                    <li><p className='textSecondary'>Conferencias</p></li>
+                                                    <li><p className='textSecondary'>Workshops</p></li>
+                                                    <li><p className='textSecondary'>Días de campo</p></li>
                                                 </ul>
                                                 <p className='infoText'>Para más información: eventos@codescape.com</p>
                                             </div>
@@ -113,10 +113,10 @@ const ContentSection = () => {
                                             DESCUBRE EXPERIENCIAS INIGUALABLES</h3>
                                         <div className="cardContentText pe-4">
                                             <ul>
-                                                <li><p>Cabalgatas</p></li>
-                                                <li><p>Masajes</p></li>
-                                                <li><p>Degustaciones</p></li>
-                                                <li><p>Visitas a la bodega</p></li>
+                                                <li><p className='textSecondary'>Cabalgatas</p></li>
+                                                <li><p className='textSecondary'>Masajes</p></li>
+                                                <li><p className='textSecondary'>Degustaciones</p></li>
+                                                <li><p className='textSecondary'>Visitas a la bodega</p></li>
                                             </ul>
                                             <p className='infoText'>Para más información: experiencias@codescape.com</p>
                                         </div>
@@ -129,7 +129,7 @@ const ContentSection = () => {
                                     <div className="cardContentInfo">
                                         <h3 className="cardContentTitle">UN PASADO VIVO</h3>
                                         <div className="cardContentText pe-4">
-                                            <p>Tu Estancia en el Corazón de 1892 entre Viñedos y Valles. Conocé más sobre esta antigua finca. </p>
+                                            <p className='textSecondary'>Tu Estancia en el Corazón de 1892 entre Viñedos y Valles. Conocé más sobre esta antigua finca. </p>
                                             <p className='infoText'>Para más información: eventos@codescape.com</p>
                                         </div>
                                     </div>

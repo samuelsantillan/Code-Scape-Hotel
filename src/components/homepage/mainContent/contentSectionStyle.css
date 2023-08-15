@@ -2,16 +2,16 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   background-color: var(--white);
 }
+.textSecondary {
+  letter-spacing: .06875rem;
+  font-size: calc(15px + 2 * ((100vw - 768px) / 672));
+}
 .textSection {
   margin: 0 auto;
   max-width: 860px;
   text-align: center;
   padding: calc(4.16667vw * 2) 4.16667vw;
   padding-top: 0;
-}
-p {
-  letter-spacing: .06875rem;
-  font-size: calc(15px + 2 * ((100vw - 768px) / 672));
 }
 .textWelcome {
   color: var(--darkBrown);
@@ -186,7 +186,7 @@ Section.roomSection {
   padding-bottom: calc(20vh - 150px);
 }
 
-/*MEDIA QUERIES*/
+
 @media (max-width: 980px) {
   .textCol {
     text-align: center;
