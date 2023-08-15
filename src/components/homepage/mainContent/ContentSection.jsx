@@ -1,4 +1,4 @@
-import { useState, useRef  } from 'react';
+import { useState, useRef } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
 import FadeIn from '../../../animations/FadeIn';
@@ -14,19 +14,20 @@ const ContentSection = () => {
     };
 
     const handleMouseOver = () => {
-      imageRef.current.src = 'https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/7324dd91.jpg';
+        imageRef.current.src = 'https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/7324dd91.jpg';
     };
-  
+
     const handleMouseOut = () => {
-      imageRef.current.src = 'https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/c8ba6d52.jpg?impolicy=resizecrop&rw=1200&ra=fit';
+        imageRef.current.src = 'https://images.trvl-media.com/lodging/2000000/1330000/1322200/1322111/c8ba6d52.jpg?impolicy=resizecrop&rw=1200&ra=fit';
     };
     return (
         <>
             <section className='textSection mt-5'>
-                <Container>
-                    <p className='textWelcome textFocus'>¡Bienvenido a nuestro hotel, donde el pasado y el presente se funden para crear momentos inolvidables!
+                <Container className='textFocus'>
+                    <p className='textWelcome'>¡Bienvenido a nuestro hotel, donde el pasado y el presente se funden para crear momentos inolvidables!
                         Sumérgete en la magia de alojarte en el corazón de una finca vitivinícola centenaria, cuyos muros han
                         sido testigos de cautivadoras historias desde 1892. ¡Una experiencia única te espera!</p>
+                    <hr className='lineWelcome'/>
                 </Container>
             </section>
             <FadeIn>

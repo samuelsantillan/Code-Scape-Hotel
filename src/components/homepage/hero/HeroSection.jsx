@@ -29,6 +29,7 @@ const HeroSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 2, delay: 1.5 }}>
                   <h3 className='titleIntro'> Tranquilidad y <br /> Encanto en cada rincón</h3>
+                  <hr className='lineIntro'/>
                   <h4 className='subtitleIntro'> Viví una experiencia única</h4>
                 </motion.div>
               </div>

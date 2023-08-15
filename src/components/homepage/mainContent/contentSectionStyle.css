@@ -234,15 +234,20 @@ Section.roomSection {
 }
 
 @media (min-width: 980px) {
-  .textWelcome {
-    padding-top: 20%;
+  .lineWelcome{
+    border: 1px solid var(--lightBrown);
+    opacity: 0.7;
+  }
+  .textSection {
+    padding-top: 5%;
   }
   .roomImg,
   .restaurantImg {
     height: 60vh;
     width: 25vw;
     box-shadow: 25px 25px 0 -2.5px #97704e, 25px 25px 0 0 #97704e;
-    transition: background-image 0.6s ease-in-out;
+    transition: all 0.4s ease;
+    cursor: pointer;
   }
 
   .cardList {
@@ -297,7 +302,6 @@ Section.roomSection {
     opacity: 1;
   }
 }
-
 @keyframes text-focus-in {
   0% {
     -webkit-filter: blur(12px);

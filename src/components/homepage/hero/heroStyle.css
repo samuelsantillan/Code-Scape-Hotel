@@ -24,14 +24,21 @@
     transform: translateY(-50%);
     color: white;
 }
-
+.lineIntro {
+    border: 0.5px solid var(--white);
+    opacity: 0.7;
+    width: 30%;
+}
 .titleIntro {
     font-size: calc(26px + 22*(100vw - 500px)/1500);
     text-shadow: 2px 2px 4px var(--darkBrown);
-    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.2rem;
+    font-family: var(--cormorant);
 }
 .subtitleIntro {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: var(--nunito);
+    letter-spacing: 0.2rem;
+
 }
 @keyframes scroll {
 	0% {
