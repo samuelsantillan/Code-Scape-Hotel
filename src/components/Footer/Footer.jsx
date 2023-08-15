@@ -46,7 +46,7 @@ const Footer = () => {
 
           <section className="mt-4 p-2 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center bordes">
             <div className="text-center">
-              <a href="index.html">
+              <a href="/">
                 <img className="img-fluid pe-5 logo" src={logoBeige} alt="Hotel Logo" />
               </a>
               <div className="p-1">
