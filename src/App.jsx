@@ -15,6 +15,7 @@ const App = () => {
           <Router />
         </Layout>
       </BrowserRouter>
+
   );
 }
 
