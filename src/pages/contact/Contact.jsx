@@ -29,10 +29,14 @@ const Contact = () => {
             });
             if (response.ok) {
                 console.log("Mensaje enviado y guardado en la base de datos");
-                Swal.fire(
-                    "Enviado Correctamente!",
-                    "Te responderemos pronto!",
-                    "success"
+                Swal.fire({
+                    title: "Enviado Correctamente!",
+                    text: "Te responderemos pronto!",
+                    icon:"success",
+                    color: '#faf8f4',
+                    background: '#1d130c'
+                }
+                    
                 );
                 setFormData({
                     email: "",
@@ -99,7 +103,7 @@ const Contact = () => {
                         </Col>
                         <Col>
                             <h3 className="d-flex justify-content-center my-4 titleForm">
-                                CONTÁCTANOS
+                                ESCRÍBENOS
                             </h3>
                             <form
                                 onSubmit={handleSubmit}
