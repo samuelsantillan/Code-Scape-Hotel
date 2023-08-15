@@ -14,14 +14,14 @@ const Gallery = () => {
   const images = [
     { url: 'https://i.ibb.co/F5PWr2x/exterior1.jpg', categories: ['exterior'] },
     { url: 'https://i.ibb.co/MCPhyVw/restaurante1.jpg', categories: ['restaurante'] },
-    { url: 'https://i.ibb.co/Yy1dLxy/comunes1.jpg', categories: ['comunes'] },
+    { url: 'https://i.ibb.co/Yy1dLxy/comunes1.jpg', categories: ['interior'] },
     { url: 'https://i.ibb.co/xDgJTHZ/habitacion1.jpg', categories: ['habitaciones'] },
     { url: 'https://i.ibb.co/CvnHHtm/servicios2.jpg', categories: ['servicios'] },
     { url: 'https://i.ibb.co/bLzmtTB/restaurante2.jpg', categories: ['restaurante'] },
-    { url: 'https://i.ibb.co/QXb0t2q/comunes2.jpg', categories: ['comunes'] },
+    { url: 'https://i.ibb.co/QXb0t2q/comunes2.jpg', categories: ['interior'] },
     { url: 'https://i.ibb.co/0nMJgM7/exterior2.jpg', categories: ['exterior'] },
     { url: 'https://i.ibb.co/sR0JvXC/restaurante3.jpg', categories: ['restaurante'] },
-    { url: 'https://i.ibb.co/2ZFrJRn/comunes3.jpg', categories: ['comunes'] },
+    { url: 'https://i.ibb.co/2ZFrJRn/comunes3.jpg', categories: ['interior'] },
     { url: 'https://i.ibb.co/dJ6x6wr/servicios1.jpg', categories: ['servicios'] },
     { url: 'https://i.ibb.co/WVzrtyr/habitacion4.jpg', categories: ['habitaciones'] },
     { url: 'https://i.ibb.co/V9Hz7KW/restaurante4.jpg', categories: ['restaurante'] },
@@ -29,7 +29,7 @@ const Gallery = () => {
     { url: 'https://i.ibb.co/8dxXTNc/habitacion2.jpg', categories: ['habitaciones'] },
     { url: 'https://i.ibb.co/M6Ln9wM/habitacion5.jpg', categories: ['habitaciones'] },
     { url: 'https://i.ibb.co/YQ1JgQK/exterior3.jpg', categories: ['exterior'] },
-    { url: 'https://i.ibb.co/TtC532y/comunes4.jpg', categories: ['comunes'] },
+    { url: 'https://i.ibb.co/TtC532y/comunes4.jpg', categories: ['interior'] },
     { url: 'https://i.ibb.co/FnHJJ5f/restaurante5.jpg', categories: ['restaurante'] },
     { url: 'https://i.ibb.co/RzZsDJP/servicios4.jpg', categories: ['servicios'] },
     { url: 'https://i.ibb.co/QH4ZWMv/exterior4.jpg', categories: ['exterior'] },
@@ -105,7 +105,7 @@ const Gallery = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}>
           <ul className="categories btnGroup">
-            {['todas', 'habitaciones', 'exterior', 'comunes', 'restaurante', 'servicios'].map((category) => (
+            {['todas', 'habitaciones', 'exterior', 'interior', 'restaurante', 'servicios'].map((category) => (
               <li key={category}>
                 <button
                   onClick={() => handleCategoryChange(category)}
