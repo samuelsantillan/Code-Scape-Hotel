@@ -1,0 +1,60 @@
+.brownText {
+    color: var(--brown);
+}
+.lightText {
+    color: var(--lightBeige);
+}
+.darkText {
+    color: var(--darkBrown);
+}
+.hero {
+    height: 100vh;
+    width: 100%;
+    
+}
+.videoBackground{
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+}
+.textIntroContainer {
+    position: relative;
+    bottom: 30vh;
+    padding-left: 15%;
+    transform: translateY(-50%);
+    color: white;
+}
+.lineIntro {
+    border: 0.5px solid var(--white);
+    opacity: 0.7;
+    width: 30%;
+}
+.titleIntro {
+    font-size: calc(26px + 22*(100vw - 500px)/1500);
+    text-shadow: 2px 2px 4px var(--darkBrown);
+    letter-spacing: 0.2rem;
+    font-family: var(--cormorant);
+}
+.subtitleIntro {
+    font-family: var(--nunito);
+    letter-spacing: 0.2rem;
+
+}
+@keyframes scroll {
+	0% {
+		transform: translateY(0);
+	}
+	30% {
+		transform: translateY(100px);
+	}
+}
+
+svg #wheel {
+	animation: scroll ease 1.5s infinite;
+}
+.scrollDownIconContainer {
+    position: relative;
+    top: 75vh;
+    display: flex;
+    justify-content: center;
+}
