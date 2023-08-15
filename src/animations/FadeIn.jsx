@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const FadeIn = ({ children }) => {
+const FadeIn = ({ children, delay }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -27,11 +27,11 @@ const FadeIn = ({ children }) => {
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, delay: delay || 0 }}
     >
       {children}
     </motion.section>
   );
 };
 
-export default FadeIn
+export default FadeIn;

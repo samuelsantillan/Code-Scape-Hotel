@@ -23,12 +23,14 @@ const ContentSection = () => {
     return (
         <>
             <section className='textSection mt-5'>
-                <Container className='textFocus'>
-                    <p className='textWelcome'>¡Bienvenido a nuestro hotel, donde el pasado y el presente se funden para crear momentos inolvidables!
-                        Sumérgete en la magia de alojarte en el corazón de una finca vitivinícola centenaria, cuyos muros han
-                        sido testigos de cautivadoras historias desde 1892. ¡Una experiencia única te espera!</p>
-                    <hr className='lineWelcome'/>
-                </Container>
+                <FadeIn>
+                    <Container>
+                        <p className='textWelcome'>¡Bienvenido a nuestro hotel, donde el pasado y el presente se funden para crear momentos inolvidables!
+                            Sumérgete en la magia de alojarte en el corazón de una finca vitivinícola centenaria, cuyos muros han
+                            sido testigos de cautivadoras historias desde 1892. ¡Una experiencia única te espera!</p>
+                        <hr className='lineWelcome' />
+                    </Container>
+                </FadeIn>
             </section>
             <FadeIn>
                 <section className='roomSection'>
@@ -139,11 +141,11 @@ const ContentSection = () => {
                     </Row>
                 </Container>
             </section>
-            <FadeIn>
-                <section className='restaurantSection'>
-                    <Container>
-                        <Row>
-                            <Col xs={12} lg={6} className='restaurantImages imgCol col p-0 d-flex justify-content-center'>
+            <section className='restaurantSection'>
+                <Container>
+                    <Row>
+                        <Col xs={12} lg={6} className='restaurantImages imgCol col p-0 d-flex justify-content-center'>
+                            <FadeIn delay={1}>
                                 <div className="restaurantCol">
                                     <div
                                         className="image-wrapper"
@@ -159,17 +161,19 @@ const ContentSection = () => {
                                         />
                                     </div>
                                 </div>
-                            </Col>
-                            <Col xs={12} lg={6} className='restaurantTextCol textCol col ps-4'>
+                            </FadeIn>
+                        </Col>
+                        <Col xs={12} lg={6} className='restaurantTextCol textCol col ps-4'>
+                            <FadeIn>
                                 <p className='brownText beforeTitle'>RESTAURANTE</p>
                                 <h3 className='restaurantTitle fs-1'>Experiencia completa</h3>
                                 <p className='restaurantText'>En CodeScape, deleita tus sentidos con una cocina de primera calidad que celebra los ingredientes locales más frescos.
                                     Acompaña tu comida con una selecta copa de vino y vive un deleite culinario en un ambiente inigualable. </p>
-                            </Col>
-                        </Row>
-                    </Container>
-                </section>
-            </FadeIn>
+                            </FadeIn>
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
             <section className='finalImgSection'>
                 <div className="parallax"></div>
             </section>

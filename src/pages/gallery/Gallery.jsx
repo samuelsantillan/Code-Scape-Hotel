@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX, faArrowLeftLong, faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import FadeIn from '../../animations/FadeIn'
 import './galleryStyle.css';
 
 const Gallery = () => {
@@ -93,42 +94,48 @@ const Gallery = () => {
   return (
     <>
       <section className='heroSection'>
-        <div className='title fadeIn'>
+        <div className='title fadeInText'>
           <h1 className='titleGallery'>GALERÍA</h1>
           <div className='line' />
         </div>
       </section>
       <section className="gallerySection">
-        <h4 className='gallerySectionTitle'>Galería de imágenes</h4>
-        <div className="scrollCategory" ref={scrollableListRef}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}>
-          <ul className="categories btnGroup">
-            {['todas', 'habitaciones', 'exterior', 'interior', 'restaurante', 'servicios'].map((category) => (
-              <li key={category}>
-                <button
-                  onClick={() => handleCategoryChange(category)}
-                  className={selectedCategory === category ? 'active' : ''}
-                >
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <FadeIn>
+          <h4 className='gallerySectionTitle'>Galería de imágenes</h4>
+        </FadeIn>
+        <FadeIn delay={1}>
+          <div className="scrollCategory" ref={scrollableListRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}>
+            <ul className="categories btnGroup">
+              {['todas', 'habitaciones', 'exterior', 'interior', 'restaurante', 'servicios'].map((category) => (
+                <li key={category}>
+                  <button
+                    onClick={() => handleCategoryChange(category)}
+                    className={selectedCategory === category ? 'active' : ''}
+                  >
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </FadeIn>
         <div className="container">
           <div className="row">
             {filteredImages.map((image, index) => (
               <div className="col col-md-4 col-sm-6 col-6" key={index}>
                 <div className="imageContainer">
-                  <img
-                    src={image.url}
-                    alt={`Image ${index}`}
-                    onClick={() => handleOpenModal(index)}
-                    className="img-fluid imageGallery"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                  <FadeIn delay={1}>
+                    <img
+                      src={image.url}
+                      alt={`Image ${index}`}
+                      onClick={() => handleOpenModal(index)}
+                      className="img-fluid imageGallery"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </FadeIn>
                 </div>
               </div>
             ))}
