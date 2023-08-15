@@ -9,3 +9,20 @@
     --darkBrown: #1d130c;
     --darkestBrown: #150e09;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0908;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6e5137;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 1px #0f0908;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #97704e;
