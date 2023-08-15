@@ -6,7 +6,6 @@
     background-color: var(--brown);
     color: var(--lightBeige);
     padding: 0.5rem 1rem;
-    border-radius: 50%;
     cursor: pointer;
     transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
 }
