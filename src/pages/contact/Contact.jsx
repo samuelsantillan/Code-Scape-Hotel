@@ -81,7 +81,7 @@ const Contact = () => {
                             </Col>
                         </Row>
                     </FadeIn>
-                    <FadeIn delay={1}>
+                    <FadeIn>
                         <Row className="bannerContent experiencias">
                             <Col className="pt-5">
                                 <h5 className="brownText">eventos@codescape.com</h5>
@@ -107,7 +107,7 @@ const Contact = () => {
                                 />
                         </Col>
                         <Col>
-                            <FadeIn delay={1}>
+                            <FadeIn >
                                 <h3 className="d-flex justify-content-center my-4 titleForm">
                                     ESCRÍBENOS
                                 </h3>
@@ -144,7 +144,7 @@ const Contact = () => {
                                         onChange={handleChange}
                                         value={formData.name}
                                         minLength={5}
-                                        maxLength={40}
+                                        maxLength={30}
                                         required
                                     />
 
