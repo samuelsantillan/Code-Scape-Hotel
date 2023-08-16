@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Link } from 'react-router-dom';
 import "./Room.css";
 import "./IconContainer";
 import "./roomsData";
 import { FaShower, FaHips, FaHotjar, FaAd } from "react-icons/fa";
 import IconContainer from "./IconContainer";
-import CustomModal from "./RoomModal";
+import RoomDescription from "./RoomDescription";
 
 const Room = ({ roomData }) => {
   const { type, price, availableDates, images } = roomData;
@@ -23,15 +24,6 @@ const Room = ({ roomData }) => {
     ],
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <div className="room-card flex">
@@ -46,12 +38,11 @@ const Room = ({ roomData }) => {
           ))}
         </Carousel>
         <div className="text-center ">
-          <button onClick={openModal} className="btn btn-details my-1 mx-3">
-            Más detalles{" "}
-          </button>
-          <CustomModal isOpen={isModalOpen} closeModal={closeModal} />
-          <button className="btn btn-booking my-1 mx-3">
-            Realizar Reserva
+          <li>
+            <Link to="/RoomDescription">Realizar reserva</Link>
+          </li>
+          <button className="btn btn-details my-1 mx-3">
+            Más detalles
           </button>
         </div>
       </div>

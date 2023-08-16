@@ -60,11 +60,10 @@
 
 .room-container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 800px; 
-    margin: 0 auto;
-  }
+    margin-left: auto;
+    margin-right: auto;
+    }
   
   .room-element {
     flex-basis: 48%; 
