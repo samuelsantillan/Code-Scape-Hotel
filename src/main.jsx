@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div>
-        <RoomPagePreview />
+        <App />
       </div>
     ),
   },

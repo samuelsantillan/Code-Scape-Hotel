@@ -16,31 +16,11 @@ import Page2 from "./components/room/Page2";
 
 const App = () => {
   return (
-    <Router>
-      <div>
-        <h1>Esta es la página 1</h1>
-        <ul>
-          <li>
-            <Link to="/Page2" >Ir a la página 2</Link>
-          </li>
-        </ul>
-        <Routes>
-          <Route path="/Page2" element={<Page2 />} />
-        </Routes>
-      </div>
-    </Router>
-
-    // <Router>
-    //     <h1>Esta es la Página 1</h1>
-    //     <div>
-    //     <li>
-    //       <Link to={"/Page2"} >Ir a la página 2</Link>
-    //     </li>
-    //     <Routes>
-    //       <Route path="/Page2" Component={Borrar}/>
-    //     </Routes
-    //   </div>
-    // </Router>
+      <>
+        <NavbarComponent/>
+        <RoomPagePreview/>
+        <Footer/>
+      </>
   );
 };
 

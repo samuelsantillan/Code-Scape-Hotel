@@ -4,26 +4,19 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import Room from "./Room";
 import roomsData from "./roomsData";
 
-
-
 const RoomPreview = (props) => {
   const { IsImageFirst } = props;
 
   return (
-    <div className="restaurantSection my-5 py-5" >
+    <div className="restaurantSection my-5 py-5">
       <Container>
         <Row>
           {IsImageFirst ? (
             <>
-              <Col
-                xs={12}
-                lg={6}
-                className="d-flex justify-content-center"
-              >
-                <div className="">
+              <Col xs={12} lg={6} className="d-flex justify-content-center">
+                <div>
                   <div className="image-wrapper">
-                  <Room roomData={roomsData}  />
-                
+                    <Room roomData={roomsData} />
                   </div>
                 </div>
               </Col>
@@ -43,10 +36,9 @@ const RoomPreview = (props) => {
                 lg={6}
                 className="restaurantImages imgCol col p-0 d-flex justify-content-center"
               >
-                <div className="restaurantImg">
+                <div>
                   <div className="image-wrapper">
-                  <Room roomData={roomsData}  />
-
+                    <Room roomData={roomsData} />
                   </div>
                 </div>
               </Col>

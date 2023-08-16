@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./Room.css";
 import "./IconContainer";
 import "./roomsData";
@@ -24,7 +24,6 @@ const Room = ({ roomData }) => {
     ],
   };
 
-
   return (
     <div className="room-card flex">
       <div className="card-body flex">
@@ -37,13 +36,14 @@ const Room = ({ roomData }) => {
             </div>
           ))}
         </Carousel>
-        <div className="text-center ">
-          <li>
-            <Link to="/RoomDescription">Realizar reserva</Link>
-          </li>
-          <button className="btn btn-details my-1 mx-3">
-            Más detalles
-          </button>
+        <div className="text-center">
+          <Link
+            to="/RoomDescription"
+            className="btn btn-details my-1 mx-3"
+            style={{ textDecoration: "none" }}
+          >
+            Realizar reserva
+          </Link>
         </div>
       </div>
     </div>
