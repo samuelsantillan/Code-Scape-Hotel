@@ -49,41 +49,36 @@
     font-size: 2.2rem;
 }
 
-.scrollCategory {
-    overflow-x: hidden;
-    white-space: nowrap;
-    width: 100%;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    justify-content: center;
-}
+
 
 .categories.btnGroup {
     list-style: none;
     display: flex;
+    gap: 10px;
     margin: 0;
-    padding-bottom: 2%;
-    box-sizing: border-box;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .categories.btnGroup::-webkit-scrollbar{
-    display:none;
+    display: none;
 }
-.categories.btnGroup li {
+ul {
     margin: 0;
     padding: 0;
 }
 
 .categories.btnGroup li button {
-    padding: 0rem 1.2rem;
+    padding: 0 1.2rem;
     font-size: 1rem;
     border: none;
     background-color: transparent;
     cursor: pointer;
     border-right: 1px solid var(--lightBrown);
     color: var(--lightBrown);
-    transition: color 0.2s, font-weight 0.2s;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .categories.btnGroup li:last-child button {
@@ -195,5 +190,13 @@
         font-size: 1rem;
         color: var(--darkBrown);
         background-color: var(--lightBeige);
+    }
+}
+@media  (max-width: 768px) {
+    .scrollCategory{
+        max-width: 340px;
+        margin: 10px auto;
+        overflow: hidden;
+    
     }
 }

@@ -7,9 +7,6 @@ import './galleryStyle.css';
 const Gallery = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);
-  const scrollableListRef = useRef(null);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('todas');
 
   const images = [
@@ -39,34 +36,10 @@ const Gallery = () => {
     { url: 'https://i.ibb.co/rpxxxDZ/exterior6.jpg', categories: ['exterior'] }
   ];
 
-  const handleTouchStart = (e) => {
-    setStartX(e.touches[0].pageX);
-    setScrollLeft(scrollableListRef.current.scrollLeft);
-  };
-
-  const handleTouchMove = (e) => {
-    if (startX === null) return;
-    const x = e.touches[0].pageX;
-    const walk = (x - startX) * 2;
-
-    scrollableListRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleTouchEnd = () => {
-    setStartX(null);
-  };
+  
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-
-    const categoryElement = scrollableListRef.current.querySelector(`.${category}`);
-
-    if (categoryElement) {
-      scrollableListRef.current.scrollTo({
-        left: categoryElement.offsetLeft,
-        behavior: 'smooth',
-      });
-    }
   };
   const handleOpenModal = (index) => {
     setSlideNumber(index);
@@ -103,11 +76,7 @@ const Gallery = () => {
         <FadeIn>
           <h4 className='gallerySectionTitle'>Galería de imágenes</h4>
         </FadeIn>
-        <FadeIn delay={1}>
-          <div className="scrollCategory" ref={scrollableListRef}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}>
+          <div className="scrollCategory">
             <ul className="categories btnGroup">
               {['todas', 'habitaciones', 'exterior', 'interior', 'restaurante', 'servicios'].map((category) => (
                 <li key={category}>
@@ -121,7 +90,6 @@ const Gallery = () => {
               ))}
             </ul>
           </div>
-        </FadeIn>
         <div className="container">
           <div className="row">
             {filteredImages.map((image, index) => (
