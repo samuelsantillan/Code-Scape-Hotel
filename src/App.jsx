@@ -1,35 +1,123 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import AdminPage from "./pages/AdminPage";
+import RoomsPage from "./pages/AdminRoomsPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { AdminProvider } from "./context/AdminContext";
+import Sidebar from "react-bootstrap-sidebar-menu";
+import "./assets/css/admin-aside.scss";
+import { LayoutAdmin } from "./components/LayoutAdmin";
+import { Navbar, Container } from "react-bootstrap";
+import AdminUsersPage from "./pages/AdminUsersPage";
 function App() {
-  const [count, setCount] = useState(0)
-
+  const theme = "dark";
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>CodeScape Hotel</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <AdminProvider>
+        <BrowserRouter>
+          <LayoutAdmin>
+            <Navbar
+              className="main-header"
+              expand="lg"
+              bg={theme}
+              variant={theme}
+            >
+              <Container fluid>
+                <Navbar.Brand href="#home">Brand link</Navbar.Brand>
+              </Container>
+            </Navbar>
+            <Sidebar variant={theme} bg={theme} expand="sm">
+              <Sidebar.Collapse>
+                <Sidebar.Header>
+                  <Sidebar.Brand>Logo</Sidebar.Brand>
+                  <Sidebar.Toggle />
+                </Sidebar.Header>
+                <Sidebar.Body>
+                  <Sidebar.Nav>
+                    {/* <Sidebar.Nav.Link eventKey="menu_title">
+                      <Sidebar.Nav.Icon></Sidebar.Nav.Icon>
+                      <Sidebar.Nav.Title>Inicio</Sidebar.Nav.Title>
+                    </Sidebar.Nav.Link> */}
+                    <Sidebar.Sub eventKey={0}>
+                      <Sidebar.Sub.Toggle>
+                        <Sidebar.Nav.Icon />
+                        <Sidebar.Nav.Title>Rooms</Sidebar.Nav.Title>
+                      </Sidebar.Sub.Toggle>
+                      <Sidebar.Sub.Collapse>
+                        <Sidebar.Nav>
+                          <Sidebar.Nav.Link
+                            eventKey="sum_menu_title"
+                            href="/admin"
+                          >
+                            <Sidebar.Nav.Icon>1.1</Sidebar.Nav.Icon>
+                            <Sidebar.Nav.Title>New Room</Sidebar.Nav.Title>
+                          </Sidebar.Nav.Link>
+                          <Sidebar.Nav.Link
+                            eventKey="sum_menu_title"
+                            href="/admin/rooms"
+                          >
+                            <Sidebar.Nav.Icon>1.2</Sidebar.Nav.Icon>
+                            <Sidebar.Nav.Title>View Rooms</Sidebar.Nav.Title>
+                          </Sidebar.Nav.Link>
+                        </Sidebar.Nav>
+                      </Sidebar.Sub.Collapse>
+                    </Sidebar.Sub>
+                    {/* <Sidebar.Sub eventKey={0}>
+                      <Sidebar.Sub.Toggle>
+                        <Sidebar.Nav.Icon />
+                        <Sidebar.Nav.Title>Users</Sidebar.Nav.Title>
+                      </Sidebar.Sub.Toggle>
+                      <Sidebar.Sub.Collapse>
+                        <Sidebar.Nav>
+                          <Sidebar.Nav.Link
+                            eventKey="sum_menu_title"
+                            href="/admin/user"
+                          >
+                            <Sidebar.Nav.Icon>1.1</Sidebar.Nav.Icon>
+                            <Sidebar.Nav.Title>View Users</Sidebar.Nav.Title>
+                          </Sidebar.Nav.Link>
+                          <Sidebar.Nav.Link
+                            eventKey="sum_menu_title"
+                            href="/admin/user"
+                          >
+                            <Sidebar.Nav.Icon>1.2</Sidebar.Nav.Icon>
+                            <Sidebar.Nav.Title>View Rooms</Sidebar.Nav.Title>
+                          </Sidebar.Nav.Link>
+                        </Sidebar.Nav>
+                      </Sidebar.Sub.Collapse>
+                    </Sidebar.Sub> */}
+                  </Sidebar.Nav>
+                  <Sidebar.Nav>
+                    <Sidebar.Nav.Link
+                      eventKey="menu_title"
+                      href="/admin/user"
+                    >
+                      <Sidebar.Nav.Icon></Sidebar.Nav.Icon>
+                      <Sidebar.Nav.Title>Users</Sidebar.Nav.Title>
+                    </Sidebar.Nav.Link>
+                  </Sidebar.Nav>
+                </Sidebar.Body>
+                <Sidebar.Body>
+                  
+                </Sidebar.Body>
+              </Sidebar.Collapse>
+            </Sidebar>
+
+            <main>
+              <header>
+                <h1 className="text-center">Administracion</h1>
+              </header>
+              <Routes>
+                <Route path="/admin/:id" element={<AdminPage />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/admin/rooms" element={<RoomsPage />} />
+                <Route path="/admin/user" element={<AdminUsersPage />} />
+              </Routes>
+            </main>
+          </LayoutAdmin>
+        </BrowserRouter>
+      </AdminProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
