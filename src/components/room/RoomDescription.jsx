@@ -3,8 +3,6 @@ import { FaShower, FaHips, FaHotjar, FaAd } from "react-icons/fa";
 import IconContainer from "./IconContainer";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import ReactDatePicker from "react-datepicker";
-import DateRangePicker from "./DatePicker";
 import { Container, Navbar, Row, Col } from "react-bootstrap";
 import NavbarComponent from "../Navbar/NavbarComponent";
 import "../Navbar/navbarStyle.css";
@@ -74,7 +72,7 @@ const RoomDescription = () => {
         </Row>
         <div className="text-center room-card ">
           <Link
-            to="/RoomDescription"
+            to="/ReservationForm"
             className=" btn btn-details my-5 "
             style={{ textDecoration: "none" }}
           >

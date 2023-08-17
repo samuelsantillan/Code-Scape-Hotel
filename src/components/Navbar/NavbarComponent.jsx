@@ -4,6 +4,7 @@ import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import "./navbarStyle.css";
 import whiteLogo from '../../assets/svg/logoWhite.svg';
 import beigeLogo from '../../assets/svg/logoBeige.svg';
+import { Link } from "react-router-dom";
 
 const NavbarComponent = () => {
   const isLargeScreen = useMediaQuery({ minWidth: 992 });
@@ -50,7 +51,7 @@ const NavbarComponent = () => {
             </Offcanvas.Header>
             <Offcanvas.Body className='d-flex navBody'>
               <Nav>
-                <Nav.Link href="#action1">Habitaciones</Nav.Link>
+                <Link to="/RoomsPage"><Nav.Link href="#action1">Habitaciones</Nav.Link></Link>
                 <Nav.Link href="#action2">Galería</Nav.Link>
                 <Nav.Link href="#action2">Nosotros</Nav.Link>
                 <Nav.Link href="#action2">Contacto</Nav.Link>
