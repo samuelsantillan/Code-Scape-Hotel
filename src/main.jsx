@@ -9,7 +9,7 @@ import ReservationForm from "./components/room/ReservationForm.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/RoomsPage",
+    path: "/",
     element: (
       <div>
         <RoomsPage />
@@ -32,14 +32,7 @@ const router = createBrowserRouter([
       </div>
     )
   },
-  {
-    path: "/ReservationForm",
-    element: (
-      <div>
-        <ReservationForm />
-      </div>
-    )
-  },
+
 
 ]);
 
