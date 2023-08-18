@@ -89,6 +89,16 @@ const Register = () => {
           </form>
         </div>
       </div>
+      <div className="img2">
+        {" "}
+        <h2>¿No tenes cuenta?</h2>{" "}
+        <div className="img__btn">
+      
+          <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+            Registrate
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
