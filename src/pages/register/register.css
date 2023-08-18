@@ -7,7 +7,7 @@
 body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
  
-  height: 100vh !important;
+
  
 }
 .main-container {
@@ -198,6 +198,7 @@ input {
   margin-bottom: 20px;
   background: #97704e;
   text-transform: uppercase;
+  
 }
 
 
@@ -224,7 +225,7 @@ input {
   form{
     
     margin-bottom: 0;
-    margin-top: 10rem ;
+    /* margin-top: 10rem ; */
     padding: 0 !important;
     width: 40rem;
   }
@@ -238,11 +239,10 @@ input {
   display: none;
 }
   .cont {
-    
-
+    padding-top:100px !important ;
+margin-bottom: 0;
     display: flex;
     justify-content: center;
-    
     width: 100%;
     height: 68vh;
     padding: 20px; 
@@ -255,11 +255,14 @@ input {
     padding-left: 0; 
    
   }
+  .img2{
+    background-color: aqua;
+  }
   .img2:after {
     content: '';
     position: absolute;
     left: 0;
-    top: 79vh;
+    top: vh;
     width: 100%;
     height: 12rem;
     background: rgba(0, 0, 0, 0.6);

@@ -72,6 +72,7 @@ const Register = () => {
             </div>
           </div>
         </div>
+       
       </div>
       <div className="img2 ">
         {" "}
@@ -83,6 +84,7 @@ const Register = () => {
           </span>
         </div>
       </div>
+      <div className="test"></div>
     </div>
   );
 };
