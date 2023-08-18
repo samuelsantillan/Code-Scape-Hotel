@@ -15,8 +15,8 @@ Desde el momento en que cruza nuestras puertas, será recibido por un equipo cá
       </div>
       <Row >
         <Col sm={6} md={4} lg={3}>
-        <Card>
-            <Card.Img variant="top" src="/img/MartinFernandez.jpg" />
+        <Card><div className='imgclass'>
+            <Card.Img variant="top" src="/img/MartinFernandez.jpg"/></div>
             <Card.Footer className="card-footer">
               <div>
                 <p>Fernández Martín</p> 
@@ -38,10 +38,11 @@ Desde el momento en que cruza nuestras puertas, será recibido por un equipo cá
 
         <Col sm={6} md={4} lg={3}>
         <Card>
-            <Card.Img variant="top" src="" />
+          <div className='imgclass'>
+            <Card.Img variant="top" src="/img/Victoria.jpg" /></div>
             <Card.Footer className="card-footer">
               <div>
-                <p>Nombre de la persona </p> 
+                <p>Victoria Cavanna</p> 
                 <div className="social-icons">
                   <a href="https://www.instagram">
                     <FaInstagram />
@@ -60,10 +61,12 @@ Desde el momento en que cruza nuestras puertas, será recibido por un equipo cá
         </Col>
         <Col sm={6} md={4} lg={3}>
         <Card>
-            <Card.Img variant="top" src="" />
+        <div className='imgclass'>
+            <Card.Img variant="top" src="/img/Samuel.jpg"/></div>
             <Card.Footer className="card-footer">
+              
               <div>
-                <p>Nombre de la persona </p> 
+                <p>Samuel Santillan</p> 
                 <div className="social-icons">
                   <a href="https://www.instagram">
                     <FaInstagram />
@@ -82,10 +85,11 @@ Desde el momento en que cruza nuestras puertas, será recibido por un equipo cá
         </Col>
         <Col sm={6} md={4} lg={3}>
         <Card>
-            <Card.Img variant="top" src="" />
+        <div className='imgclass'>
+            <Card.Img variant="top" src="/img/Alvaro.png"/></div>
             <Card.Footer className="card-footer">
               <div>
-                <p>Nombre de la persona </p> 
+                <p>Alvaro Safe</p> 
                 <div className="social-icons">
                   <a href="https://www.instagram">
                     <FaInstagram />
@@ -109,7 +113,7 @@ Desde el momento en que cruza nuestras puertas, será recibido por un equipo cá
             <Card.Img variant="top" src="" />
             <Card.Footer className="card-footer">
               <div>
-                <p>Nombre de la persona </p> 
+                <p>Lucas </p> 
                 <div className="social-icons">
                   <a href="https://www.instagram">
                     <FaInstagram />
