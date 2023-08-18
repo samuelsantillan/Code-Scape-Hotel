@@ -11,7 +11,6 @@ import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import "./Room.css";
 
-
 const roomExample = {
   type: "Cama matrimonial común",
   price: "$100",
@@ -22,6 +21,22 @@ const roomExample = {
     "/src/assets/suite1.jpg",
   ],
 };
+
+const months = [
+  "Ene",
+  "Feb",
+  "Mar",
+  "Abr",
+  "May",
+  "Jun",
+  "Jul",
+  "Ago",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+const weekDays = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
 
 const RoomDescription = () => {
   return (
@@ -67,7 +82,13 @@ const RoomDescription = () => {
 
         <Row className="my-5">
           <Col className="text-center">
-            <Calendar range style={{ display: "inline-block" }} />
+            <Calendar
+              numberOfMonths={2}
+              months={months}
+              weekDays={weekDays}
+              range
+              style={{ display: "inline-block" }}
+            />
           </Col>
         </Row>
         <div className="text-center room-card ">

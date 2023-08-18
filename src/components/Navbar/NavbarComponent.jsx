@@ -51,7 +51,7 @@ const NavbarComponent = () => {
             </Offcanvas.Header>
             <Offcanvas.Body className='d-flex navBody'>
               <Nav>
-                <Link to="/"><Nav.Link href="#action1">Habitaciones</Nav.Link></Link>
+                {/* <Link to="/"><Nav.Link href="#action1">Habitaciones</Nav.Link></Link> */}
                 <Nav.Link href="#action2">Galería</Nav.Link>
                 <Nav.Link href="#action2">Nosotros</Nav.Link>
                 <Nav.Link href="#action2">Contacto</Nav.Link>
