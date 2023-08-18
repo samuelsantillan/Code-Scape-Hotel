@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Button } from 'bootstrap'
 import Layout from '../layout/layout'
 import Register from '../pages/register/Register'
+import Login from '../pages/login/Login'
 const Router = () => {
     
   return (
@@ -11,7 +11,7 @@ const Router = () => {
     <Layout>
         <Routes>
             <Route path='/register' element={ <Register /> }/>
-                
+            <Route path='/login' element={ <Login /> }/>
         </Routes>
         </Layout>
      </BrowserRouter>
