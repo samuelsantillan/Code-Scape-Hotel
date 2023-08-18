@@ -14,76 +14,100 @@ import {
   GridActionsCellItem,
   GridRowEditStopReasons,
 } from "@mui/x-data-grid";
-import {
-  randomCreatedDate,
-  randomTraderName,
-  randomId,
-  randomArrayItem,
-} from "@mui/x-data-grid-generator";
+import { randomId } from "@mui/x-data-grid-generator";
 
-const UserRole = {
-  ADMIN: {
-    name: "admin",
-    value: "0",
-  },
-  USER: {
-    name: "user",
-    value: "1",
-  },
-};
+// const UserRole = {
+//   ADMIN: {
+//     name: "admin",
+//     value: "0",
+//   },
+//   USER: {
+//     name: "user",
+//     value: "1",
+//   },
+// };
 
-const initialRows = [
-  {
-    id: randomId(),
-    username: "test12",
-    email: "test12@test.com",
-    password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
-    role: UserRole.ADMIN.name,
-    state: true,
-    createdAt: randomCreatedDate(),
-    updatedAt: randomCreatedDate(),
-  },
-  {
-    id: randomId(),
-    username: "test12",
-    email: "test12@test.com",
-    password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
-    role: UserRole.ADMIN.name,
-    state: true,
-    createdAt: randomCreatedDate(),
-    updatedAt: randomCreatedDate(),
-  },
-  {
-    id: randomId(),
-    username: "test12",
-    email: "test12@test.com",
-    password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
-    role: UserRole.ADMIN.name,
-    state: true,
-    createdAt: randomCreatedDate(),
-    updatedAt: randomCreatedDate(),
-  },
-  {
-    id: randomId(),
-    username: "test13",
-    email: "test12@test.com",
-    password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
-    role: UserRole.ADMIN.name,
-    state: true,
-    createdAt: randomCreatedDate(),
-    updatedAt: randomCreatedDate(),
-  },
-];
+// const initialRows = [
+//   {
+//     _id: randomId(),
+//     username: "test12",
+//     email: "test12@test.com",
+//     password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
+//     role: UserRole.ADMIN.name,
+//     state: true,
+//     createdAt: randomCreatedDate(),
+//     updatedAt: randomCreatedDate(),
+//   },
+//   {
+//     _id: randomId(),
+//     username: "test12",
+//     email: "test12@test.com",
+//     password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
+//     role: UserRole.ADMIN.name,
+//     state: true,
+//     createdAt: randomCreatedDate(),
+//     updatedAt: randomCreatedDate(),
+//   },
+//   {
+//     _id: randomId(),
+//     username: "test12",
+//     email: "test12@test.com",
+//     password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
+//     role: UserRole.ADMIN.name,
+//     state: true,
+//     createdAt: randomCreatedDate(),
+//     updatedAt: randomCreatedDate(),
+//   },
+//   {
+//     _id: randomId(),
+//     username: "test13",
+//     email: "test12@test.com",
+//     password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
+//     role: UserRole.ADMIN.name,
+//     state: true,
+//     createdAt: randomCreatedDate(),
+//     updatedAt: randomCreatedDate(),
+//   },
+// ];
 
 function EditToolbar(props) {
-  const { setRows, setRowModesModel } = props;
+  const { setRows, setRowModesModel, setCreateUserState } = props;
 
   const handleClick = () => {
-    const id = randomId();
-    setRows((oldRows) => [...oldRows, { id, name: "", age: "", isNew: true }]);
+    setCreateUserState(true);
+    const _id = randomId();
+    setRows((oldRows) => {
+      console.log(oldRows);
+      console.log([
+        ...oldRows,
+        {
+          _id,
+          username: "",
+          email: "",
+          password: "",
+          role: 0,
+
+          state: true,
+          isNew: true,
+        },
+      ]);
+      return [
+        ...oldRows,
+        {
+          _id,
+          username: "",
+          email: "",
+          password: "",
+          role: 0,
+          state: true,
+          isNew: true,
+        },
+      ];
+    });
+
     setRowModesModel((oldModel) => ({
       ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: "name" },
+      [_id]: { mode: GridRowModes.Edit, fieldToFocus: "username" },
     }));
   };
 
@@ -97,25 +121,34 @@ function EditToolbar(props) {
 }
 
 export default function AdminUsersPage() {
-  const { getUsersRequest, users } = useAdmin();
-  const [rows, setRows] = React.useState(initialRows);
+  const {
+    getUsersRequest,
+    users,
+    deleteUserRequest,
+    updateUserRequest,
+    createUserRequest,
+  } = useAdmin();
+  const [rows, setRows] = React.useState([]);
+  React.useEffect(() => {
+    getUsersRequest();
+  }, []);
+
+  React.useEffect(() => {
+    setRows(users); // Actualizar el estado de rows cuando los datos de users cambian
+  }, [users]);
+
+  const [createUserState, setCreateUserState] = React.useState(false);
+
+  console.log(rows);
   const [rowModesModel, setRowModesModel] = React.useState({});
   const [idElementModified, setIdElementModified] = React.useState(null);
   React.useEffect(() => {
     if (idElementModified) {
-      rows.map((row) => {
-        if (row.id === idElementModified) {
-          console.log(row);
-        }
-      });
+      console.log(idElementModified);
     }
-  }, [rows]);
+  }, [idElementModified]); // Envuelve idElementModified en un array
 
-  React.useEffect(() => {
-    getUsersRequest();
-  }, []);
-  console.log(" the console log is ");
-  console.log(users);
+  // console.log(users);
   const handleRowEditStop = (params, event) => {
     if (params.reason === GridRowEditStopReasons.rowFocusOut) {
       event.defaultMuiPrevented = true;
@@ -124,6 +157,8 @@ export default function AdminUsersPage() {
 
   const handleEditClick = (id) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
+    alert("se clickeo");
+    console.log(id);
   };
 
   const handleSaveClick = (id) => () => {
@@ -133,8 +168,10 @@ export default function AdminUsersPage() {
   };
 
   const handleDeleteClick = (id) => () => {
-    setRows(rows.filter((row) => row.id !== id));
+    console.log(rows);
+    // setRows(rows.filter((row) => row.id !== id));
     setIdElementModified(id);
+    deleteUserRequest(id);
   };
 
   const handleCancelClick = (id) => () => {
@@ -143,16 +180,37 @@ export default function AdminUsersPage() {
       [id]: { mode: GridRowModes.View, ignoreModifications: true },
     });
 
-    const editedRow = rows.find((row) => row.id === id);
+    const editedRow = rows.find((row) => row._id === id);
+    console.log(rows);
+    console.log(rowModesModel);
+    console.log(editedRow);
     if (editedRow.isNew) {
-      setRows(rows.filter((row) => row.id !== id));
+      setRows(rows.filter((row) => row._id !== id));
     }
   };
 
   const processRowUpdate = (newRow) => {
-    const updatedRow = { ...newRow, isNew: false };
-    setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
-    return updatedRow;
+    console.log(newRow);
+    if (createUserState) {
+      setCreateUserState(false);
+      const updatedRow = { ...newRow, isNew: false };
+      setRows(rows.map((row) => (row._id === newRow._id ? updatedRow : row)));
+      console.log(updatedRow);
+      console.log(idElementModified);
+      console.log("processRowUpdate");
+      console.log(newRow);
+      createUserRequest(newRow);
+      return updatedRow;
+    } else {
+      const updatedRow = { ...newRow, isNew: false };
+      setRows(rows.map((row) => (row._id === newRow._id ? updatedRow : row)));
+      console.log(updatedRow);
+      console.log(idElementModified);
+      console.log("processRowUpdate");
+      console.log(newRow);
+      updateUserRequest(idElementModified, newRow);
+      return updatedRow;
+    }
   };
 
   const handleRowModesModelChange = (newRowModesModel) => {
@@ -162,17 +220,10 @@ export default function AdminUsersPage() {
   const columns = [
     { field: "username", headerName: "username", width: 180, editable: true },
     {
-      field: "id",
-      headerName : "id",
-      editable : false,
-      type : "number"
-    }
-    ,
-    {
       field: "email",
       headerName: "email",
       type: "email",
-      width: 80,
+      width: 220,
       align: "left",
       headerAlign: "left",
       editable: true,
@@ -183,13 +234,20 @@ export default function AdminUsersPage() {
       width: 220,
       editable: true,
     },
+    // {
+    //   field: "role",
+    //   headerName: "role",
+    //   width: 220,
+    //   editable: true,
+    //   type: "singleSelect",
+    //   valueOptions: ["1", "0"],
+    // },
     {
       field: "role",
       headerName: "role",
       width: 220,
       editable: true,
-      type: "singleSelect",
-      valueOptions: ["admin", "user"],
+      type: "number",
     },
     {
       field: "state",
@@ -220,7 +278,6 @@ export default function AdminUsersPage() {
       cellClassName: "actions",
       getActions: ({ id }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
-
         if (isInEditMode) {
           return [
             <GridActionsCellItem
@@ -275,8 +332,8 @@ export default function AdminUsersPage() {
         }}
       >
         <DataGrid
-          rows={users}
-          getRowId={(users) => users._id}
+          rows={rows}
+          getRowId={(rows) => rows._id}
           columns={columns}
           editMode="row"
           rowModesModel={rowModesModel}
@@ -287,7 +344,7 @@ export default function AdminUsersPage() {
             toolbar: EditToolbar,
           }}
           slotProps={{
-            toolbar: { setRows, setRowModesModel },
+            toolbar: { setRows, setRowModesModel, setCreateUserState },
           }}
         />
       </Box>
