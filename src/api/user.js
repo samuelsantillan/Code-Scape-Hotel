@@ -8,4 +8,6 @@ export const getUsers = () => axios.get(`${API}getUsers`);
 
 export const updateUser = (id, user) => axios.put(`${API}updateUser/${id}`, user);
 
-export const deleteRoom = (id) => axios.delete(`${API}roomDelete/${id}`);
+export const deleteUser = (id) => axios.delete(`${API}deleteUser/${id}`);
+
+export const createUser = (user) => axios.post(`${API}createUserAdmin`, user);
