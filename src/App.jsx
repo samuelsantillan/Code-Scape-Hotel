@@ -8,6 +8,8 @@ import "./assets/css/admin-aside.scss";
 import { LayoutAdmin } from "./components/LayoutAdmin";
 import { Navbar, Container } from "react-bootstrap";
 import AdminUsersPage from "./pages/AdminUsersPage";
+import NewComponentTest from "./pages/NewComponentTest";
+
 function App() {
   const theme = "dark";
   return (
@@ -87,18 +89,13 @@ function App() {
                     </Sidebar.Sub> */}
                   </Sidebar.Nav>
                   <Sidebar.Nav>
-                    <Sidebar.Nav.Link
-                      eventKey="menu_title"
-                      href="/admin/user"
-                    >
+                    <Sidebar.Nav.Link eventKey="menu_title" href="/admin/user">
                       <Sidebar.Nav.Icon></Sidebar.Nav.Icon>
                       <Sidebar.Nav.Title>Users</Sidebar.Nav.Title>
                     </Sidebar.Nav.Link>
                   </Sidebar.Nav>
                 </Sidebar.Body>
-                <Sidebar.Body>
-                  
-                </Sidebar.Body>
+                <Sidebar.Body></Sidebar.Body>
               </Sidebar.Collapse>
             </Sidebar>
 
@@ -111,6 +108,7 @@ function App() {
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/admin/rooms" element={<RoomsPage />} />
                 <Route path="/admin/user" element={<AdminUsersPage />} />
+                <Route path="/admin/users" element={<NewComponentTest />} />
               </Routes>
             </main>
           </LayoutAdmin>
