@@ -7,6 +7,7 @@ import FileUploadComponent from "../components/FileUploadCalendar";
 import { roomRequest } from "../api/room.js";
 import { useAdmin } from "../context/AdminContext";
 import { useNavigate } from "react-router-dom";
+import '../assets/css/admin-page.css'
 
 function AdminPage() {
   const [calendarValues, setCalendarValues] = useState([]);
@@ -93,25 +94,25 @@ function AdminPage() {
 
   return (
     <>
-      <form className="row g-3" onSubmit={handleSubmitForm}>
+      <form className="row gy-3" onSubmit={handleSubmitForm}>
         <div className="col-md-12 justify-content-center">
-          <h1 className="text-center">New room</h1>
+          <h1 className="text-center title">Agregar habitación</h1>
         </div>
         <div className="col-md-6">
           <label htmlFor="inputRoomName" className="form-label">
-            Room Name
+            Nombre de Habitación
           </label>
           <input
             {...register("roomName", { required: true })}
             type="text"
-            placeholder="roomName"
+            placeholder="Nombre"
             name="roomName"
             className="form-control"
           ></input>
         </div>
         <div className="col-md-6">
           <label htmlFor="inputRoomType" className="form-label">
-            Room Type
+            Tipo de Habitación
           </label>
           <select
             className="form-select"
@@ -127,26 +128,26 @@ function AdminPage() {
         </div>
         <div className="col-md-6">
           <label htmlFor="inputRoomPrice" className="form-label">
-            Room Price
+            Precio de Habitación
           </label>
           <input
             {...register("roomPrice", { required: true })}
             type="text"
             name="roomPrice"
             className="form-control"
-            placeholder="roomPrice"
+            placeholder="Precio"
           ></input>
         </div>
         <div className="col-md-6">
           <label htmlFor="inputRoomNumber" className="form-label">
-            Room Number
+            Número de Habitación
           </label>
           <input
             {...register("roomNumber", { required: true })}
             type="text"
             name="roomNumber"
             className="form-control"
-            placeholder="roomNumber"
+            placeholder="Número"
             {...(isUpdateRoom && { disabled: true })}
           ></input>
         </div>
@@ -155,19 +156,19 @@ function AdminPage() {
         </div>
 
         <div className="col-12">
-          <label htmlFor="inputRoomDetails">Room Details</label>
+          <label htmlFor="inputRoomDetails">Detalles de Habitación</label>
           <textarea
             {...register("roomDetails", { required: true })}
             name="roomDetails"
             className="form-control"
-            placeholder="roomDetails"
+            placeholder="Detalles"
           ></textarea>
         </div>
         <div className="col-12 mt-5">
           <FileUploadComponent />
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
-          <input type="submit" className="btn btn-primary w-50" />
+          <input type="submit" className="btn btnCargar w-50" value="CARGAR HABITACIÓN"/>
         </div>
       </form>
     </>

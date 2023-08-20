@@ -3,6 +3,7 @@ import DatePicker, { DateObject, Calendar } from "react-multi-date-picker";
 import Footer from "react-multi-date-picker/plugins/range_picker_footer";
 import "../assets/css/admin-asset.css";
 import { useForm, Controller } from "react-hook-form";
+import "./AdminCalendarStyle.css"; // Agrega un archivo CSS específico para tu componente
 
 const months = [
   "Ene",
@@ -35,6 +36,7 @@ const AdminCalendar = ({ onCalendarChange }) => {
   return (
     <>
       <Calendar
+      className="adminCalendar"
         months={months}
         weekDays={weekDays}
         mapDays={({ date }) => {
@@ -48,7 +50,7 @@ const AdminCalendar = ({ onCalendarChange }) => {
             };
         }}
         value={values}
-        onChange={handleDateChange} // Agregamos el prop onChange
+        onChange={handleDateChange}
         multiple
         range
         numberOfMonths={2}
@@ -73,3 +75,4 @@ const AdminCalendar = ({ onCalendarChange }) => {
 };
 
 export default AdminCalendar;
+

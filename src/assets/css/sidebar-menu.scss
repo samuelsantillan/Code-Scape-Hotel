@@ -350,3 +350,20 @@ $sidebar-menu-dark-brand-hover-color: $navbar-dark-brand-hover-color !default;
     background-color: $sidebar-menu-sub-toggle-dark-bg;
   }
 }
+
+@media (max-width: 560px) {
+  .sidebar-menu-collapse.collapse.show {
+    width: $sidebar-menu-width-expanded; 
+  }
+
+  .sidebar-menu-collapse:not(.show) {
+    width: $sidebar-menu-width-expanded; 
+  }
+
+  .sidebar-menu-hide {
+    display: block !important; 
+  }
+  .nav {
+    width: 80%;
+  }
+}

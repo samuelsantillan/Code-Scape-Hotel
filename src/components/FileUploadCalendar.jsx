@@ -23,7 +23,7 @@ const FileUploadComponent = () => {
     });
   };
   const selectFileInput = ({ accept, onFiles, files, getFilesFromEvent }) => {
-    const textMsg = files.length > 0 ? "Upload Again" : "Select Files";
+    const textMsg = files.length > 0 ? "Upload Again" : "Seleccionar imágenes";
     return (
       <label className="btn btn-danger mt-4">
         {textMsg}
