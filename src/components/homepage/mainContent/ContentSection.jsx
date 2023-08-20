@@ -165,7 +165,7 @@ const ContentSection = () => {
                                 </div>
                             </FadeIn>
                         </Col>
-                        <Col xs={12} lg={6} className='restaurantTextCol textCol col ps-4'>
+                        <Col xs={12} lg={6} className='col-lg-6 restaurantTextCol textCol'>
                             <FadeIn>
                                 <p className='brownText beforeTitle'>RESTAURANTE</p>
                                 <h3 className='restaurantTitle fs-1'>Experiencia completa</h3>

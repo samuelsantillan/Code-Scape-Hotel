@@ -191,7 +191,9 @@ Section.roomSection {
   padding-bottom: calc(20vh - 150px);
 }
 
-
+.roomsInfoCol {
+  background-color: var(--white);
+}
 @media (max-width: 980px) {
   .textCol {
     text-align: center;
@@ -221,13 +223,12 @@ Section.roomSection {
 
   .roomsInfoCol,
   .restaurantTextCol {
-    transform: translateY(-35px);
-    background-color: white;
-    width: 90vw;
+    background-color: var(--white);
+    width: 80vw;
     margin: auto;
   }
   .cardsSection {
-    height: 125vh;
+    height: 85vh;
   }
   .restaurantSection,
   .restaurantTextCol {
@@ -235,6 +236,20 @@ Section.roomSection {
   }
   .restaurantText, .restaurantTitle{
     color: var(--lightBeige);
+  }
+  .titleWelcome{
+    font-size: 2rem;
+  }
+  .beforeTitle {
+    padding-top: 5%;
+  }
+  .roomBtn{
+    min-width: 15rem;
+  }
+  .restaurantTextCol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
