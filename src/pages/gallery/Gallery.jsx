@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX, faArrowLeftLong, faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import FadeIn from '../../animations/FadeIn'
 import './galleryStyle.css';
+import ScrollToTopButton from '../../components/scrollToTop/ScrollToTopButton';
+import { motion } from 'framer-motion';
 
 const Gallery = () => {
   const [slideNumber, setSlideNumber] = useState(0);
@@ -36,7 +38,7 @@ const Gallery = () => {
     { url: 'https://i.ibb.co/rpxxxDZ/exterior6.jpg', categories: ['exterior'] }
   ];
 
-  
+
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -66,16 +68,22 @@ const Gallery = () => {
 
   return (
     <>
-      <section className='heroSection'>
-        <div className='title fadeInText'>
-          <h1 className='titleGallery'>GALERÍA</h1>
-          <div className='line' />
-        </div>
-      </section>
-      <section className="gallerySection">
-        <FadeIn>
-          <h4 className='gallerySectionTitle'>Galería de imágenes</h4>
-        </FadeIn>
+      <motion.div
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        exit={{ scaleY: 0 }}
+        transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <section className='heroSection'>
+          <div className='title fadeInText'>
+            <h1 className='titleGallery'>GALERÍA</h1>
+            <div className='line' />
+          </div>
+        </section>
+        <section className="gallerySection">
+          <FadeIn>
+            <h4 className='gallerySectionTitle'>Galería de imágenes</h4>
+          </FadeIn>
           <div className="scrollCategory">
             <ul className="categories btnGroup">
               {['todas', 'habitaciones', 'exterior', 'interior', 'restaurante', 'servicios'].map((category) => (
@@ -90,36 +98,38 @@ const Gallery = () => {
               ))}
             </ul>
           </div>
-        <div className="container">
-          <div className="row">
-            {filteredImages.map((image, index) => (
-              <div className="col col-md-4 col-sm-6 col-6" key={index}>
-                <div className="imageContainer">
-                  <FadeIn delay={1}>
-                    <img
-                      src={image.url}
-                      alt={`Image ${index}`}
-                      onClick={() => handleOpenModal(index)}
-                      className="img-fluid imageGallery"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                  </FadeIn>
+          <div className="container">
+            <div className="row">
+              {filteredImages.map((image, index) => (
+                <div className="col col-md-4 col-sm-6 col-6" key={index}>
+                  <div className="imageContainer">
+                    <FadeIn delay={1}>
+                      <img
+                        src={image.url}
+                        alt={`Image ${index}`}
+                        onClick={() => handleOpenModal(index)}
+                        className="img-fluid imageGallery"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </FadeIn>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        {openModal && (
-          <div className='sliderWrap'>
-            <FontAwesomeIcon icon={faX} className='btnClose' onClick={handleCloseModal} />
-            <FontAwesomeIcon icon={faArrowLeftLong} className='btnPrev' onClick={prevSlide} />
-            <FontAwesomeIcon icon={faArrowRightLong} className='btnNext' onClick={nextSlide} />
-            <div className='fullScreenImage'>
-              <img src={filteredImages[slideNumber].url} alt='' />
+              ))}
             </div>
           </div>
-        )}
-      </section>
+          {openModal && (
+            <div className='sliderWrap'>
+              <FontAwesomeIcon icon={faX} className='btnClose' onClick={handleCloseModal} />
+              <FontAwesomeIcon icon={faArrowLeftLong} className='btnPrev' onClick={prevSlide} />
+              <FontAwesomeIcon icon={faArrowRightLong} className='btnNext' onClick={nextSlide} />
+              <div className='fullScreenImage'>
+                <img src={filteredImages[slideNumber].url} alt='' />
+              </div>
+            </div>
+          )}
+        </section>
+        <ScrollToTopButton />
+      </motion.div>
     </>
   );
 };

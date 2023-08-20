@@ -6,22 +6,30 @@ body {
   letter-spacing: .06875rem;
   font-size: calc(15px + 2 * ((100vw - 768px) / 672));
 }
-.textSection {
-  margin: 0 auto;
-  max-width: 860px;
+.welcomeSection{
+  margin: 10% 0;
+}
+.textContainer{
+  padding: 0 10%;
+}
+.titleWelcome {
+  font-family: var(--cormorant);
+  font-size: 4rem;
+  letter-spacing: 0.09rem;
+  color: var(--brown);
   text-align: center;
-  padding: calc(4.16667vw * 2) 4.16667vw;
-  padding-top: 0;
+  color: var(--lightBrown)
 }
 .textWelcome {
-  color: var(--darkBrown);
+  color: var(--brown);
   text-align: center;
   letter-spacing: .06875rem;
-  font-size: calc(20px + 3 * ((100vw - 768px) / 672));
+  font-size: calc(18px + 3 * ((100vw - 768px) / 672));
 }
-
-
-
+.subtitleWelcome {
+  text-align: center;
+  letter-spacing: 0.5ch;
+}
 .cardContentInfo {
   opacity: 0;
   position: absolute;

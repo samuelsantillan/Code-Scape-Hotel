@@ -19,13 +19,13 @@
     "babel-plugin-macros": "^3.1.0",
     "bootstrap": "^5.3.1",
     "fortawesome": "^0.0.1-security",
-    "framer-motion": "^10.15.2",
+    "framer-motion": "^10.16.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.15.0",
-    "sweetalert2": "^11.7.22"
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -36,5 +36,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "vite": "^4.4.5"
-  }
+  },
+  "description": "Proyecto final para certificar el cursado de Full-Stack Developer en Rolling Code School",
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC"
 }

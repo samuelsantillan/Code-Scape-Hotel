@@ -22,10 +22,12 @@ const ContentSection = () => {
     };
     return (
         <>
-            <section className='textSection mt-5'>
+            <section className='welcomeSection'>
                 <FadeIn>
-                    <Container>
-                        <p className='textWelcome'>¡Bienvenido a nuestro hotel, donde el pasado y el presente se funden para crear momentos inolvidables!
+                    <Container className='pt-5 textContainer'>
+                        <p className='brownText ps-4 subtitleWelcome'>Vinos & Vistas</p>
+                        <h2 className='titleWelcome'>La esencia vitivinícola en los Valles Calchaquíes</h2>
+                        <p className='textWelcome'>
                             Sumérgete en la magia de alojarte en el corazón de una finca vitivinícola centenaria, cuyos muros han
                             sido testigos de cautivadoras historias desde 1892. ¡Una experiencia única te espera!</p>
                         <hr className='lineWelcome' />

@@ -1,4 +1,4 @@
-import loadingGif from '../../assets/loadingGif.gif'
+import loadingGif from '../../assets/loading.gif'
 import './loadingStyle.css'
 const LoadingPage = () => {
   return (

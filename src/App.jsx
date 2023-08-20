@@ -8,26 +8,15 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import './App.css';
-
 library.add(fas, fab);
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const handleLoad = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000); 
-    };
-
-    window.addEventListener('DOMContentLoaded', handleLoad);
-    window.addEventListener('load', handleLoad);
-
-    return () => {
-      window.removeEventListener('DOMContentLoaded', handleLoad);
-      window.removeEventListener('load', handleLoad);
-    };
+    window.addEventListener('load', () => {
+      setIsLoading(false);
+    });
   }, []);
 
   return (
@@ -35,11 +24,12 @@ const App = () => {
       {isLoading ? (
         <LoadingPage />
       ) : (
-        <BrowserRouter>
-          <Layout>
-            <Router />
-          </Layout>
-        </BrowserRouter>
+          <BrowserRouter>
+            <Layout>
+              <Router />
+            </Layout>
+          </BrowserRouter>
+
       )}
     </>
   );
