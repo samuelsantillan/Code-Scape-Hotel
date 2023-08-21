@@ -102,7 +102,7 @@ function App() {
                 </Sidebar.Body>
               </Sidebar.Collapse>
             </Sidebar>
-
+                    
             <main>
               <Routes>
                 <Route path="/admin/:id" element={<AdminPage />} />

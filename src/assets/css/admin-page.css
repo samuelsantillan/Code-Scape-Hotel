@@ -11,6 +11,7 @@ main {
     justify-content: center;
     align-items: center;
     font-family: 'Nunito Sans';
+    max-width: 100vw;
 }
 input
 .title {
@@ -30,10 +31,5 @@ input
     }
     .dzu-dropzone {
         max-width: 100%;
-    }
-}
-@media (max-width: 500px){
-    .row {
-        width: 30vw;
     }
 }

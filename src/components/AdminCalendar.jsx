@@ -4,6 +4,7 @@ import Footer from "react-multi-date-picker/plugins/range_picker_footer";
 import "../assets/css/admin-asset.css";
 import { useForm, Controller } from "react-hook-form";
 import "./AdminCalendarStyle.css"; // Agrega un archivo CSS específico para tu componente
+import { useWindowSize } from 'react-use';
 
 const months = [
   "Ene",
@@ -22,6 +23,7 @@ const months = [
 const weekDays = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
 const AdminCalendar = ({ onCalendarChange }) => {
   const [values, setValues] = useState([new DateObject()]);
+  const windowSize = useWindowSize(); 
 
   const handleDateChange = (date) => {
     let convertDate = date.map((subarray) => {
@@ -33,10 +35,11 @@ const AdminCalendar = ({ onCalendarChange }) => {
     onCalendarChange(convertDate);
   };
 
+  const numberOfMonths = windowSize.width < 768 ? 1 : 2;
   return (
     <>
       <Calendar
-      className="adminCalendar"
+        className="adminCalendar"
         months={months}
         weekDays={weekDays}
         mapDays={({ date }) => {
@@ -53,7 +56,7 @@ const AdminCalendar = ({ onCalendarChange }) => {
         onChange={handleDateChange}
         multiple
         range
-        numberOfMonths={2}
+        numberOfMonths={numberOfMonths} // Utiliza numberOfMonths
         multipleRangeSeparator="&"
         plugins={[
           <Footer
