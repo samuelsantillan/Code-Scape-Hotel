@@ -9,28 +9,18 @@ import { FaShower, FaHips, FaHotjar, FaAd } from "react-icons/fa";
 import IconContainer from "./IconContainer";
 import RoomDescription from "./RoomDescription";
 
-const Room = ({ roomData }) => {
-  const { type, price, availableDates, images } = roomData;
+const Room = ( props ) => {
 
-  const roomExample = {
-    type: "Cama matrimonial común",
-    price: "$100",
-    availableDates: ["2023-08-01", "2023-08-02", "2023-08-03"],
-    images: [
-      "https://images.pexels.com/photos/17227604/pexels-photo-17227604/free-photo-of-hotel-cama-lampara-habitacion.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/17227603/pexels-photo-17227603/free-photo-of-hotel-cama-lampara-habitacion.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/97083/pexels-photo-97083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      // Agrega las URLs de más imágenes...
-    ],
-  };
+  console.log("PROPS", props)
 
+  const photos = props.photos;  
+  const roomId = props._id
+ 
   return (
     <div className="room-card flex">
       <div className="card-body flex">
-        {/* <p className="card-text color-fonts"> Precio: {price}</p> */}
-
         <Carousel>
-          {roomExample.images.map((image, index) => (
+          {photos.map((image, index) => (
             <div key={index}>
               <img src={image} alt={`Imagen ${index}`} />
             </div>
@@ -38,7 +28,8 @@ const Room = ({ roomData }) => {
         </Carousel>
         <div className="text-center">
           <Link
-            to="/RoomDescription"
+            
+            to={`/RoomDescription/${roomId}`}       
             className="btn btn-details my-1 mx-3"
             style={{ textDecoration: "none" }}
           >

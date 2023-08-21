@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaShower, FaHips, FaHotjar, FaAd } from "react-icons/fa";
 import IconContainer from "./IconContainer";
 import { Carousel } from "react-responsive-carousel";
@@ -10,17 +10,8 @@ import { Calendar } from "react-multi-date-picker";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import "./Room.css";
-
-const roomExample = {
-  type: "Cama matrimonial común",
-  price: "$100",
-  availableDates: ["2023-08-01", "2023-08-02", "2023-08-03"],
-  images: [
-    "/src/assets/familiar1.jpg",
-    "/src/assets/Habitación estándar.jpg",
-    "/src/assets/suite1.jpg",
-  ],
-};
+import { useParams } from "react-router-dom";
+import { useRoom } from '../../context/RoomContext'
 
 const months = [
   "Ene",
@@ -38,7 +29,17 @@ const months = [
 ];
 const weekDays = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
 
-const RoomDescription = () => {
+const RoomDescription = (props) => {
+  const {nameHabitation, price, description, photos,  type} = props;
+  const params = useParams();
+  console.log("Parametros", params.id);
+  const {rooms, getRoomRequest} = useRoom();
+  useEffect(() => {
+    getRoomRequest(params.id);
+  },[]
+  );
+  console.log(rooms);
+  
   return (
     <div>
       <NavbarComponent />
@@ -46,15 +47,15 @@ const RoomDescription = () => {
       <Container>
         <Row className="pt-5  mt-5 d-flex align-items-center ">
           <Col xs={8} className="text-left">
-            <h2>Nombre Habitación</h2>
+            <h2>{rooms.nameHabitation}</h2>
           </Col>
           <Col xs={4} className="d-flex align-items-center justify-content-end">
-            <h5>$150</h5>
+            <h5>${rooms.price}</h5>
           </Col>
         </Row>
         <div>
           <Carousel infiniteLoop autoPlay transitionTime={1000}>
-            {roomExample.images.map((image, index) => (
+            {rooms.photos.map((image, index) => (
               <div key={index}>
                 <img src={image} alt={`Imagen ${index}`} />
               </div>

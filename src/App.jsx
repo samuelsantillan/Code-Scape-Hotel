@@ -14,14 +14,18 @@ import {
 import RoomDescription from "./components/room/RoomDescription.jsx";
 import ReservationForm from "./components/room/ReservationForm.jsx";
 import RoomProvider from "./context/RoomContext.jsx";
+
+
+
 function App() {
+
   return (
     <>
-      <RoomProvider>
+      <RoomProvider> 
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<RoomsPage />} />
-            <Route path="/RoomDescription" element={<RoomDescription />} />
+            <Route path="/RoomDescription/:id" element={<RoomDescription />} />
             <Route path="/ReservationForm" element={<ReservationForm />} />
           </Routes>
         </BrowserRouter>

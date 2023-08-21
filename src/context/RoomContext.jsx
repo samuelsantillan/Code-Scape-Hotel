@@ -12,9 +12,12 @@ export const useRoom = () => {
   return context;
 };
 
-export function RoomProvider({ children }) {
+export default function RoomProvider({ children }) {
+
   const [rooms, setRooms] = useState([]);
-  const [users, setUsers] = useState([]); 
+  const [users, setUsers] = useState([]);
+  
+  
   const createRoom = async (room) => {
     console.log("room created");
     const res = await roomRequest(room);
@@ -30,11 +33,11 @@ export function RoomProvider({ children }) {
     }
   };
 
-
   const getRoomRequest = async (id) => {
     try {
       const res = await getRoom(id);
       console.log(res);
+      setRooms(res.data);
       return res.data;
     } catch (error) {
       console.log(error);
@@ -75,13 +78,13 @@ export function RoomProvider({ children }) {
     <RoomContext.Provider
       value={{
         rooms,
+        users,
         createRoom,
         getRoomRequest,
         deleteRoomRequest,
         getRoomsRequest,
         updateRoomRequest,
         getUsersRequest,
-        users
       }}
     >
       {children}

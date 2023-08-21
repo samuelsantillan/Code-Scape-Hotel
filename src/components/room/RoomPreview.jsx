@@ -5,7 +5,9 @@ import Room from "./Room";
 import roomsData from "./roomsData";
 
 const RoomPreview = (props) => {
-  const { IsImageFirst } = props;
+  const { IsImageFirst, photos, nameHabitation, description, _id } = props;
+
+  console.log("Lo que estoy recibiendo de props", props)
 
   return (
     <div className="restaurantSection my-5 py-5">
@@ -16,20 +18,20 @@ const RoomPreview = (props) => {
               <Col xs={12} lg={6} className="d-flex justify-content-center">
                 <div>
                   <div className="image-wrapper">
-                    <Room roomData={roomsData} />
+                    <Room photos={photos} _id={_id} />
                   </div>
                 </div>
               </Col>
               <Col xs={12} lg={6} className="restaurantTextCol textCol col">
-                <h3>{props.name}</h3>
-                <p>{props.description} </p>
+                <h3>{nameHabitation}</h3>
+                <p>{description} </p>
               </Col>
             </>
           ) : (
             <>
               <Col xs={12} lg={6} className="restaurantTextCol textCol col">
-                <h3>{props.name}</h3>
-                <p>{props.description} </p>
+                <h3>{nameHabitation}</h3>
+                <p>{description} </p>
               </Col>
               <Col
                 xs={12}
@@ -38,7 +40,7 @@ const RoomPreview = (props) => {
               >
                 <div>
                   <div className="image-wrapper">
-                    <Room roomData={roomsData} />
+                    <Room photos={photos} _id={_id} />
                   </div>
                 </div>
               </Col>
