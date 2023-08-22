@@ -29,13 +29,14 @@ import Home from "./pages/Home";
 import AuthProvider from "./context/AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
 import Admin from "./pages/Admin";
-import Register from "./pages/register/Register";
+// import Register from "./pages/register/Register";
 
 import Inicio from "./pages/Inicio";
 import Gallery from "./pages/gallery/Gallery";
 import Contact from "./pages/contact/Contact";
 import RoomDescription from "./components/room/RoomDescription";
 import RoomsPage from "./components/RoomsPage";
+import RoomUserContext from "./context/RoomUserContext";
 import ReservationForm from "./components/room/ReservationForm";
 import Test from "./pages/Test";
 library.add(fas, fab);
@@ -56,34 +57,69 @@ const App = () => {
       ) : (
         <AuthProvider>
           <AdminProvider>
-            <RoomProvider>
-              <BrowserRouter>
-                <Layout>
+            <RoomUserContext>
+              <RoomProvider>
+                <BrowserRouter>
                   <Routes>
-                    <Route path="/" exact element={<Inicio />} />
-                    <Route path="/galeria" element={<Gallery />} />
-                    <Route path="/contacto" element={<Contact />} />
-                    <Route path="/habitaciones" element={<RoomsPage />} />
+                    <Route
+                      path="/"
+                      exact
+                      element={
+                        <Layout>
+                          <Inicio />
+                        </Layout>
+                      }
+                    />
+                    <Route
+                      path="/galeria"
+                      element={
+                        <Layout>
+                          <Gallery />
+                        </Layout>
+                      }
+                    />
+                    <Route
+                      path="/contacto"
+                      element={
+                        <Layout>
+                          <Contact />
+                        </Layout>
+                      }
+                    />
+                    <Route
+                      path="/habitaciones"
+                      element={
+                        <Layout>
+                          <RoomsPage />
+                        </Layout>
+                      }
+                    />
                     <Route
                       path="/RoomDescription/:id"
-                      element={<RoomDescription />}
+                      element={
+                        <Layout>
+                          <RoomDescription />
+                        </Layout>
+                      }
                     />
                     <Route
                       path="/ReservationForm"
-                      element={<ReservationForm />}
+                      element={
+                        <Layout>
+                          <ReservationForm />
+                        </Layout>
+                      }
                     />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
+                    {/* <Route path="/register" element={<Register />} /> */}
                     <Route element={<ProtectedRoute />}>
                       <Route path="/home" element={<Home />} />
-                      {/* <Route path="/admin" element={<Admin />} /> */}
+                      <Route path="/admin/*" element={<Admin />} />
                     </Route>
-
-                    <Route path="/admin/*" element={<Admin />}></Route>
                   </Routes>
-                </Layout>
-              </BrowserRouter>
-            </RoomProvider>
+                </BrowserRouter>
+              </RoomProvider>
+            </RoomUserContext>
           </AdminProvider>
         </AuthProvider>
       )}
