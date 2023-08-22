@@ -1,0 +1,52 @@
+footer {
+    background-color: var(--darkestBrown);
+    color: var(--lightBeige);
+}
+
+.linkFooter {
+    color: var(--lightBeige);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.linkFooter:hover {
+    color: var(--lightBrown);
+}
+
+.brownText {
+    color: var(--brown);
+    text-decoration: none;
+}
+
+.lightBrownText {
+    color: var(--lightBrown);
+    text-decoration: none;
+}
+
+.inputNewsletter {
+    border: none;
+    color: var(--lightBeige);
+    background: none;
+    border-bottom: 2px solid var(--lightBeige);
+}
+
+.btnNewsletter {
+    border: none;
+    background-color: transparent;
+}
+
+.inputNewsletter::placeholder {
+    color: var(--brown);
+}
+
+.logo {
+    width: calc(18rem - 20px);
+}
+
+.socialLink {
+    padding: 0.7vw;
+}
+
+.socialLink:hover, .locationLink:hover {
+    color: var(--lightBeige);
+}
