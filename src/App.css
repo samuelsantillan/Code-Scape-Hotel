@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap');
 #root{
     --nunito: 'Nunito Sans', sans-serif;
@@ -25,6 +26,20 @@
 ::-webkit-scrollbar {
   width: 15px;
 }
+
+
+
+.font{
+  margin-left: 1rem;
+  color: #2B1C12; /* Sin comillas alrededor del color */
+  font-size: 30px; /* Con la unidad 'rem' para el tamaño de fuente */
+  font-weight: bold;
+  margin-bottom: 1rem; /* Con la unidad 'rem' para el margen inferior */
+}
+
+
+.fondo{
+  background-color: #2b1c12;
 
 ::-webkit-scrollbar-track {
   background: #0f0908;

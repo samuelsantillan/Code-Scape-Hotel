@@ -1,3 +1,4 @@
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
@@ -19,8 +20,23 @@ const App = () => {
     });
   }, []);
 
+function App() {
   return (
     <>
+// <<<<<<< room_catalog
+//       <RoomProvider> 
+//         <BrowserRouter>
+//           <Routes>
+//             <Route path="/" element={<RoomsPage />} />
+//             <Route path="/RoomDescription/:id" element={<RoomDescription />} />
+//             <Route path="/ReservationForm" element={<ReservationForm />} />
+//           </Routes>
+//         </BrowserRouter>
+//       </RoomProvider>
+//     </>
+//   );
+// }
+
       {isLoading ? (
         <LoadingPage />
       ) : (
