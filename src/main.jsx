@@ -9,8 +9,10 @@ import ReservationForm from "./components/room/ReservationForm.jsx";
 import App from "./app.jsx";
 
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
-);
+  </React.StrictMode>,
+)
+
