@@ -22,7 +22,7 @@ const Register = () => {
   console.log(user);
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/");
+    if (isAuthenticated) navigate("/register");
   }, [isAuthenticated]);
 
   console.log();

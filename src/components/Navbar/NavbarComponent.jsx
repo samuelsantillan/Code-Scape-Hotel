@@ -54,7 +54,7 @@ const NavbarComponent = () => {
                 <Nav.Link href="/nosotros">Nosotros</Nav.Link>
                 <Nav.Link href="/contacto">Contacto</Nav.Link>
               </Nav>
-              <Nav.Link className="my-2">Iniciar Sesión</Nav.Link>
+              <Nav.Link href="/login" className="my-2">Iniciar Sesión</Nav.Link>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

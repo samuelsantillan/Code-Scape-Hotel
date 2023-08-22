@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 const Inicio = () => {
 
     return (
+
         <>
             <motion.div
                 initial={{ scaleY: 0 }}

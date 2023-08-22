@@ -6,9 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const [isSignupVisible, setIsSignupVisible] = useState(false);
   const { signin, user, isAuthenticated, errors: signinErrors } = useAuth();
-  const [nombre, setNombre] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [contraseña, setContraseña] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -76,6 +74,10 @@ const Login = () => {
       </div>
     </div>
   );
+
+    // return (
+    //   <h1>hola</h1>
+    // )
 };
 
 export default Login;
