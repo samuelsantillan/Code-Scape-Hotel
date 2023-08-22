@@ -10,11 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.4.0",
+    "babel-plugin-macros": "^3.1.0",
     "bootstrap": "^5.3.1",
+    "fortawesome": "^0.0.1-security",
+    "framer-motion": "^10.16.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-datepicker": "^4.16.0",
@@ -26,6 +32,8 @@
     "react-responsive": "^9.0.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.15.0"
+
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -36,5 +44,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "vite": "^4.4.5"
-  }
+  },
+  "description": "Proyecto final para certificar el cursado de Full-Stack Developer en Rolling Code School",
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC"
 }
