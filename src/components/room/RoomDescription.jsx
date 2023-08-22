@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import "./Room.css";
 import { useParams } from "react-router-dom";
-import { useRoom } from '../../context/RoomContext'
+import { useRoom } from "../../context/RoomContext";
 
 const months = [
   "Ene",
@@ -30,16 +30,33 @@ const months = [
 const weekDays = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
 
 const RoomDescription = (props) => {
-  const {nameHabitation, price, description, photos,  type} = props;
+  const { nameHabitation, price, description, photos, type } = props;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const params = useParams();
-  console.log("Parametros", params.id);
-  const {rooms, getRoomRequest} = useRoom();
+
+  console.log("Parametros", params);
+  const { rooms, getRoomRequest } = useRoom();
+
   useEffect(() => {
     getRoomRequest(params.id);
-  },[]
-  );
-  console.log(rooms);
-  
+  }, []);
+  console.log("Esto es lo que te está mostrando RoomDescription", rooms);
+
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+  window.addEventListener("resize", handleWindowResize);
+  return () => {
+    window.removeEventListener("resize", handleWindowResize);
+  };
+},);
+
+const numberOfMonths = windowWidth < 768 ? 1 : 2;
+
+
   return (
     <div>
       <NavbarComponent />
@@ -54,13 +71,16 @@ const RoomDescription = (props) => {
           </Col>
         </Row>
         <div>
-          <Carousel infiniteLoop autoPlay transitionTime={1000}>
-            {rooms.photos.map((image, index) => (
-              <div key={index}>
-                <img src={image} alt={`Imagen ${index}`} />
-              </div>
-            ))}
-          </Carousel>
+          <div>
+            <Carousel infiniteLoop autoPlay transitionTime={1000}>
+              {rooms.photos &&
+                rooms.photos.map((image, index) => (
+                  <div key={index}>
+                    <img src={image} alt={`Imagen ${index}`} />
+                  </div>
+                ))}
+            </Carousel>
+          </div>
         </div>
         <Row className="align-items-center justify-content-center mx-2">
           <Col xs={6} md={3} className="text-center">
@@ -84,7 +104,7 @@ const RoomDescription = (props) => {
         <Row className="my-5">
           <Col className="text-center">
             <Calendar
-              numberOfMonths={2}
+              numberOfMonths={numberOfMonths}
               months={months}
               weekDays={weekDays}
               range

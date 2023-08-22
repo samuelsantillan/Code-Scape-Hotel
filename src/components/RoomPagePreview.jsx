@@ -9,6 +9,8 @@ const RoomPagePreview = () => {
   
   const {rooms, getRoomsRequest} = useRoom();
 
+
+  
   useEffect(() => {
     getRoomsRequest();
   }, []);
