@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap');
+
+.btn.btnCargar {
+    background-color: #6e5137;
+    color: #ecd3bc;
+    width: 50%;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito Sans';
+    max-width: 100vw;
+}
+input
+.title {
+    font-family: 'Cormorant Garamond';
+}
+@media (min-width: 998px) {
+    .row {
+        width: 70vw;
+        padding: 5%;
+    }
+}
+@media (max-width: 998px){
+    .row {
+        width: 60vw;
+        padding: 0;
+        margin:0;
+    }
+    .dzu-dropzone {
+        max-width: 100%;
+    }
+}
