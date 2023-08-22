@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import RoomDescription from "./components/room/RoomDescription.jsx";
 import ReservationForm from "./components/room/ReservationForm.jsx";
-import App from './App.jsx'
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -59,7 +59,6 @@ const numberOfMonths = windowWidth < 768 ? 1 : 2;
 
   return (
     <div>
-      <NavbarComponent />
 
       <Container>
         <Row className="pt-5  mt-5 d-flex align-items-center ">
@@ -122,7 +121,6 @@ const numberOfMonths = windowWidth < 768 ? 1 : 2;
           </Link>
         </div>
       </Container>
-      <Footer />
     </div>
   );
 };
