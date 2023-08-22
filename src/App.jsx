@@ -9,6 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import './App.css';
+import RoomProvider from './context/RoomContext';
 library.add(fas, fab);
 
 const App = () => {
@@ -20,32 +21,20 @@ const App = () => {
     });
   }, []);
 
-function App() {
+
   return (
     <>
-// <<<<<<< room_catalog
-//       <RoomProvider> 
-//         <BrowserRouter>
-//           <Routes>
-//             <Route path="/" element={<RoomsPage />} />
-//             <Route path="/RoomDescription/:id" element={<RoomDescription />} />
-//             <Route path="/ReservationForm" element={<ReservationForm />} />
-//           </Routes>
-//         </BrowserRouter>
-//       </RoomProvider>
-//     </>
-//   );
-// }
-
+    
       {isLoading ? (
         <LoadingPage />
       ) : (
+        <RoomProvider>
           <BrowserRouter>
             <Layout>
               <Router />
             </Layout>
           </BrowserRouter>
-
+        </RoomProvider>
       )}
     </>
   );

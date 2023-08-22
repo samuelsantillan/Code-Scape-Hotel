@@ -14,7 +14,7 @@ const RoomPagePreview = () => {
   useEffect(() => {
     getRoomsRequest();
   }, []);
-
+  
   console.log("Esto recibo de rooms",rooms);
 
   return ( 
