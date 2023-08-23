@@ -10,7 +10,7 @@ import AdminRoomsPage from "./AdminRoomsPage";
 import AdminUsersPage from "./AdminUsersPage";
 import NewComponentTest from "./NewComponentTest";
 
-function Admin({ children }) {
+function Admin() {
   return (
     <>
       <LayoutAdmin>
@@ -102,7 +102,7 @@ function Admin({ children }) {
         </Sidebar>
         <main>
           <Routes>
-            <Route index element={<AdminPage />} />
+            <Route path="" element={<AdminPage />} />
             <Route path="rooms" element={<AdminRoomsPage />} />
             <Route path="user" element={<AdminUsersPage />} />
             <Route path="users" element={<NewComponentTest />} />
