@@ -1,4 +1,4 @@
-.introSection{
+.introSection {
     height: 100vh;
     width: 100%;
     background-image: url(https://i.ibb.co/kcBT8k5/contacto-Hero.jpg);
@@ -6,9 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-body {
-    background-color: #faf8f4;
-}
+
 
 .title {
     position: relative;
@@ -36,30 +34,45 @@ body {
     height: 3px;
     background: white;
 }
+
 .titleBanner {
     color: var(--brown);
     letter-spacing: 0.15rem;
     font-size: 1.7rem;
 }
+
+.bannerSection {
+    background-color: var(--white);
+
+}
+
 .bannerContent {
-    height: 100%;
-    background-color: #faf8f4;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--white);
     height: 35vh;
     border-bottom: 2px solid var(--lightBeige);
 }
 
-.bannerContent .col{
+.bannerContent .col {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.subtitleBanner{
+.subtitleBanner {
     letter-spacing: 0.3rem;
 }
-.formSection{
-    margin-top: 20vh;
+
+.formSection {
+    padding-top: 20vh;
     min-height: 80vh;
+    background-color: var(--white);
+}
+.formSection .container-fluid{
+    padding: 0;
+    margin: 0;
 }
 .titleForm {
     font-size: 2.2rem;
@@ -68,30 +81,37 @@ body {
     font-family: var(--cormorant);
     letter-spacing: 0.3rem;
 }
+
 .contactForm {
     flex-direction: column;
 }
-
-.imgContact img{
+.formContactRow{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.imgContact img {
     object-fit: cover;
     height: 100%;
 }
+
 .imgContact {
     position: relative;
     overflow: hidden;
-  }
-  
-  .imgContact::before {
+}
+
+.imgContact::before {
     content: '';
     position: absolute;
     top: 0;
-    right:0;
+    right: 0;
     width: 40%;
     height: 100%;
-    background: linear-gradient(to right,#faf8f400, #faf8f4);
+    background: linear-gradient(to right, #faf8f400, #faf8f4);
     pointer-events: none;
     z-index: 1;
-  }
+}
+
 .form-control {
     background-color: rgb(50, 36, 27);
     color: var(--lightBeige);
@@ -117,7 +137,8 @@ body {
     height: 6rem;
 }
 
-.form-control::placeholder,.form-text {
+.form-control::placeholder,
+.form-text {
     color: rgb(237, 221, 198);
 }
 
@@ -130,9 +151,10 @@ body {
     border: 2px solid var(--brown);
     font-size: 1rem;
     width: 20vw;
-    min-width:100%;
+    min-width: 100%;
     transition: background-color 0.8s, color 0.8s, box-shadow 0.3s;
 }
+
 .btnSend:hover {
     box-shadow: 0px 0px 10px 0px var(--darkBrown);
     border: 2px solid var(--brown);
@@ -145,28 +167,37 @@ body {
     color: var(--brown);
 }
 
-@media  screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .btnSend {
-        width: 90vw;
+        width: 90%;
     }
-     .titleBanner {
+
+    .titleBanner {
         font-size: 1.2rem;
     }
+
     .bannerContent p {
         font-size: 12px;
     }
+
     .bannerContent h5 {
         font-size: 14px;
     }
-    
+
 }
 
 .brownText {
     color: var(--lightBrown);
 }
+
 .lightLine {
     color: var(--lightBrown);
     width: 50%;
     padding: 0;
     margin: 0;
+}
+@media (max-width:576px){
+    .btnSend {
+        width: 80vw;
+    }
 }

@@ -24,7 +24,7 @@ const Footer = () => {
   }
   return (
     <footer>
-      <Container>
+      <Container className='footerContainer'>
         <div className="footerWrap row p-5 align-content-center justify-content-around">
           <section className="col-sm-12 col-md-3 col-lg-3 col-xl-3 text-center text-md-start">
             <div className="p-1">Suscribite a nuestra <em>Newsletter</em></div>

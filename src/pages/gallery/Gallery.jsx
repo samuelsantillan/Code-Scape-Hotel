@@ -98,10 +98,10 @@ const Gallery = () => {
               ))}
             </ul>
           </div>
-          <div className="container">
-            <div className="row">
+          <div className="container galleryContainer">
+            <div className="row p-0">
               {filteredImages.map((image, index) => (
-                <div className="col col-md-4 col-sm-6 col-6" key={index}>
+                <div className="col colImgGallery col-md-4 col-sm-6 col-6" key={index}>
                   <div className="imageContainer">
                     <FadeIn delay={1}>
                       <img
