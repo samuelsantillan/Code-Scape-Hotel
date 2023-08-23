@@ -1,13 +1,12 @@
-import axios from "axios";
+import axios from "./axios";
 
-const API = 'http://hotelcodescape.tech:3000/api/'
 
-export const roomUserRequest = room => axios.post(`${API}roomCreate`, room);
+export const roomUserRequest = room => axios.post(`roomCreate`, room);
 
-export const getRooms = () => axios.get(`${API}roomGet`);
+export const getRooms = () => axios.get(`roomGet`);
 
-export const getRoomUser = (id) => axios.get(`${API}getAvailableDate/${id}`);
+export const getRoomUser = (id) => axios.get(`getAvailableDate/${id}`);
 
-export const updateRoom = (id, room) => axios.put(`${API}roomUpdate/${id}`, room);
+export const updateRoom = (id, room) => axios.put(`roomUpdate/${id}`, room);
 
-export const deleteRoom = (id) => axios.delete(`${API}roomDelete/${id}`);
+export const deleteRoom = (id) => axios.delete(`roomDelete/${id}`);

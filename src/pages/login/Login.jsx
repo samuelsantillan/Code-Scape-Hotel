@@ -19,7 +19,6 @@ const Login = () => {
     console.log(value);
     signin(value);
   };
-  
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/home");
