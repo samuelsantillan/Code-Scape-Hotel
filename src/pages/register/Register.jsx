@@ -33,11 +33,12 @@ const Register = () => {
   };
 
   return (
-    <div className="main-container">
-      <div className={`cont ${isSignupVisible ? "s--signup" : ""}`}>
+    <div className="main-container-register">
+      
+      <div className={`cont-register   ${isSignupVisible ? "s--signup" : ""}`}>
         { RegisterErrors.map((error,i) => ( <p key={i} className="text-center" style={{color: "red",}}>{error}</p>))}
         <form
-          className={`form sign-up ${isSignupVisible ? "active" : ""}`}
+          className={`form-register sign-up ${isSignupVisible ? "active" : ""}`}
           onSubmit={handleSubmit(onSubmit)}
         >
           <h2>CREAR CUENTA</h2>
@@ -57,36 +58,40 @@ const Register = () => {
             <input type="password" {...register("password")} />
           </label>
           <div className="button-register">
-            <button type="submit" className="submit ">
+            <button type="submit-register" className="submit-register ">
               Registrate
             </button>
           </div>
         </form>
 
-        <div className="sub-cont">
-          <div className="img">
-            <div className={`img__text ${isSignupVisible ? "m--in" : "m--up"}`}>
+        <div className="sub-cont-register">
+          <div className="img-register">
+            <div className={`img__text "m--in" : "m--up"}`}>
               <h2> ¿Ya tenés cuenta?</h2>
+              
               {isSignupVisible && <p></p>}
             </div>
             <div className="img__btn">
-              <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+              
+            <a href="/login"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
                 Entrar
-              </span>
+              </span></a>
             </div>
           </div>
         </div>
       </div>
-      <div className="img2 ">
+      <div className="img2-register ">
         {" "}
         <h2>¿Ya tenés cuenta?</h2>
         <div className="img__btn">
-          <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
-            Entrar
-          </span>
+        <a href="/login"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+                Entrar
+              </span></a>
+          
         </div>
+        
       </div>
-      <div className="test"></div>
+      
     </div>
   );
 };
