@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { FaShower, FaHips, FaHotjar, FaAd } from "react-icons/fa";
+import {
+  FaShower,
+  FaHips,
+  FaHotjar,
+  FaAd,
+  FaWifi,
+  FaBreadSlice,
+  FaGlassMartiniAlt,
+  FaRegBell,
+  FaSmokingBan,
+} from "react-icons/fa";
 import IconContainer from "./IconContainer";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -78,6 +88,33 @@ const RoomDescription = (props) => {
     };
   });
 
+  const iconServices = [
+    {
+      icon: <FaWifi />,
+      title: "Wi-Fi",
+    },
+    {
+      icon: <FaBreadSlice />,
+      title: "Desayuno incluido",
+    },
+    {
+      icon: <FaGlassMartiniAlt />,
+      title: "Mini Bar",
+    },
+    {
+      icon: <FaRegBell />,
+      title: "Room Service",
+    },
+    // {
+    //   icon: <FaHotjar />,
+    //   title: "Aire Acondicionado",
+    // },
+    // {
+    //   icon: <FaSmokingBan />,
+    //   title: "Libre de Humo",
+    // },
+  ];
+
   const numberOfMonths = windowWidth < 768 ? 1 : 2;
 
   return (
@@ -110,100 +147,99 @@ const RoomDescription = (props) => {
           </header>
 
           <Row className="calendar-row py-5 px-5">
-            <Col
-              xs={12}
-              md={6}
-              className="data-room d-flex flex-column px-md-5"
-            >
-              <h1 className="">{rooms.nameHabitation}</h1>
-              <h4 className="">{rooms.type}</h4>
-              <p className="pt-5">{rooms.description}</p>
-              <div>
-                <Col
-                  xs={12}
-                  md={6}
-                  className="d-flex align-items-center justify-content-between"
-                >
-                  <h5 className="">Check in</h5>
-                  <h5 className="">Check out</h5>
-                </Col>
-                <Col
-                  xs={12}
-                  md={6}
-                  className="d-flex align-items-center justify-content-between"
-                >
-                  <h5 className="">15:00 hs</h5>
-                  <h5 className="">10:00 hs</h5>
-                </Col>
+            <Col xs={12} md={6} className="data-room px-md-5">
+              <h1>{rooms.nameHabitation}</h1>
+              <h4>{rooms.type}</h4>
+              <p className="pt-3">{rooms.description}</p>
+              <div className="">
+                <div className="row px-0 py-0">
+                  {iconServices.map(
+                    (item, index) =>
+                      index % 2 === 0 && (
+                        <div key={index} className="col-12 ">
+                          <div className="d-flex">
+                            <IconContainer icon={item.icon} />
+                            <h6 className="">{item.title}</h6>
+                          </div>
+                          {index + 1 < iconServices.length && (
+                            <div className="d-flex my-3">
+                              <IconContainer
+                                icon={iconServices[index + 1].icon}
+                              />
+                              <h6 className="">
+                                {iconServices[index + 1].title}
+                              </h6>
+                            </div>
+                          )}
+                        </div>
+                      )
+                  )}
+                </div>
               </div>
-
-              <div className="d-flex flex-row">
-                <IconContainer
-                  icon={<FaShower />}
-                  text={`${rooms.bathrooms} Baños`}
-                />
-                <IconContainer
-                  icon={<FaHips />}
-                  text={`${rooms.capacity} Personas`}
-                />
-                <IconContainer
-                  icon={<FaHotjar />}
-                  text={`${rooms.beds} Camas`}
-                />
-                <IconContainer
-                  icon={<FaAd />}
-                  text={`${rooms.aditional} Adicionales`}
-                />
+              <hr className="" />
+              <div className="row px-0">
+                <div className="col-12 col-md-6 mb-3 d-flex flex-column justify-content-between">
+                  <div className="d-flex align-items-center justify-content-between">
+                    <h5>Check in</h5>
+                    <h5 className="md-order-2">15:00 hs</h5>
+                  </div>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <h5>Check out</h5>
+                    <h5 className="md-order-1">10:00 hs</h5>
+                  </div>
+                </div>
               </div>
             </Col>
             <Col xs={12} md={6} className="calendar-room">
-              <Calendar
-                mapDays={({ date }) => {
-                  const currentDate = new Date(
-                    `${date.year}-${(date.month.index + 1)
-                      .toString()
-                      .padStart(2, "0")}-${date.day}`
-                  );
+              <div className="d-flex flex-column align-items-center justify-content-center">
+                <Calendar
+                  mapDays={({ date }) => {
+                    const currentDate = new Date(
+                      `${date.year}-${(date.month.index + 1)
+                        .toString()
+                        .padStart(2, "0")}-${date.day}`
+                    );
 
-                  const startDate = new Date(extractedDates[2].startDate);
-                  const endDate = new Date(extractedDates[2].endDate);
-                  if (currentDate >= startDate && currentDate <= endDate) {
-                    return {
-                      disabled: false,
-                      style: { color: "black" },
-                      onClick: () => console.log("You clicked me!"),
-                    };
-                  } else {
-                    return {
-                      disabled: true,
-                      style: { color: "#ccc" },
-                    };
-                  }
-                }}
-                numberOfMonths={numberOfMonths}
-                months={months}
-                weekDays={weekDays}
-                range
-                style={{ display: "inline-block" }}
-              />
-              <div className="text-center my-5">
-                {isAuthenticated ? (
-                  <Link
-                    to="/ReservationForm"
-                    className="btn btn-detailss"
-                    style={{ textDecoration: "none" }}
-                  >
-                    Confirmar reserva
-                  </Link>
-                ) : (
-                  <Link
-                    to="/login"
-                    className="btn btn-details"
-                    style={{ textDecoration: "none" }}
-                  >
-                    Confirmar reserva
-                  </Link>
-                )}
+                    const startDate = new Date(extractedDates[2].startDate);
+                    const endDate = new Date(extractedDates[2].endDate);
+                    if (currentDate >= startDate && currentDate <= endDate) {
+                      return {
+                        disabled: false,
+                        style: { color: "black" },
+                        onClick: () => console.log("You clicked me!"),
+                      };
+                    } else {
+                      return {
+                        disabled: true,
+                        style: { color: "#ccc" },
+                      };
+                    }
+                  }}
+                  numberOfMonths={numberOfMonths}
+                  months={months}
+                  weekDays={weekDays}
+                  range
+                  style={{ display: "inline-block" }}
+                />
+                <div className="text-center my-5">
+                  {isAuthenticated ? (
+                    <Link
+                      to="/ReservationForm"
+                      className="btn btn-detailss"
+                      style={{ textDecoration: "none" }}
+                    >
+                      Confirmar reserva
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="btn btn-details"
+                      style={{ textDecoration: "none" }}
+                    >
+                      Confirmar reserva
+                    </Link>
+                  )}
+                </div>
               </div>
             </Col>
           </Row>
