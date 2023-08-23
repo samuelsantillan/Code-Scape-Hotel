@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = 'http://localhost:3000/api/'
+const API = 'http://hotelcodescape.tech:3000/api/'
 
 export const roomUserRequest = room => axios.post(`${API}roomCreate`, room);
 
