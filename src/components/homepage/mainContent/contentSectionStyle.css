@@ -1,13 +1,16 @@
 body {
   font-family: 'Nunito Sans', sans-serif;
+}
+.contentWrapper{
   background-color: var(--white);
+
 }
 .textSecondary {
   letter-spacing: .06875rem;
   font-size: calc(15px + 2 * ((100vw - 768px) / 672));
 }
 .welcomeSection{
-  margin: 10% 0;
+  padding: 10% 0;
 }
 .textContainer{
   padding: 0 10%;
@@ -160,7 +163,10 @@ Button.roomBtn {
 .beforeTitle {
   letter-spacing: 0.5ch;
 }
-
+.roomRow{
+  padding: 0;
+  margin: 0;
+} 
 .roomImg {
   width: 30rem;
   height: 40rem;
@@ -190,7 +196,20 @@ Button.roomBtn {
 Section.roomSection {
   padding-bottom: calc(20vh - 150px);
 }
-
+.roomSection .container, .restaurantSection .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardsSection .container-fluid{
+  margin: 0;
+  padding: 0;
+}
+.cardsRow{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 .roomsInfoCol {
   background-color: var(--white);
 }
@@ -250,6 +269,20 @@ Section.roomSection {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .roomSection .container, .restaurantSection .container{
+    padding: 0;
+    margin: 0;
+  }
+  .roomRow, .restaurantRow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .roomsInfoCol {
+    padding: 0;
   }
 }
 

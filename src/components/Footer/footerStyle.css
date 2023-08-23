@@ -1,8 +1,18 @@
 footer {
     background-color: var(--darkestBrown);
     color: var(--lightBeige);
+    padding: 0;
+    margin: 0;
 }
-
+.footerWrap.row{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.footerContainer{
+    padding: 0;
+    margin: 0;
+}
 .linkFooter {
     color: var(--lightBeige);
     font-weight: 500;

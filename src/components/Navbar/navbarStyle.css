@@ -1,10 +1,11 @@
-.nav-link {
+a.nav-link, a.nav-link:hover {
   color: white;
   margin-left: 3rem;
   position: relative;
   overflow: hidden;
   display: inline-block;
   text-decoration: none;
+  opacity: 1;
 }
 
 .nav-link:after {
@@ -18,9 +19,7 @@
   transition: left .8s;
   color: white;
 }
-.nav-link:hover {
-  color: white;
-}
+
 .nav-link:hover:after {
   left: 0;
 }
@@ -43,8 +42,7 @@ span.navbar-toggler-icon {
 button.navbar-toggler {
   border: none;
 }
-.scrolled .nav-link,
-.scrolled .navbar-brand{
+.scrolled a.nav-link, .scrolled a.nav-link:hover{
   color: var(--lightBeige);
 }
 .scrolled .nav-link:after {
@@ -52,22 +50,22 @@ button.navbar-toggler {
 }
 
 @media screen and (max-width: 992px) {
-  .offcanvas {
+  .offcanvas.offcanvasNav {
     background-color: #18100bdc;
   }
 
-  .offcanvas .nav-link {
+  .offcanvas.offcanvasNav .nav-link {
     color:#ecd3bc;
     font-size: 2rem;
   }
 
-  .navBody {
+  .offcanvasNav .navBody {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  .btn-close {
+  .offcanvas-header .btn-close {
     background-color: #ecd3bc;
   }
 }

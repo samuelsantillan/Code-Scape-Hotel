@@ -48,7 +48,7 @@ const NavbarComponent = () => {
             <img
               src={logoColor === "white" ? whiteLogo : beigeLogo}
               alt="Logo"
-            />{" "}
+            />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
 
@@ -56,7 +56,7 @@ const NavbarComponent = () => {
             id={`offcanvasNavbar-expand-${expand}`}
             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
             placement="end"
-            className="sideNavbar"
+            className="offcanvasNav"
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title

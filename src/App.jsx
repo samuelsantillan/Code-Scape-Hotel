@@ -39,6 +39,7 @@ import RoomsPage from "./components/RoomsPage";
 import RoomUserContext from "./context/RoomUserContext";
 import ReservationForm from "./components/room/ReservationForm";
 import Test from "./pages/Test";
+import AboutUsPage from "./components/Aboutus/Aboutus";
 library.add(fas, fab);
 
 const App = () => {
@@ -83,6 +84,14 @@ const App = () => {
                       element={
                         <Layout>
                           <Contact />
+                        </Layout>
+                      }
+                    />
+                    <Route
+                      path="/nosotros"
+                      element={
+                        <Layout>
+                          <AboutUsPage />
                         </Layout>
                       }
                     />

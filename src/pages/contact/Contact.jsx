@@ -106,15 +106,15 @@ const Contact = () => {
                 </section>
                 <section className="formSection">
                     <Container fluid>
-                        <Row>
-                            <Col className="d-none d-md-block p-0 imgContact">
+                        <Row className="formContactRow">
+                            <Col md={6} className="d-none d-md-block p-0 imgContact">
                                 <Image
                                     src="https://i.ibb.co/Yy1dLxy/comunes1.jpg"
                                     alt="Foto hotel"
                                     fluid
                                 />
                             </Col>
-                            <Col>
+                            <Col md={6}>
                                 <FadeIn >
                                     <h3 className="d-flex justify-content-center my-4 titleForm">
                                         ESCRÍBENOS

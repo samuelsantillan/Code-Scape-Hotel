@@ -64,8 +64,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "vite": "^4.4.5"
-  }
-,
+  },
   "description": "Proyecto final para certificar el cursado de Full-Stack Developer en Rolling Code School",
   "main": "vite.config.js",
   "author": "",
