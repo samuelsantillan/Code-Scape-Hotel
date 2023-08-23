@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import "../register/register.css";
-import Login from "../login/login.jsx";
 import { registerRequest } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -35,64 +34,64 @@ const Register = () => {
   return (
     <div className="main-container-register">
       
-      <div className={`cont-register   ${isSignupVisible ? "s--signup" : ""}`}>
-        { RegisterErrors.map((error,i) => ( <p key={i} className="text-center" style={{color: "red",}}>{error}</p>))}
-        <form
-          className={`form-register sign-up ${isSignupVisible ? "active" : ""}`}
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <h2>CREAR CUENTA</h2>
-          <label>
-            <span>Nombre</span>
-            <input {...register("username")} type="text" autoFocus />
-          </label>
+    <div className={`cont-register ${isSignupVisible ? "s--signup" : ""}`}>
+      { RegisterErrors.map((error,i) => ( <p key={i} className="text-center" style={{color: "red",}}>{error}</p>))}
+      <form
+        className={`form-register sign-up ${isSignupVisible ? "active" : ""}`}
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <h2 className="h2-register">CREAR CUENTA</h2>
+        <label className="label-register">
+          <span>Nombre</span>
+          <input className="input-register" {...register("username")} type="text" autoFocus />
+        </label>
 
-          { errors.username &&   <p className="text-center" style={{color: "red",}}>username is required</p>}
-          <label>
-            <span>Email</span>
-            <input type="email" {...register("email")} />
-            {errors.email && <p>Email Is required</p>}
-          </label>
-          <label>
-            <span>Contraseña</span>
-            <input type="password" {...register("password")} />
-          </label>
-          <div className="button-register">
-            <button type="submit-register" className="submit-register ">
-              Registrate
-            </button>
+        { errors.username &&   <p className="text-center" style={{color: "red",}}>username is required</p>}
+        <label className="label-register">
+          <span>Email</span>
+          <input className="input-register" type="email" {...register("email")} />
+          {errors.email && <p>Email Is required</p>}
+        </label>
+        <label className="label-register">
+          <span>Contraseña</span>
+          <input  className="input-register" type="password" {...register("password")} />
+        </label>
+        <div className="button-register">
+          <button  type="submit-register" className="submit-register button-register2 ">
+            Registrate
+          </button>
+        </div>
+      </form>
+
+      <div className="sub-cont-register">
+        <div className="img-register">
+          <div className={`img__text "m--in" : "m--up"}`}>
+            <h2 className="h2-register"> ¿Ya tenés cuenta?</h2>
+            
+            {isSignupVisible && <p></p>}
           </div>
-        </form>
-
-        <div className="sub-cont-register">
-          <div className="img-register">
-            <div className={`img__text "m--in" : "m--up"}`}>
-              <h2> ¿Ya tenés cuenta?</h2>
-              
-              {isSignupVisible && <p></p>}
-            </div>
-            <div className="img__btn">
-              
-            <a href="/login"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
-                Entrar
-              </span></a>
-            </div>
+          <div className="img__btn">
+            
+          <a href="/login"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+              Entrar
+            </span></a>
           </div>
         </div>
       </div>
-      <div className="img2-register ">
-        {" "}
-        <h2>¿Ya tenés cuenta?</h2>
-        <div className="img__btn">
-        <a href="/login"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
-                Entrar
-              </span></a>
-          
-        </div>
+    </div>
+    <div className="img2-register ">
+      {" "}
+      <h2 className="h2-register">¿Ya tenés cuenta?</h2>
+      <div className="img__btn">
+      <a href="/login"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+              Entrar
+            </span></a>
         
       </div>
       
     </div>
+    
+  </div>
   );
 };
 
