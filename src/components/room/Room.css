@@ -61,13 +61,13 @@
     font-size: 24px;
   }
 
-  .room-card .btn-details {
+  .btn-details.btn {
     text-decoration: none;
     background-color: var(--lightBrown);
     color: white;
   }
 
-  .room-card .btn-details:hover {
+  .btn-details.btn:hover {
     text-decoration: none;
     background-color: var(--darkestBrown); 
     color: white; 
