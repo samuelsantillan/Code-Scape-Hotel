@@ -110,75 +110,103 @@ const RoomDescription = (props) => {
           </header>
 
           <Row className="calendar-row py-5 px-5">
-            <Col xs={12} md={6} className="data-room justify-align-items-end d-flex flex-column">
+            <Col
+              xs={12}
+              md={6}
+              className="data-room d-flex flex-column px-md-5"
+            >
               <h1 className="">{rooms.nameHabitation}</h1>
-              <p className="">{rooms.description}</p>
-            </Col>
-            <Col xs={12} md={6} className="calendar-room ">
-            
-                <Col className="text-center">
-                  <Calendar
-                    mapDays={({ date }) => {
-                      const currentDate = new Date(
-                        `${date.year}-${(date.month.index + 1)
-                          .toString()
-                          .padStart(2, "0")}-${date.day}`
-                      );
-
-                      const startDate = new Date(extractedDates[2].startDate);
-                      const endDate = new Date(extractedDates[2].endDate);
-                      if (currentDate >= startDate && currentDate <= endDate) {
-                        return {
-                          disabled: false,
-                          style: { color: "black" },
-                          onClick: () => console.log("You clicked me!"),
-                        };
-                      } else {
-                        return {
-                          disabled: true,
-                          style: { color: "#ccc" },
-                        };
-                      }
-                    }}
-                    numberOfMonths={numberOfMonths}
-                    months={months}
-                    weekDays={weekDays}
-                    range
-                    style={{ display: "inline-block" }}
-                  />
-                  <div className="text-center  ">
-                    {isAuthenticated && (
-                      <Link
-                        to="/ReservationForm"
-                        className="btn btn-details my-5"
-                        style={{ textDecoration: "none" }}
-                      >
-                        Confirmar reserva
-                      </Link>
-                    )}
-                    {!isAuthenticated && (
-                      <Link
-                        to="/login"
-                        className="btn btn-details my-5"
-                        style={{ textDecoration: "none" }}
-                      >
-                        Confirmar reserva
-                      </Link>
-                    )}
-                  </div>
+              <h4 className="">{rooms.type}</h4>
+              <p className="pt-5">{rooms.description}</p>
+              <div>
+                <Col
+                  xs={12}
+                  md={6}
+                  className="d-flex align-items-center justify-content-between"
+                >
+                  <h5 className="">Check in</h5>
+                  <h5 className="">Check out</h5>
                 </Col>
-             
+                <Col
+                  xs={12}
+                  md={6}
+                  className="d-flex align-items-center justify-content-between"
+                >
+                  <h5 className="">15:00 hs</h5>
+                  <h5 className="">10:00 hs</h5>
+                </Col>
+              </div>
 
-              {/* <div className="mb-3">
-              <IconContainer icon={<FaHotjar />} name="Calefacción" />
-            </div>
-            <div>
-              <IconContainer icon={<FaHips />} name="Cama Doble" />
-            </div> */}
+              <div className="d-flex flex-row">
+                <IconContainer
+                  icon={<FaShower />}
+                  text={`${rooms.bathrooms} Baños`}
+                />
+                <IconContainer
+                  icon={<FaHips />}
+                  text={`${rooms.capacity} Personas`}
+                />
+                <IconContainer
+                  icon={<FaHotjar />}
+                  text={`${rooms.beds} Camas`}
+                />
+                <IconContainer
+                  icon={<FaAd />}
+                  text={`${rooms.aditional} Adicionales`}
+                />
+              </div>
+            </Col>
+            <Col xs={12} md={6} className="calendar-room">
+              <Calendar
+                mapDays={({ date }) => {
+                  const currentDate = new Date(
+                    `${date.year}-${(date.month.index + 1)
+                      .toString()
+                      .padStart(2, "0")}-${date.day}`
+                  );
+
+                  const startDate = new Date(extractedDates[2].startDate);
+                  const endDate = new Date(extractedDates[2].endDate);
+                  if (currentDate >= startDate && currentDate <= endDate) {
+                    return {
+                      disabled: false,
+                      style: { color: "black" },
+                      onClick: () => console.log("You clicked me!"),
+                    };
+                  } else {
+                    return {
+                      disabled: true,
+                      style: { color: "#ccc" },
+                    };
+                  }
+                }}
+                numberOfMonths={numberOfMonths}
+                months={months}
+                weekDays={weekDays}
+                range
+                style={{ display: "inline-block" }}
+              />
+              <div className="text-center my-5">
+                {isAuthenticated ? (
+                  <Link
+                    to="/ReservationForm"
+                    className="btn btn-detailss"
+                    style={{ textDecoration: "none" }}
+                  >
+                    Confirmar reserva
+                  </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="btn btn-details"
+                    style={{ textDecoration: "none" }}
+                  >
+                    Confirmar reserva
+                  </Link>
+                )}
+              </div>
             </Col>
           </Row>
-
-      
         </div>
       )}
     </div>
