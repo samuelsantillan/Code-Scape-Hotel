@@ -1,0 +1,14 @@
+.loadingPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #FAF8F4;
+  }
+.loadingPage img{
+  width: 20rem;
+  height: 20rem;
+}
+
