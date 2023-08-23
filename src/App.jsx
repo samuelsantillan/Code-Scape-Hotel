@@ -29,7 +29,7 @@ import Home from "./pages/Home";
 import AuthProvider from "./context/AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
 import Admin from "./pages/Admin";
-// import Register from "./pages/register/Register";
+import Register from "./pages/register/Register";
 
 import Inicio from "./pages/Inicio";
 import Gallery from "./pages/gallery/Gallery";
@@ -120,7 +120,7 @@ const App = () => {
                       }
                     />
                     <Route path="/login" element={<Login />} />
-                    {/* <Route path="/register" element={<Register />} /> */}
+                    <Route path="/register" element={<Register />} />
                     <Route element={<ProtectedRoute />}>
                       <Route path="/home" element={<Home />} />
                       <Route path="/admin/*" element={<Admin />} />
