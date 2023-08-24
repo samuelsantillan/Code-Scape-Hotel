@@ -97,11 +97,16 @@
 .imgclass {
   overflow: hidden;
 }
-
+.aboutRow{
+  width: 80vw;
+}
 @media (min-width: 768px) {
   .info-box {
     width: 50%;
     padding: 10px;
     margin-bottom: 30px;
+  }
+  .aboutRow{
+    width: 60vw;
   }
 }

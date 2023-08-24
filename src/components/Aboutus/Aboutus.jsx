@@ -89,7 +89,7 @@ const AboutUsPage = () => {
 
           </Col>
         </Row>
-        <Row className="d-flex justify-content-center">
+        <Row className="aboutRow d-flex justify-content-center">
           <Col sm={4} md={4} lg={4}>
             <Card>
               <div className='imgclass'>
