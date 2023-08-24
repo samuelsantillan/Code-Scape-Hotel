@@ -23,7 +23,8 @@ import { useRoom } from "../../context/RoomContext";
 import { useAuth } from "../../context/AuthContext";
 import { useRoomUser } from "../../context/RoomUserContext";
 import "./RoomDescription.css";
-
+import { DateObject } from "react-multi-date-picker";
+import Room from "./Room";
 const months = [
   "Ene",
   "Feb",
@@ -41,14 +42,39 @@ const months = [
 const weekDays = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
 
 const RoomDescription = (props) => {
-  const { isAuthenticated } = useAuth();
-  const { getRoomUserRequest, rooms: roomUser } = useRoomUser();
+  const { isAuthenticated, user } = useAuth();
+  console.log(isAuthenticated);
+  const {
+    getRoomUserRequest,
+    rooms: roomUser,
+    getRoomUserValidateReservationRequest,
+    roomUser: roomUsersReservation,
+    createRoomUserReservationRequest,
+  } = useRoomUser();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(true);
   // const [dates, setDates] = useState([]);
   const params = useParams();
   // console.log("Parametros", params);
+  const [values, setValues] = useState([new DateObject()]);
+  //
   const { rooms, getRoomRequest } = useRoom();
+
+  const [roomPrice, setRoomPrice] = useState();
+
+  function calculateDays(dateStart, dateEnd) {
+    const start = new Date(dateStart);
+    const end = new Date(dateEnd);
+
+    // Calcular la diferencia en milisegundos
+    const differenceBetweenMiliSeconds = end - start;
+
+    // Convertir la diferencia a días
+    const differenceBetweenDays =
+      differenceBetweenMiliSeconds / (1000 * 60 * 60 * 24);
+
+    return differenceBetweenDays;
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,7 +85,7 @@ const RoomDescription = (props) => {
         // Luego, realizamos las solicitudes
         await getRoomRequest(params.id);
         await getRoomUserRequest(params.id);
-
+        await getRoomUserValidateReservationRequest(params.id);
         // Finalmente, indicamos que la carga ha terminado
         setIsLoading(false);
       } catch (error) {
@@ -70,7 +96,12 @@ const RoomDescription = (props) => {
 
     fetchData();
   }, [params.id]);
-  console.log(roomUser);
+  console.log(roomUsersReservation);
+
+  const extractedDatesUsers = roomUsersReservation.map((item) => ({
+    startDate: new Date(item.startDate).toISOString().split("T")[0],
+    endDate: new Date(item.endDate).toISOString().split("T")[0],
+  }));
 
   const extractedDates = roomUser.map((item) => ({
     startDate: new Date(item.startDate).toISOString().split("T")[0],
@@ -87,7 +118,18 @@ const RoomDescription = (props) => {
       window.removeEventListener("resize", handleWindowResize);
     };
   });
-
+  const handleDateChange = (date) => {
+    let convertDate = date.map((dateObject) => {
+      return dateObject.format("YYYY-MM-DD");
+    });
+    console.log(convertDate);
+    setValues(convertDate);
+    if (convertDate.length === 2) {
+      setRoomPrice(rooms.price * calculateDays(convertDate[0], convertDate[1]));
+      console.log(rooms.price * calculateDays(convertDate[0], convertDate[1]));
+      console.log(roomPrice);
+    }
+  };
   const iconServices = [
     {
       icon: <FaWifi />,
@@ -108,6 +150,16 @@ const RoomDescription = (props) => {
   ];
 
   const numberOfMonths = windowWidth < 768 ? 1 : 2;
+
+  function handleClick() {
+    console.log(values[0],values[1], params.id, user.id);
+    createRoomUserReservationRequest({
+      startDate: values[0],
+      endDate : values[1], 
+      idRoom:  params.id, 
+      idUser : user.id
+    });
+  }
 
   return (
     <div>
@@ -142,7 +194,7 @@ const RoomDescription = (props) => {
             <Col xs={12} md={6} className="data-room px-md-5">
               <div className="d-flex justify-content-between">
                 <h1>{rooms.nameHabitation}</h1>
-                <h2 className="">$ {rooms.price}</h2>
+                <h2 className="">$ {roomPrice}</h2>
               </div>
               <h4>{rooms.type}</h4>
               <p className="pt-3">{rooms.description}</p>
@@ -195,6 +247,13 @@ const RoomDescription = (props) => {
                         .padStart(2, "0")}-${date.day}`
                     );
 
+                    const invailableDates = extractedDatesUsers.map(
+                      (dates) => ({
+                        startDate: new Date(dates.startDate),
+                        endDate: new Date(dates.endDate),
+                      })
+                    );
+
                     const availableDates = extractedDates.map((dates) => ({
                       startDate: new Date(dates.startDate),
                       endDate: new Date(dates.endDate),
@@ -206,7 +265,13 @@ const RoomDescription = (props) => {
                         currentDate <= dates.endDate
                     );
 
-                    if (isDateAvailable) {
+                    const isDateUnavailable = invailableDates.some(
+                      (dates) =>
+                        currentDate >= dates.startDate &&
+                        currentDate <= dates.endDate
+                    );
+
+                    if (isDateAvailable && !isDateUnavailable) {
                       return {
                         disabled: false,
                         style: { color: "black" },
@@ -219,6 +284,8 @@ const RoomDescription = (props) => {
                       };
                     }
                   }}
+                  value={values}
+                  onChange={handleDateChange}
                   numberOfMonths={numberOfMonths}
                   months={months}
                   weekDays={weekDays}
@@ -228,7 +295,7 @@ const RoomDescription = (props) => {
                 <div className="text-center my-5">
                   {isAuthenticated ? (
                     <Link
-                      to="/ReservationForm"
+                      onClick={handleClick}
                       className="btn btn-details"
                       style={{ textDecoration: "none" }}
                     >
