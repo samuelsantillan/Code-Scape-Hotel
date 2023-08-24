@@ -29,15 +29,15 @@ const SideNavAdmin = () => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="navAdminBody">
-                  <Nav.Link href="/users">Usuarios</Nav.Link>
+                  <Nav.Link href="/admin/user">Usuarios</Nav.Link>
                   <NavDropdown
                     title="Habitaciones"
                     id={`offcanvasNavbarDropdown-expand-${false}`}
                   >
-                    <NavDropdown.Item href="" className='itemDropNav'>
+                    <NavDropdown.Item href="/admin" className='itemDropNav'>
                       1.1 Nueva habitación
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="rooms" className='itemDropNav' >
+                    <NavDropdown.Item href="/admin/rooms" className='itemDropNav' >
                       1.2 Ver habitaciones
                     </NavDropdown.Item>
                   </NavDropdown>

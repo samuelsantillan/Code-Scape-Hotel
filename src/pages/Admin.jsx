@@ -10,18 +10,27 @@ import AdminRoomsPage from "./AdminRoomsPage";
 import AdminUsersPage from "./AdminUsersPage";
 import NewComponentTest from "./NewComponentTest";
 import SideNavAdmin from "../components/SideNavAdmin";
-import '../assets/css/admin-page.css';
+import "../assets/css/admin-page.css";
 function Admin() {
   return (
     <>
-        
-      <SideNavAdmin/>
-      <Container fluid className="containerAdminPage">
-          <Routes>
-            <Route path="" element={<AdminPage />} />
-            <Route path="rooms" element={<AdminRoomsPage />} />
-            <Route path="user" element={<AdminUsersPage />} />
-          </Routes>
+      <SideNavAdmin />
+      <Container fluid className="containerAdminPage ">
+        <Routes>
+          <Route path="/" element={<AdminPage />} />
+          <Route path="/rooms" element={<AdminRoomsPage />} />
+          <Route
+            path="/user"
+            element={
+              <Container fluid className="containerUserPage ">
+                <>
+                  <h1 className="text-center title-color-userPage mt-2">ADMINISTRACIÓN</h1>
+                </>
+                <AdminUsersPage />
+              </Container>
+            }
+          />
+        </Routes>
       </Container>
     </>
   );
