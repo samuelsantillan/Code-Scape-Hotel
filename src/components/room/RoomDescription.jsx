@@ -148,7 +148,10 @@ const RoomDescription = (props) => {
 
           <Row className="calendar-row py-5 px-5">
             <Col xs={12} md={6} className="data-room px-md-5">
-              <h1>{rooms.nameHabitation}</h1>
+              <div className="d-flex justify-content-between">
+                <h1>{rooms.nameHabitation}</h1>
+                <h2 className="">$ {rooms.price}</h2>
+              </div>
               <h4>{rooms.type}</h4>
               <p className="pt-3">{rooms.description}</p>
               <div className="">

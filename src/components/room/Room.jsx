@@ -9,17 +9,16 @@ import { FaShower, FaHips, FaHotjar, FaAd } from "react-icons/fa";
 import IconContainer from "./IconContainer";
 import RoomDescription from "./RoomDescription";
 
-const Room = ( props ) => {
+const Room = (props) => {
+  console.log("PROPS", props);
 
-  console.log("PROPS", props)
+  const photos = props.photos;
+  const roomId = props._id;
 
-  const photos = props.photos;  
-  const roomId = props._id
- 
   return (
     <div className="room-card flex">
       <div className="card-body flex">
-        <Carousel>
+        <Carousel infiniteLoop autoPlay>
           {photos.map((image, index) => (
             <div key={index}>
               <img src={image} alt={`Imagen ${index}`} />
@@ -28,8 +27,7 @@ const Room = ( props ) => {
         </Carousel>
         <div className="text-center">
           <Link
-            
-            to={`/RoomDescription/${roomId}`}       
+            to={`/RoomDescription/${roomId}`}
             className="btn btn-details my-1 mx-3"
             style={{ textDecoration: "none" }}
           >
