@@ -1,4 +1,4 @@
-.introSection {
+.introSection.nosotros {
   height: 50vh;
   width: 100%;
   background-image: url(https://i.ibb.co/tPV6NH7/banner-About.jpg);
@@ -74,7 +74,7 @@
 
 
 .info-box {
-  width: 50%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 30px;
 }

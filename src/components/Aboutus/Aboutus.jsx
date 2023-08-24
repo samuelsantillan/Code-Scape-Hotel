@@ -4,7 +4,6 @@ import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import "./Aboutus.css"
 import ScrollToTopButton from '../scrollToTop/ScrollToTopButton';
 import { motion } from 'framer-motion';
-
 const AboutUsPage = () => {
   return (
     <motion.div
@@ -13,7 +12,7 @@ const AboutUsPage = () => {
       exit={{ scaleY: 0 }}
       transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <section className="introSection">
+      <section className="introSection nosotros">
         <div className="title fadeInText">
           <h1 className="titleContact text-center ">SOBRE NOSOTROS</h1>
           <div className="line" />
@@ -31,7 +30,7 @@ const AboutUsPage = () => {
           </p>
         </div>
         <Row className='aboutRow'>
-          <Col sm={6} md={4} lg={3}>
+          <Col sm={4} md={4} lg={4}>
             <Card className='cardAbout'><div className='imgclass'>
               <Card.Img variant="top" src="/img/MartinFernandez.jpg" /></div>
               <Card.Footer className="card-footer">
@@ -41,7 +40,7 @@ const AboutUsPage = () => {
                     <a href="https://www.linkedin.com">
                       <FaLinkedin />
                     </a>
-                    <a href="https://github.com">
+                    <a href="https://github.com/LicFernandez">
                       <FaGithub />
                     </a>
                   </div>
@@ -49,11 +48,9 @@ const AboutUsPage = () => {
               </Card.Footer>
             </Card>
           </Col>
-
-          <Col sm={6} md={4} lg={3}>
-            <Card>
-              <div className='imgclass'>
-                <Card.Img variant="top" src="/img/Victoria.jpg" /></div>
+          <Col sm={4} md={4} lg={4}>
+            <Card className='cardAbout'><div className='imgclass'>
+              <Card.Img variant="top" src="/img/Victoria.jpg" /></div>
               <Card.Footer className="card-footer">
                 <div>
                   <p>Victoria Cavanna</p>
@@ -61,16 +58,16 @@ const AboutUsPage = () => {
                     <a href="https://www.linkedin.com">
                       <FaLinkedin />
                     </a>
-                    <a href="https://github.com">
+                    <a href="https://github.com/victoriacavanna">
                       <FaGithub />
                     </a>
                   </div>
                 </div>
               </Card.Footer>
             </Card>
-
           </Col>
-          <Col sm={6} md={4} lg={3}>
+          
+          <Col sm={4} md={4} lg={4}>
             <Card>
               <div className='imgclass'>
                 <Card.Img variant="top" src="/img/Samuel.jpg" /></div>
@@ -82,27 +79,7 @@ const AboutUsPage = () => {
                     <a href="https://www.linkedin.com">
                       <FaLinkedin />
                     </a>
-                    <a href="https://github.com">
-                      <FaGithub />
-                    </a>
-                  </div>
-                </div>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col sm={6} md={4} lg={3}>
-            <Card>
-              <div className='imgclass'>
-                <Card.Img variant="top" src="/img/Alvaro.png" /></div>
-              <Card.Footer className="card-footer">
-                <div>
-                  <p>Alvaro Safe</p>
-                  <div className="social-icons">
-                    <a href="https://www.linkedin.com">
-                      <FaLinkedin />
-                    </a>
-                    <a href="https://github.com">
+                    <a href="https://github.com/samuelsantillan">
                       <FaGithub />
                     </a>
                   </div>
@@ -113,17 +90,18 @@ const AboutUsPage = () => {
           </Col>
         </Row>
         <Row className="d-flex justify-content-center">
-          <Col sm={6} md={4} lg={3}>
+          <Col sm={4} md={4} lg={4}>
             <Card>
-              <Card.Img variant="top" src="" />
+              <div className='imgclass'>
+                <Card.Img variant="top" src="/img/Lucas.jpeg" /></div>
               <Card.Footer className="card-footer">
                 <div>
-                  <p>Lucas </p>
+                  <p>Lucas Juarez</p>
                   <div className="social-icons">
                     <a href="https://www.linkedin.com">
                       <FaLinkedin />
                     </a>
-                    <a href="https://github.com">
+                    <a href="https://github.com/luki1qq">
                       <FaGithub />
                     </a>
                   </div>
@@ -131,36 +109,18 @@ const AboutUsPage = () => {
               </Card.Footer>
             </Card>
           </Col>
-          <Col sm={6} md={4} lg={3}>
+          <Col sm={4} md={4} lg={4}>
             <Card>
-              <Card.Img variant="top" src="" />
+              <div className='imgclass'>
+                <Card.Img variant="top" src="/img/Alvaro.png" /></div>
               <Card.Footer className="card-footer">
                 <div>
-                  <p>Nombre de la persona </p>
+                  <p>Alvaro Safe</p>
                   <div className="social-icons">
                     <a href="https://www.linkedin.com">
                       <FaLinkedin />
                     </a>
-                    <a href="https://github.com">
-                      <FaGithub />
-                    </a>
-                  </div>
-                </div>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col sm={6} md={4} lg={3}>
-            <Card>
-              <Card.Img variant="top" src="" />
-              <Card.Footer className="card-footer">
-                <div>
-                  <p>Nombre de la persona </p>
-                  <div className="social-icons">
-                    <a href="https://www.linkedin.com">
-                      <FaLinkedin />
-                    </a>
-                    <a href="https://github.com">
+                    <a href="https://github.com/azafe">
                       <FaGithub />
                     </a>
                   </div>
@@ -169,7 +129,6 @@ const AboutUsPage = () => {
             </Card>
 
           </Col>
-
         </Row>
         <ScrollToTopButton />
       </Container>
