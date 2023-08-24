@@ -105,14 +105,6 @@ const RoomDescription = (props) => {
       icon: <FaRegBell />,
       title: "Room Service",
     },
-    // {
-    //   icon: <FaHotjar />,
-    //   title: "Aire Acondicionado",
-    // },
-    // {
-    //   icon: <FaSmokingBan />,
-    //   title: "Libre de Humo",
-    // },
   ];
 
   const numberOfMonths = windowWidth < 768 ? 1 : 2;
@@ -203,9 +195,18 @@ const RoomDescription = (props) => {
                         .padStart(2, "0")}-${date.day}`
                     );
 
-                    const startDate = new Date(extractedDates[2].startDate);
-                    const endDate = new Date(extractedDates[2].endDate);
-                    if (currentDate >= startDate && currentDate <= endDate) {
+                    const availableDates = extractedDates.map((dates) => ({
+                      startDate: new Date(dates.startDate),
+                      endDate: new Date(dates.endDate),
+                    }));
+
+                    const isDateAvailable = availableDates.some(
+                      (dates) =>
+                        currentDate >= dates.startDate &&
+                        currentDate <= dates.endDate
+                    );
+
+                    if (isDateAvailable) {
                       return {
                         disabled: false,
                         style: { color: "black" },
@@ -228,7 +229,7 @@ const RoomDescription = (props) => {
                   {isAuthenticated ? (
                     <Link
                       to="/ReservationForm"
-                      className="btn btn-detailss"
+                      className="btn btn-details"
                       style={{ textDecoration: "none" }}
                     >
                       Confirmar reserva
