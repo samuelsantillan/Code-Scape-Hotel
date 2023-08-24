@@ -5,6 +5,13 @@
     color: #ecd3bc;
     width: 50%;
 }
+.title-color-userPage{
+    color: var(--darkBrown);
+}
+
+.containerUserPage{
+    background-color: white;
+}
 .containerAdminPage{
     background-color: var(--darkBrown);
     color: var(--lightBeige);
