@@ -15,6 +15,7 @@ import {
   GridRowEditStopReasons,
 } from "@mui/x-data-grid";
 import { randomId } from "@mui/x-data-grid-generator";
+import '../assets/css/admin-page.css';
 
 // const UserRole = {
 //   ADMIN: {
