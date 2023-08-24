@@ -7,45 +7,31 @@ import roomsData from "./roomsData";
 const RoomPreview = (props) => {
   const { IsImageFirst, photos, nameHabitation, description, _id } = props;
 
-  console.log("Lo que estoy recibiendo de props", props)
-
   return (
-    <div className="restaurantSection my-5 py-5">
+    <div className=" ">
+      <section className="heroSection-roomPreview">
+        <div className="title-roomPreview fadeInText">
+          <h1 className="titleGallery-roomPreview">HABITACIONES</h1>
+          <div className="line-roomPreview" />
+        </div>
+      </section>
       <Container>
-        <Row>
-          {IsImageFirst ? (
-            <>
-              <Col xs={12} lg={6} className="d-flex justify-content-center">
-                <div>
-                  <div className="image-wrapper">
-                    <Room photos={photos} _id={_id} />
-                  </div>
-                </div>
-              </Col>
-              <Col xs={12} lg={6} className="restaurantTextCol textCol col">
-                <h3>{nameHabitation}</h3>
-                <p>{description} </p>
-              </Col>
-            </>
-          ) : (
-            <>
-              <Col xs={12} lg={6} className="restaurantTextCol textCol col">
-                <h3>{nameHabitation}</h3>
-                <p>{description} </p>
-              </Col>
-              <Col
-                xs={12}
-                lg={6}
-                className="restaurantImages imgCol col p-0 d-flex justify-content-center"
-              >
-                <div>
-                  <div className="image-wrapper">
-                    <Room photos={photos} _id={_id} />
-                  </div>
-                </div>
-              </Col>
-            </>
-          )}
+        <Row className="justify-content-between align-items-start  w-100  m-0">
+          <Col xs={12} lg={6} className="">
+            <h3>{nameHabitation}</h3>
+            <p>{description}</p>
+          </Col>
+          <Col
+            xs={12}
+            lg={6}
+            className="d-flex justify-content-center mb-4 mb-lg-0"
+          >
+            <div className="">
+              <div className="">
+                <Room photos={photos} _id={_id} />
+              </div>
+            </div>
+          </Col>
         </Row>
       </Container>
     </div>
