@@ -29,10 +29,10 @@
 
 .font{
   margin-left: 1rem;
-  color: #2B1C12; /* Sin comillas alrededor del color */
-  font-size: 30px; /* Con la unidad 'rem' para el tamaño de fuente */
+  color: #2B1C12; 
+  font-size: 30px;
   font-weight: bold;
-  margin-bottom: 1rem; /* Con la unidad 'rem' para el margen inferior */
+  margin-bottom: 1rem;
 }
 
 

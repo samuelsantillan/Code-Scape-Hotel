@@ -3,7 +3,6 @@ import AdminRoomsPage from "./pages/AdminRoomsPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AdminProvider } from "./context/AdminContext";
-import "./assets/css/admin-aside.scss";
 import { LayoutAdmin } from "./components/LayoutAdmin";
 import { Navbar, Container } from "react-bootstrap";
 import AdminUsersPage from "./pages/AdminUsersPage";
@@ -125,9 +124,9 @@ const App = () => {
                     />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route element={<ProtectedRoute />}>
                       <Route path="/home" element={<Home />} />
                       <Route path="/admin/*" element={<Admin />} />
+                    <Route element={<ProtectedRoute />}>
                     </Route>
                   </Routes>
                 </BrowserRouter>
