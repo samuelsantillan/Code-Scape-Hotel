@@ -30,7 +30,7 @@ const Login = () => {
       <div className={`cont-register ${isSignupVisible ? "s--signup" : ""}`}>
         <form className="form-register sign-in" onSubmit={handleSubmit(onSubmit)}>
         { signinErrors.map((error,i) => ( <p key={i} className="text-center" style={{color: "red",}}>{error}</p>))}
-          <h2 className="h2-register">BIENVENIDO</h2>
+          <h2 className="h2-register title-login">BIENVENIDO</h2>
           <label className="label-register" >
             <span>Email</span>
             <input  className="input-register" type="email" {...register("email", { required: true })} />

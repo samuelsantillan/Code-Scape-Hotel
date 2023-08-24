@@ -80,7 +80,7 @@ const ContentSection = () => {
                                             >Galería</p>
                                         </li>
                                     </ul>
-                                    <button className='btn roomBtn'>Ver Habitaciones</button>
+                                    <a href="/habitaciones"><button className='btn roomBtn'>Ver Habitaciones</button></a>
                                 </Col>
                             </Row>
                         </Container>

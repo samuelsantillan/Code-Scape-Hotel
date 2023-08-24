@@ -46,11 +46,11 @@ const Register = () => {
           <input className="input-register" {...register("username")} type="text" autoFocus />
         </label>
 
-        { errors.username &&   <p className="text-center" style={{color: "red",}}>username is required</p>}
+        { errors.username &&   <p className="text-center" style={{color: "red",}}>Usuario requerido</p>}
         <label className="label-register">
           <span>Email</span>
           <input className="input-register" type="email" {...register("email")} />
-          {errors.email && <p>Email Is required</p>}
+          {errors.email && <p>Mail requerido</p>}
         </label>
         <label className="label-register">
           <span>Contraseña</span>
