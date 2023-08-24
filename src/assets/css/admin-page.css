@@ -7,10 +7,12 @@
 }
 .title-color-userPage{
     color: var(--darkBrown);
+    font-family: var(--cormorant);
 }
 
 .containerUserPage{
-    background-color: white;
+    background-color: var(--brown);
+    min-height: 95vh;
 }
 .containerAdminPage{
     background-color: var(--darkBrown);

@@ -7,6 +7,7 @@ import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
 import { useAdmin } from "../context/AdminContext";
+import Swal from 'sweetalert2'
 import {
   GridRowModes,
   DataGrid,
@@ -164,13 +165,24 @@ export default function AdminUsersPage() {
 
   const handleSaveClick = (id) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
-    alert("Implement row save");
+    Swal.fire({
+      title: `Se guardó correctamente el elemento con ID: ${id}!`,
+      icon: "success",
+      color: '#faf8f4',
+      background: '#1d130c'
+    })
     setIdElementModified(id);
   };
 
   const handleDeleteClick = (id) => () => {
     console.log(rows);
     // setRows(rows.filter((row) => row.id !== id));
+    Swal.fire({
+      title: `Se eliminó correctamente el elemento con ID: ${id}!`,
+      icon: 'error',
+      color: '#faf8f4',
+      background: '#1d130c'
+    })
     setIdElementModified(id);
     deleteUserRequest(id);
   };
