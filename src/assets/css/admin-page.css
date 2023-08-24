@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap');
+
+.btn.btnCargar {
+    background-color: #6e5137;
+    color: #ecd3bc;
+    width: 50%;
+}
+.title-color-userPage{
+    color: var(--darkBrown);
+    font-family: var(--cormorant);
+}
+
+.containerUserPage{
+    background-color: var(--brown);
+    min-height: 95vh;
+}
+.containerAdminPage{
+    background-color: var(--darkBrown);
+    color: var(--lightBeige);
+}
+input
+.title {
+    font-family: 'Cormorant Garamond';
+}
+.selectRoomAdmin {
+    height: 4rem;
+    margin: 20px 0px;
+    color: var(--lightBeige);
+    background-color: #6e5137;
+}
+.containerAdminPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 998px) {
+    .rowFormAdmin.row {
+        width: 80vw;
+        padding: 5%;
+    }
+}
+
+@media (max-width: 998px) {
+    .rowFormAdmin.row{
+        width: 100%;
+    }
+    .dzu-dropzone{
+        margin:0;
+        padding: 0;
+        width: 100% !important;
+    }
+    .btnCargar{
+        font-size: 10px;
+    }
+}

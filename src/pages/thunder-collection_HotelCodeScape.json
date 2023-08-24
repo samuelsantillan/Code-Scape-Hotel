@@ -1,0 +1,439 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "HotelCodeScape",
+    "dateExported": "2023-08-22T05:37:15.493Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "675e17d0-45a1-447d-9f8d-42d6e2058542",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/roomUpdate/",
+            "url": "http://localhost:3000/api/roomUpdate/",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-08-11T14:49:33.049Z",
+            "modified": "2023-08-11T14:49:33.049Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"numberHabitation\": 109,\n    \"type\": \"Standard2\",\n    \"nameHabitation\": \"Single Room\",\n    \"price\": 100,\n    \"photo\": \"photo.jpg\",\n    \"description\": \"A comfortable single room with basic amenities.\",\n    \"availableDates\": [\n    [\"2023-08-10\", \"2023-08-15\"],\n    [\"2023-08-20\", \"2023-08-25\"],\n    [\"2023-08-30\", \"2023-09-10\"]\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3162b7ac-2995-4f28-92c7-9238ca6470fc",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/roomDelete/134134134",
+            "url": "http://localhost:3000/api/roomDelete/",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-08-11T14:49:56.808Z",
+            "modified": "2023-08-11T14:49:56.808Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"hola\" :  \"hola\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c33056cc-e02b-44d0-bb70-8f57a3757407",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/roomUpload",
+            "url": "http://localhost:3000/api/roomCreate",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-11T15:36:19.947Z",
+            "modified": "2023-08-11T15:36:19.947Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"numberHabitation\": \"107\",\n  \"type\": \"Standard\",\n  \"nameHabitation\": \"Single Room\",\n  \"price\": 100,\n  \"description\": \"A comfortable single room with basic amenities.\",\n  \"photo\" : \"photo.jpg\",\n  \"availableDates\": [\n    [\"2023-08-10\", \"2023-08-15\"],\n    [\"2023-08-20\", \"2023-08-25\"],\n    [\"2023-08-30\", \"2023-09-10\"]\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e01b355e-1264-46da-9882-2870af9b7e60",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/roomCreate",
+            "url": "http://localhost:3000/api/roomCreate",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-08-22T05:35:25.659Z",
+            "modified": "2023-08-22T05:35:25.659Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"_id\": \"64db882745f7617da918f486\",\n  \"numberHabitation\": 110,\n  \"type\": \"Standard\",\n  \"nameHabitation\": \"Single Room\",\n  \"price\": 100,\n  \"photos\": [\n    \"https://images.pexels.com/photos/17227604/pexels-photo-17227604/free-photo-of-hotel-cama-lampara-habitacion.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\",\n    \"https://images.pexels.com/photos/17227603/pexels-photo-17227603/free-photo-of-hotel-cama-lampara-habitacion.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\",\n    \"https://images.pexels.com/photos/97083/pexels-photo-97083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\"\n  ],\n  \"description\": \"A comfortable single room with basic amenities.\",\n  \"availableDates\": [\n    [\"2023-08-10\", \"2023-08-15\"],\n    [\"2023-08-20\", \"2023-08-25\"],\n    [\"2023-08-30\", \"2023-09-10\"]\n  ],\n  \"__v\": 0\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "85fb9f63-3db5-4924-a1d6-3488bac54adb",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/roomDelete/134134134",
+            "url": "http://localhost:3000/api/roomDelete/64db882745f7617da918f486",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-08-22T05:35:41.048Z",
+            "modified": "2023-08-22T05:35:41.048Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"hola\" :  \"hola\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "86349f24-f2f3-482b-88ca-2f92d92aaae2",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/deleteUser/qfqfqfqf",
+            "url": "http://localhost:3000/api/deleteUser/64deb563685d4b19d4bad0c2",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2023-08-22T05:35:44.547Z",
+            "modified": "2023-08-22T05:35:44.547Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b1ed0552-78a2-489f-8342-97e3a2b6bee6",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/getRooms",
+            "url": "http://localhost:3000/api/roomGet",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-08-22T05:35:47.615Z",
+            "modified": "2023-08-22T05:35:47.615Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "21b14065-a5b0-45c2-b6ef-08af3e4333ff",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/getRooms",
+            "url": "http://localhost:3000/api/roomGet",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-08-22T05:35:52.358Z",
+            "modified": "2023-08-22T05:35:52.358Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0fc880a4-6448-425a-b204-b53591217713",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/roomUpload",
+            "url": "http://localhost:3000/api/roomCreate",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-08-22T05:35:59.243Z",
+            "modified": "2023-08-22T05:35:59.243Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"numberHabitation\": \"107\",\n  \"type\": \"Standard\",\n  \"nameHabitation\": \"Single Room\",\n  \"price\": 100,\n  \"description\": \"A comfortable single room with basic amenities.\",\n  \"photos\" : [\"photo.jpg\",\"photo2.jpg\"],\n  \"availableDates\": [\n    [\"2023-08-10\", \"2023-08-15\"],\n    [\"2023-08-20\", \"2023-08-25\"],\n    [\"2023-08-30\", \"2023-09-10\"]\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a4959f91-ca35-4ce3-a84d-e2e14b8edc17",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/getRoomUserReservation",
+            "url": "http://localhost:3000/api/getRoomUserReservation",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-08-22T05:36:03.494Z",
+            "modified": "2023-08-22T05:36:03.494Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "cad8d139-fb4d-4cc2-98eb-932d29c31ef7",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "localhost:3000/api/login",
+            "url": "http://localhost:3000/api/login",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-08-22T05:36:06.655Z",
+            "modified": "2023-08-22T05:36:06.655Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\" : \"juka@gmail.com\",\n  \"password\" : \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5a0ba9e9-be2a-448b-8767-25f91ba0ae52",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/createUserAdmin",
+            "url": "http://localhost:3000/api/createUserAdmin",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2023-08-22T05:36:10.292Z",
+            "modified": "2023-08-22T05:36:10.292Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\" : \"test1834@test.com\",\n  \"password\" : \"test1234\",\n  \"username\" : \"test12\",\n  \"role\" : 1,\n  \"state\" : true\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d25be2c4-1b59-4ca5-8dfd-4fd66bf955b5",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/createUserAdmin",
+            "url": "http://localhost:3000/api/createUserAdmin",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-08-22T05:36:13.378Z",
+            "modified": "2023-08-22T05:36:13.378Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\" : \"test18@test.com\",\n  \"password\" : \"test12\",\n  \"username\" : \"test12\",\n  \"role\" : 1,\n  \"state\" : true\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "29bc5f55-9c08-4e80-a766-573f7008d769",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/updateUser/64db82af45f7617da918f47e",
+            "url": "http://localhost:3000/api/updateUser/64deb07d42e00cc7cc68e125",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2023-08-22T05:36:16.278Z",
+            "modified": "2023-08-22T05:36:16.278Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"test123\",\n    \"email\": \"test123@test.com\",\n    \"role\": 1,\n    \"state\": false\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "65cd1568-c8a3-4eb4-925b-17f73cb20158",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/getUser/64db82af45f7617da918f47e",
+            "url": "http://localhost:3000/api/getUser/64deb07d42e00cc7cc68e125",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2023-08-22T05:36:19.371Z",
+            "modified": "2023-08-22T05:36:19.371Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "271b1e6e-86b1-4b63-865b-8798ea9568b1",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/register",
+            "url": "http://localhost:3000/api/register",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2023-08-22T05:36:23.379Z",
+            "modified": "2023-08-22T05:36:23.379Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\" : \"test18@test.com\",\n  \"password\" : \"test12\",\n  \"username\" : \"test12\",\n  \"role\" : 1,\n  \"state\" : true\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "11723662-4aef-4e87-aa22-06f31c5873e7",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/register",
+            "url": "http://localhost:3000/api/register",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2023-08-22T05:36:33.900Z",
+            "modified": "2023-08-22T05:36:33.900Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\" : \"test18@test.com\",\n  \"password\" : \"test12\",\n  \"username\" : \"test12\",\n  \"role\" : 1,\n  \"state\" : true\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0ac06364-ce9d-498c-8235-d2b224211e4c",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/getUsers",
+            "url": "http://localhost:3000/api/getUsers",
+            "method": "GET",
+            "sortNum": 180000,
+            "created": "2023-08-22T05:36:39.733Z",
+            "modified": "2023-08-22T05:36:39.733Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "40ae8986-c29c-4488-8289-0f3c5a3378a3",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/roomDelete",
+            "url": "http://localhost:3000/api/task",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2023-08-22T05:36:44.360Z",
+            "modified": "2023-08-22T05:36:44.360Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e03b98c8-cb76-4921-915a-6b45de8f81bc",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/roomUpdate/",
+            "url": "http://localhost:3000/api/roomUpdate/",
+            "method": "PUT",
+            "sortNum": 200000,
+            "created": "2023-08-22T05:36:49.306Z",
+            "modified": "2023-08-22T05:36:49.306Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"numberHabitation\": 109,\n    \"type\": \"Standard2\",\n    \"nameHabitation\": \"Single Room\",\n    \"price\": 100,\n    \"photo\": \"photo.jpg\",\n    \"description\": \"A comfortable single room with basic amenities.\",\n    \"availableDates\": [\n    [\"2023-08-10\", \"2023-08-15\"],\n    [\"2023-08-20\", \"2023-08-25\"],\n    [\"2023-08-30\", \"2023-09-10\"]\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "067c5252-1e50-49a6-8a5b-b2e49077ed9a",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/tasks",
+            "url": "http://localhost:3000/api/roomUpload",
+            "method": "POST",
+            "sortNum": 210000,
+            "created": "2023-08-22T05:36:52.803Z",
+            "modified": "2023-08-22T05:36:52.803Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\" : \"hola\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f2937853-0031-4ae3-aee8-943b0917b7d8",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/task",
+            "url": "http://localhost:3000/api/task",
+            "method": "POST",
+            "sortNum": 220000,
+            "created": "2023-08-22T05:36:55.866Z",
+            "modified": "2023-08-22T05:36:55.866Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\" : \"hola\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "32acfaff-79fe-488d-a091-202985b41e6f",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/task",
+            "url": "http://localhost:3000/api/task",
+            "method": "GET",
+            "sortNum": 230000,
+            "created": "2023-08-22T05:36:59.301Z",
+            "modified": "2023-08-22T05:36:59.301Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\" : \"hola\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "00959671-7ab6-43d7-85c7-0ef8d32e4883",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/profile",
+            "url": "http://localhost:3000/api/profile",
+            "method": "GET",
+            "sortNum": 240000,
+            "created": "2023-08-22T05:37:03.127Z",
+            "modified": "2023-08-22T05:37:03.127Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "321ba699-de58-45c9-8d34-6f741a2602e8",
+            "colId": "bb75f2cb-9d5b-462b-b09e-f3e5840b2ffe",
+            "containerId": "",
+            "name": "http://localhost:3000/api/logout",
+            "url": "http://localhost:3000/api/logout",
+            "method": "POST",
+            "sortNum": 250000,
+            "created": "2023-08-22T05:37:07.443Z",
+            "modified": "2023-08-22T05:37:07.443Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

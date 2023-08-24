@@ -1,0 +1,80 @@
+a.nav-link, a.nav-link:hover {
+  color: white;
+  margin-left: 3rem;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.nav-link:after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: white;
+  transition: left .8s;
+  color: white;
+}
+
+.nav-link:hover:after {
+  left: 0;
+}
+
+.navbar-brand {
+  width: calc(15rem - 30px);
+}
+
+.scrolled {
+  background-color: var(--darkestBrown);
+}
+span.navbar-toggler-icon {
+  width: 40px;
+  height: 32px;
+  background-image: url("../../assets/svg/menuIconWhite.svg");
+}
+.scrolled span.navbar-toggler-icon{
+  background-image: url("../../assets/svg/menuIcon.svg");
+}
+button.navbar-toggler {
+  border: none;
+}
+.scrolled a.nav-link, .scrolled a.nav-link:hover{
+  color: var(--lightBeige);
+}
+.scrolled .nav-link:after {
+  background: var(--lightBeige);
+}
+
+@media screen and (max-width: 992px) {
+  .offcanvas.offcanvasNav {
+    background-color: #18100bdc;
+  }
+
+  .offcanvas.offcanvasNav .nav-link {
+    color:#ecd3bc;
+    font-size: 2rem;
+  }
+
+  .offcanvasNav .navBody {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .offcanvas-header .btn-close {
+    background-color: #ecd3bc;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .navBody .navbar-nav {
+    justify-content: flex-end;
+    flex-grow: 1;
+    padding-left: 3rem;
+  }
+
+}
