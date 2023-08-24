@@ -5,7 +5,7 @@
 .adminSideBtn:hover{
     background-color: var(--darkBrown);
 }
-nav.navbar-light{
+.navAdmin.navbar-light{
     background-color: var(--darkestBrown);
 }
 .offcanvasAdmin .offcanvas-header{
