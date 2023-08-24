@@ -11,7 +11,7 @@ const NavbarComponent = () => {
   const [expand, setExpand] = useState(isLargeScreen);
   const [scrolled, setScrolled] = useState(false);
   const [logoColor, setLogoColor] = useState("white");
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user, logout } = useAuth();
   const handleScroll = () => {
     const isScrolled = window.scrollY > 0;
     setScrolled(isScrolled);
@@ -77,7 +77,7 @@ const NavbarComponent = () => {
                 </Nav.Link>
               )}
               {isAuthenticated && (
-                <Nav.Link href="/logout" className="my-2">
+                <Nav.Link href="/" onClick={logout} className="my-2">
                   Cerrar Sesión
                 </Nav.Link>
               )}
