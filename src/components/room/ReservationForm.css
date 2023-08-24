@@ -1,0 +1,57 @@
+.payInfo{
+    color: red;
+    max-width: 100vh;
+}
+
+.form-control.payInformation{
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    width: 50%;
+    
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #97704E;
+    font-weight: 800;
+    font-size: 20px;
+
+
+}
+
+.heroSection-payInformation {
+    height: 50vh;
+    width: 100%;
+    background-image: url(https://img.freepik.com/free-photo/credit-card-payment-buy-sell-products-service_1150-16374.jpg?w=1060&t=st=1692840497~exp=1692841097~hmac=94091b7e5f212ecc31f6f2d63d962ff164aca08cb465899b42d607f6f7153888);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .title-payInformation {
+    position: relative;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .titleGallery-payInformation {
+    color: var(--white);
+    text-shadow: 2px 2px 4px var(--darkBrown);
+    font-family: var(--cormorant);
+    font-weight: 800;
+    text-align: center;
+    font-size: 40px;
+  }
+  
+  .line-payInformation {
+    position: relative;
+    top: 50%;
+    border: 1.5px solid var(--white);
+    width: 15%;
+    height: 3px;
+    background: white;
+  }
+  

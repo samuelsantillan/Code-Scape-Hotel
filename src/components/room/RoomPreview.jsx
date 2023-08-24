@@ -16,7 +16,7 @@ const RoomPreview = (props) => {
         </div>
       </section>
       <Container>
-        <Row className="justify-content-between align-items-start  w-100  m-0">
+        <Row className="justify-content-between align-items-start  w-100  m-0 py-3">
           <Col xs={12} lg={6} className="">
             <h3>{nameHabitation}</h3>
             <p>{description}</p>
