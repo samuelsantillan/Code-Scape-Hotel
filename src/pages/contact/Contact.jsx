@@ -68,7 +68,7 @@ const Contact = () => {
                 exit={{ scaleY: 0 }}
                 transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
             >
-                <section className="introSection">
+                <section className="introSection contact">
                     <div className="title fadeInText">
                         <h1 className="titleContact text-center">CONTACTO</h1>
                         <div className="line" />

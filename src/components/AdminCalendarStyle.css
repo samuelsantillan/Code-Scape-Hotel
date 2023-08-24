@@ -1,0 +1,47 @@
+
+.rmdp-wrapper.rmdp-shadow {
+    box-shadow: 0 0 5px #97704e;
+}
+.adminCalendar.rmdp-wrapper {
+    background-color: #97704e;
+    color: var(--lightBeige);
+}
+.rmdp-week .rmdp-week-day, .rmdp-header-values {
+    color: var(--white);
+}
+
+.rmdp-day.rmdp-range {
+    background-color: #ecd3bc;
+    color: #6e5137;
+}
+i.rmdp-arrow{
+    border: solid #faf8f4;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    height: 3px;
+    margin-top: 5px;
+    padding: 2px;
+    width: 3px;
+}
+.rmdp-range {
+    background-color: #ecd3bc;
+    color: #6e5137;
+}
+
+.rmdp-day.rmdp-today span.sd, .rmdp-arrow-container:hover {
+    background-color: #b9885d;
+}
+
+.rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+    background-color: #1d130c;
+}
+.bottom .rmdp-week-day{
+    color: #ecd3bc;
+}
+@media (max-width: 768px) {
+    .rmdp-top-class{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

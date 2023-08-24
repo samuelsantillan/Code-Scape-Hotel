@@ -1,0 +1,52 @@
+.adminSideBtn{
+    background-color: var(--brown);
+    border: none;
+}
+.adminSideBtn:hover{
+    background-color: var(--darkBrown);
+}
+nav.navbar-light{
+    background-color: var(--darkestBrown);
+}
+.offcanvasAdmin .offcanvas-header{
+    background-color: #150e09;
+    color: #97704e;
+    font-family: var(--nunito);
+}
+.offcanvasAdmin .offcanvas-body{
+    background-color: #150e09;
+    color: #ecd3bc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+.navAdminBody .nav-link{
+    color: #ecd3bc;
+    font-size: 22px;
+}
+.itemDropNav {
+    background-color: #150e09;
+    color:#97704e;
+    padding-left: 15%;
+}
+.itemDropNav:hover {
+    background-color: #97704e;
+    color: #ecd3bc;
+}
+.dropdown-menu {
+    padding: 0;
+    border: none
+}
+.offcanvas-header .btn-close{
+    background-color: #ecd3bc;
+}
+.btnSalir {
+    color: #97704e;
+    font-size: 20px;
+    position: relative;
+    top: 30vh;
+}
+.btnSalir:hover{
+    color: #ecd3bc;
+}

@@ -3,7 +3,6 @@ import AdminRoomsPage from "./pages/AdminRoomsPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AdminProvider } from "./context/AdminContext";
-import "./assets/css/admin-aside.scss";
 import { LayoutAdmin } from "./components/LayoutAdmin";
 import { Navbar, Container } from "react-bootstrap";
 import AdminUsersPage from "./pages/AdminUsersPage";
@@ -40,6 +39,8 @@ import RoomUserContext from "./context/RoomUserContext";
 import ReservationForm from "./components/room/ReservationForm";
 import Test from "./pages/Test";
 import AboutUsPage from "./components/Aboutus/Aboutus";
+
+
 library.add(fas, fab);
 
 const App = () => {
@@ -50,6 +51,8 @@ const App = () => {
       setIsLoading(false);
     });
   }, []);
+
+
 
   return (
     <>
@@ -96,10 +99,10 @@ const App = () => {
                       }
                     />
                     <Route
-                      path="/habitaciones"
+                      path="/habitaciones/:id"
                       element={
                         <Layout>
-                          <RoomsPage />
+                          <RoomsPage  />
                         </Layout>
                       }
                     />
@@ -121,9 +124,9 @@ const App = () => {
                     />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route element={<ProtectedRoute />}>
                       <Route path="/home" element={<Home />} />
                       <Route path="/admin/*" element={<Admin />} />
+                    <Route element={<ProtectedRoute />}>
                     </Route>
                   </Routes>
                 </BrowserRouter>

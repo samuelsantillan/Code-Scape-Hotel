@@ -24,7 +24,6 @@ const NavbarComponent = () => {
   };
   console.log(user);
 
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -65,12 +64,20 @@ const NavbarComponent = () => {
             </Offcanvas.Header>
             <Offcanvas.Body className="d-flex navBody">
               <Nav>
-                <Nav.Link href="/habitaciones">Habitaciones</Nav.Link>
+                {isAuthenticated && (
+                  <Nav.Link href={`/habitaciones/${user.id}`}>
+                    Habitaciones
+                  </Nav.Link>
+                )}
+
+                {!isAuthenticated && (
+                  <Nav.Link href={`/habitaciones/1`}>Habitaciones</Nav.Link>
+                )}
+
                 <Nav.Link href="/galeria">Galería</Nav.Link>
                 <Nav.Link href="/nosotros">Nosotros</Nav.Link>
                 <Nav.Link href="/contacto">Contacto</Nav.Link>
               </Nav>
-              {}
               {!isAuthenticated && (
                 <Nav.Link href="/login" className="my-2">
                   Iniciar Sesión

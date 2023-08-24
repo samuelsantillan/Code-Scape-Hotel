@@ -5,31 +5,43 @@
     color: #ecd3bc;
     width: 50%;
 }
-/* main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Nunito Sans';
-    max-width: 100vw;
-} */
+.containerAdminPage{
+    background-color: var(--darkBrown);
+    color: var(--lightBeige);
+}
 input
 .title {
     font-family: 'Cormorant Garamond';
 }
+.selectRoomAdmin {
+    height: 4rem;
+    margin: 20px 0px;
+    color: var(--lightBeige);
+    background-color: #6e5137;
+}
+.containerAdminPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 @media (min-width: 998px) {
-    .row {
-        width: 70vw;
+    .rowFormAdmin.row {
+        width: 80vw;
         padding: 5%;
     }
 }
-@media (max-width: 998px){
-    .row {
-        width: 60vw;
-        padding: 0;
-        margin:0;
+
+@media (max-width: 998px) {
+    .rowFormAdmin.row{
+        width: 100%;
     }
-    .dzu-dropzone {
-        max-width: 100%;
+    .dzu-dropzone{
+        margin:0;
+        padding: 0;
+        width: 100% !important;
+    }
+    .btnCargar{
+        font-size: 10px;
     }
 }
