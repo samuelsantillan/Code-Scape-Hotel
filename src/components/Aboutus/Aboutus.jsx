@@ -127,7 +127,6 @@ const AboutUsPage = () => {
                 </div>
               </Card.Footer>
             </Card>
-
           </Col>
         </Row>
         <ScrollToTopButton />

@@ -7,7 +7,6 @@ import FileUploadComponent from "../components/FileUploadCalendar";
 import { useAdmin } from "../context/AdminContext";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/admin-page.css";
-
 function AdminPage() {
   const [calendarValues, setCalendarValues] = useState([]);
   const { register, handleSubmit, setValue } = useForm();
@@ -93,7 +92,7 @@ function AdminPage() {
 
   return (
     <>
-      <form className="row gy-3" onSubmit={handleSubmitForm}>
+      <form className="row rowFormAdmin gy-3" onSubmit={handleSubmitForm}>
         <div className="col-md-12 justify-content-center">
           <h1 className="text-center title">Agregar habitación</h1>
         </div>
@@ -114,7 +113,7 @@ function AdminPage() {
             Tipo de Habitación
           </label>
           <select
-            className="form-select"
+            className="form-select selectRoomAdmin"
             aria-label="Default select example"
             {...register("roomType")}
             onChange={(e) => setValue("roomType", e.target.value)}
@@ -167,7 +166,7 @@ function AdminPage() {
           <FileUploadComponent />
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
-          <input type="submit" className="btn btnCargar w-50" value="CARGAR HABITACIÓN"/>
+          <input type="submit" className="btn btnCargar" value="CARGAR HABITACIÓN"/>
         </div>
       </form>
     </>

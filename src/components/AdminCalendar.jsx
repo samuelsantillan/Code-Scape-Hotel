@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import DatePicker, { DateObject, Calendar } from "react-multi-date-picker";
 import Footer from "react-multi-date-picker/plugins/range_picker_footer";
-import "../assets/css/admin-asset.css";
 import { useForm, Controller } from "react-hook-form";
-import "./AdminCalendarStyle.css"; // Agrega un archivo CSS específico para tu componente
+import "./AdminCalendarStyle.css"; 
 import { useWindowSize } from 'react-use';
 
 const months = [

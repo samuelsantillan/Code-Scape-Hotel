@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import "./Room.css";
 import "./IconContainer";
 import "./roomsData";
+import "../AdminCalendarStyle.css"
 import { FaShower, FaHips, FaHotjar, FaAd } from "react-icons/fa";
 import IconContainer from "./IconContainer";
 import RoomDescription from "./RoomDescription";
-
 const Room = (props) => {
   console.log("PROPS", props);
 
