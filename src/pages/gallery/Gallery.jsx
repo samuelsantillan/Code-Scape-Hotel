@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faX, faArrowLeftLong, faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import { faX, faArrowLeftLong, faArrowRightLong, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import FadeIn from '../../animations/FadeIn'
 import './galleryStyle.css';
 import ScrollToTopButton from '../../components/scrollToTop/ScrollToTopButton';
@@ -84,7 +84,8 @@ const Gallery = () => {
           <FadeIn>
             <h4 className='gallerySectionTitle'>Galería de imágenes</h4>
           </FadeIn>
-          <div className="scrollCategory">
+          <div className="scrollCategory d-flex">
+          <FontAwesomeIcon icon={faChevronLeft} style={{color: "#97704e",}} className='d-lg-none d-md-none'/>
             <ul className="categories btnGroup">
               {['todas', 'habitaciones', 'exterior', 'interior', 'restaurante', 'servicios'].map((category) => (
                 <li key={category}>
@@ -97,13 +98,13 @@ const Gallery = () => {
                 </li>
               ))}
             </ul>
+            <FontAwesomeIcon icon={faChevronRight} style={{color: "#97704e",}} className='d-lg-none d-md-none'/>
           </div>
           <div className="container galleryContainer">
             <div className="row p-0">
               {filteredImages.map((image, index) => (
                 <div className="col colImgGallery col-md-4 col-sm-6 col-6" key={index}>
                   <div className="imageContainer">
-                    <FadeIn delay={1}>
                       <img
                         src={image.url}
                         alt={`Image ${index}`}
@@ -111,7 +112,6 @@ const Gallery = () => {
                         className="img-fluid imageGallery"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
-                    </FadeIn>
                   </div>
                 </div>
               ))}
