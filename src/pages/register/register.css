@@ -301,7 +301,7 @@ nav.navAlternative img {
     width: 40rem;
   }
   .main-container-register {
-    height: 100vh;
+    height: auto;
     display: block;
     width: 100vw;
   }
