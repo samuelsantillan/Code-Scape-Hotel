@@ -295,7 +295,7 @@ nav.navAlternative img {
 
 
 @media screen and (max-width: 768px) {
-  form {
+  .form-register {
     margin-bottom: 0;
     padding: 0 !important;
     width: 40rem;
