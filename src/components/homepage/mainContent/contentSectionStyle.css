@@ -193,7 +193,7 @@ Button.roomBtn {
   color: #6e5137
 }
 Section.roomSection {
-  padding-bottom: calc(20vh - 150px);
+  padding-bottom: calc(30vh - 150px);
 }
 .roomSection .container, .restaurantSection .container{
   display: flex;
@@ -212,33 +212,34 @@ Section.roomSection {
 .roomsInfoCol {
   background-color: var(--white);
 }
-@media (max-width: 980px) {
+@media (min-width: 588px ) and (max-width: 980px) {
   .textCol {
     text-align: center;
-  }
-
-  .restaurantImg {
-    height: 80vh;
-    width: 100%;
   }
 
   .finalImgSection .parallax {
     width: 100%;
     height: 20vh;
   }
-
+  .restaurantImg {
+    margin-top: 15%;
+  }
   .cardContent.img {
     height: 20rem;
     width: 100%;
   }
 
-  Section.roomSection {
+  section.roomSection {
     min-height: calc(90vh - 250px);
   }
 }
 
 @media screen and (max-width: 587px) {
-
+  .restaurantImg {
+    margin-top: 28rem;
+    height: 40rem;
+    width: 100%;
+  }
   .roomsInfoCol,
   .restaurantTextCol {
     background-color: var(--white);
@@ -250,11 +251,9 @@ Section.roomSection {
   }
   .restaurantSection,
   .restaurantTextCol {
-    background-color: var(--brown);
+    background-color: var(--white);
   }
-  .restaurantText, .restaurantTitle{
-    color: var(--lightBeige);
-  }
+
   .titleWelcome{
     font-size: 2rem;
   }
@@ -327,7 +326,7 @@ Section.roomSection {
 
   Section.restaurantSection {
     padding-top: 5%;
-    min-height: 45rem;
+    min-height: 80vh;
   }
 
   .roomsInfoCol {
