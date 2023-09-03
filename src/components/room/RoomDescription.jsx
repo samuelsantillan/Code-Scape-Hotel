@@ -295,6 +295,7 @@ const RoomDescription = (props) => {
                 <div className="text-center my-5">
                   {isAuthenticated ? (
                     <Link
+                      to="/ReservationForm"
                       onClick={handleClick}
                       className="btn btn-details"
                       style={{ textDecoration: "none" }}
