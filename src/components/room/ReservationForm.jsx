@@ -10,8 +10,15 @@ import Form from "react-bootstrap/Form";
 const ReservationForm = () => {
   return (
     <Row className="my-5">
-    
+      <Col lg="12" xs="12">
+        <h1 className="text-center my-5">Reserva</h1>
+      </Col>
       <Col lg="8" xs="12">
+        <div className="mx-5">
+          <Button variant="secondary" className="">
+            Inicie sesión para reservar más rápido
+          </Button>
+        </div>
         <Card className="mx-5 my-3 p-4">
           <h4>Información Personal</h4>
           <Form>
@@ -68,11 +75,18 @@ const ReservationForm = () => {
             <p>Habitación</p>
             <p>Precio</p>
           </div>
+          <hr />
           <div className="d-flex justify-content-between">
-            <p>Total:</p>
+            <p>Total: </p>
           </div>
         </Card>
+        
       </Col>
+      <div className="mx-5">
+          <Button variant="secondary" className="">
+            Completar Booking
+          </Button>
+        </div>
     </Row>
   );
 };

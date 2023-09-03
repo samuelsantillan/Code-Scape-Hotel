@@ -23,7 +23,7 @@ export default class PaymentForm extends React.Component {
 
   render() {
     return (
-      <div className="d-flex align-items-center ">
+      <div className="d-flex flex-lg-row flex-sm-column align-items-center  ">
         <Cards className="col-lg-6 col-12"
           cvc={this.state.cvc}
           expiry={this.state.expiry}
