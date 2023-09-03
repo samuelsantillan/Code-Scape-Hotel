@@ -10,11 +10,12 @@ import Form from "react-bootstrap/Form";
 const ReservationForm = () => {
   return (
     <Row className="my-5">
+    
       <Col lg="8" xs="12">
-        <Card className="m-5 p-4">
+        <Card className="mx-5 my-3 p-4">
           <h4>Información Personal</h4>
           <Form>
-            <div className="">
+            <div>
               <Row>
                 <Col lg="6" xs="12" className="col-12">
                   <Form.Group controlId="formFirstName">
@@ -48,11 +49,11 @@ const ReservationForm = () => {
             </Button>
           </Form>
         </Card>
-        <div className="container">
+        <Card className="mx-5 my-3 p-4">
           <PaymentForm />
-        </div>
+        </Card>
       </Col>
-      <Col lg="4" xs="12"> 
+      <Col lg="4" xs="12">
         <Card className="m-5 p-4">
           <h4>Resumen de la Reserva</h4>
           <div className="d-flex justify-content-between">
@@ -60,16 +61,15 @@ const ReservationForm = () => {
             <p>Fecha de salida</p>
           </div>
           <div className="d-flex justify-content-between">
-            <p>Adultos</p>
-            <p>Niños</p>
+            <p>Adultos: </p>
+            <p>Niños: </p>
           </div>
           <div className="d-flex justify-content-between">
             <p>Habitación</p>
             <p>Precio</p>
           </div>
           <div className="d-flex justify-content-between">
-            <p>Impuestos</p>
-            <p>Total</p>
+            <p>Total:</p>
           </div>
         </Card>
       </Col>

@@ -23,15 +23,15 @@ export default class PaymentForm extends React.Component {
 
   render() {
     return (
-      <div id="" className="d-flex flex-column align-items-center m-2">
-        <Cards
+      <div className="d-flex align-items-center ">
+        <Cards className="col-lg-6 col-12"
           cvc={this.state.cvc}
           expiry={this.state.expiry}
           focused={this.state.focus}
           name={this.state.name}
           number={this.state.number}
         />
-        <form className="d-flex flex-column align-items-center mt-4">
+        <form className="d-flex flex-column col-lg-6 col-12 ">
           <input
             className="my-2"
             type="tel"
