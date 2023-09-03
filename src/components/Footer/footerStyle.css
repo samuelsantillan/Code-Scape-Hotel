@@ -60,3 +60,6 @@ footer {
 .socialLink:hover, .locationLink:hover {
     color: var(--lightBeige);
 }
+.errorText{
+    color: rgba(255, 0, 0, 0.696);
+}
