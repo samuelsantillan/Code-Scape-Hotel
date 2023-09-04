@@ -39,7 +39,7 @@ import RoomUserContext from "./context/RoomUserContext";
 import ReservationForm from "./components/room/ReservationForm";
 import Test from "./pages/Test";
 import AboutUsPage from "./components/Aboutus/Aboutus";
-
+import Error404 from "./components/Error404/Error404"
 
 library.add(fas, fab);
 
@@ -82,6 +82,7 @@ const App = () => {
                         </Layout>
                       }
                     />
+                    <Route path="*" element={<Error404 />} />
                     <Route
                       path="/contacto"
                       element={
@@ -122,6 +123,7 @@ const App = () => {
                         </Layout>
                       }
                     />
+                    
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route element={<ProtectedRoute />}>
