@@ -5,7 +5,9 @@
   margin: 0;
   padding: 0;
 }
-
+.label-register p{
+  margin: 0px;
+}
 nav.navAlternative {
   height: 5rem;
   background-color: var(--darkBrown);
@@ -225,7 +227,7 @@ nav.navAlternative img {
 .label-register {
   display: block !important;
   width: 260px;
-  margin: 25px auto 0;
+  margin: 10px auto 0;
   text-align: center;
 }
 
@@ -279,7 +281,7 @@ nav.navAlternative img {
   color: var(--white);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 898px) {
   .img2-register {
     display: none;
   }
@@ -294,8 +296,10 @@ nav.navAlternative img {
 }
 
 
-@media screen and (max-width: 768px) {
-  form {
+@media screen and (max-width: 898px)
+ {
+
+  .form-register {
     margin-bottom: 0;
     padding: 0 !important;
     width: 40rem;
@@ -307,12 +311,14 @@ nav.navAlternative img {
   }
 
   .sub-cont-register {
+    height: 90vh;
     display: block;
     display: none;
   }
 
   .cont-register {
-    padding-top: 100px !important;
+    
+    
     margin-bottom: 0;
     display: flex;
     justify-content: center;
@@ -322,7 +328,7 @@ nav.navAlternative img {
   }
 
   .button-register {
-    margin-top: 2rem;
+    margin-top: 0rem;
   }
 
   .sub-cont-register {
@@ -367,7 +373,7 @@ nav.navAlternative img {
   }
 
   .h2-register {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
   }
 
   .img__btn a {
