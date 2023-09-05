@@ -24,12 +24,12 @@ const ReservationForm = () => {
           <Form>
             <div>
               <Row>
-                <Col lg="6" xs="12" className="col-12">
+                <Col lg="6" xs="12" className="col-12 py-3">
                   <Form.Group controlId="formFirstName">
                     <Form.Control type="text" placeholder="Nombre" />
                   </Form.Group>
                 </Col>
-                <Col lg="6" xs="12" className="col-12">
+                <Col lg="6" xs="12" className="col-12 py-3">
                   <Form.Group controlId="formLastName">
                     <Form.Control type="text" placeholder="Apellido" />
                   </Form.Group>
@@ -38,12 +38,12 @@ const ReservationForm = () => {
             </div>
             <div className="mb-3">
               <Row>
-                <Col lg="6" xs="12" className="col-12">
+                <Col lg="6" xs="12" className="col-12 py-3">
                   <Form.Group controlId="formMobileNumber">
                     <Form.Control type="text" placeholder="Número de celular" />
                   </Form.Group>
                 </Col>
-                <Col lg="6" xs="12" className="col-12">
+                <Col lg="6" xs="12" className="col-12 py-3">
                   <Form.Group controlId="formEmail">
                     <Form.Control type="email" placeholder="Email" />
                   </Form.Group>

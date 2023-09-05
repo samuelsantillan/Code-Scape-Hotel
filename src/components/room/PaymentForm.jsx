@@ -1,6 +1,7 @@
 import React from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
+import "./ReservationForm.css"
 
 export default class PaymentForm extends React.Component {
   state = {
@@ -23,7 +24,7 @@ export default class PaymentForm extends React.Component {
 
   render() {
     return (
-      <div className="d-flex flex-lg-row flex-sm-column align-items-center  ">
+      <div className="d-flex flex-lg-row flex-column align-items-center ">
         <Cards className="col-lg-6 col-12"
           cvc={this.state.cvc}
           expiry={this.state.expiry}
