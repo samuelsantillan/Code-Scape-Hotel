@@ -37,7 +37,7 @@ export default class PaymentForm extends React.Component {
             className="my-2"
             type="tel"
             name="number"
-            placeholder="Card Number"
+            placeholder="Número de tarjeta"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
@@ -45,7 +45,7 @@ export default class PaymentForm extends React.Component {
             className="my-2"
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder="Titular"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
@@ -53,7 +53,7 @@ export default class PaymentForm extends React.Component {
             className="my-2"
             type="tel"
             name="expiry"
-            placeholder="MM/YY Expiry"
+            placeholder="MM/YY Vencimiento"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
