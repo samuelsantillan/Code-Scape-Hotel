@@ -86,15 +86,15 @@ const Login = () => {
         </form>
         <div className="sub-cont-register">
           <div className="img-register">
-            <div className={`img__text ${isSignupVisible ? "m--in" : "m--up"}`}>
-              <h2 className="h2-register img-text">{isSignupVisible ? "¿Ya tenés cuenta?" : "¿Sos nuevo?"}</h2>
+            <div className={`img__text `}>
+              <h2 className="h2-register img-text">"¿Sos nuevo?"</h2>
               {isSignupVisible && <p></p>}
             </div>
             <div className="img__btn">
-              <a href="/register"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+              <a href="/register"> <span>
                 registrate
               </span></a>
-              <span className={`m--in ${isSignupVisible ? "" : "inactive"}`}>
+              <span >
                 Inicia sesión
               </span>
             </div>
@@ -105,7 +105,7 @@ const Login = () => {
         {" "}
         <h2 className="h2-register img-text">¿No tenes cuenta?</h2>{" "}
         <div className="img__btn">
-          <a href="/register"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+          <a href="/register"> <span >
             Registrate
           </span></a>
         </div>
