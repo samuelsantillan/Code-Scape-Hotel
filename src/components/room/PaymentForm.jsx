@@ -25,16 +25,16 @@ export default class PaymentForm extends React.Component {
   render() {
     return (
       <div className="d-flex flex-lg-row flex-column align-items-center ">
-        <Cards className="col-lg-6 col-12"
+        <Cards className="col-lg-6 col-12 my-5 "
           cvc={this.state.cvc}
           expiry={this.state.expiry}
           focused={this.state.focus}
           name={this.state.name}
           number={this.state.number}
         />
-        <form className="d-flex flex-column col-lg-6 col-12 ">
+        <form className="d-flex flex-column col-lg-6 col-12 my-3">
           <input
-            className="my-2"
+            className="my-3"
             type="tel"
             name="number"
             placeholder="Número de tarjeta"
@@ -42,7 +42,7 @@ export default class PaymentForm extends React.Component {
             onFocus={this.handleInputFocus}
           />
           <input
-            className="my-2"
+            className="my-3"
             type="text"
             name="name"
             placeholder="Titular"
@@ -50,7 +50,7 @@ export default class PaymentForm extends React.Component {
             onFocus={this.handleInputFocus}
           />
           <input
-            className="my-2"
+            className="my-3"
             type="tel"
             name="expiry"
             placeholder="MM/YY Vencimiento"
@@ -58,7 +58,7 @@ export default class PaymentForm extends React.Component {
             onFocus={this.handleInputFocus}
           />
           <input
-            className="my-2"
+            className="my-3"
             type="tel"
             name="cvc"
             placeholder="CVC"
