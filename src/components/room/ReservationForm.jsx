@@ -37,14 +37,24 @@ const ReservationForm = () => {
     });
   };
 
-  const sendEmail = async (userEmail, reservationDetails) => {
+  const sendEmail = async (username,
+    nameHabitation,
+    type,
+    formattedStartDate, 
+    formattedEndDate,
+    email) => {
     try {
       const response = await fetch("/enviar-correo-confirmacion", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userEmail, reservationDetails }),
+        body: JSON.stringify({ username,
+        nameHabitation,
+        type,
+        formattedStartDate, 
+        formattedEndDate,
+        email }),
       });
   
       if (response.ok) {
