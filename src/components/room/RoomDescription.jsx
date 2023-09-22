@@ -152,12 +152,12 @@ const RoomDescription = (props) => {
   const numberOfMonths = windowWidth < 768 ? 1 : 2;
 
   function handleClick() {
-    console.log(values[0],values[1], params.id, user.id);
+    console.log(values[0], values[1], params.id, user.id);
     createRoomUserReservationRequest({
       startDate: values[0],
-      endDate : values[1], 
-      idRoom:  params.id, 
-      idUser : user.id
+      endDate: values[1],
+      idRoom: params.id,
+      idUser: user.id,
     });
   }
 
@@ -246,6 +246,9 @@ const RoomDescription = (props) => {
                         .toString()
                         .padStart(2, "0")}-${date.day}`
                     );
+                    const dateToday = new Date();
+                    console.log(dateToday);
+                    console.log(currentDate);
 
                     const invailableDates = extractedDatesUsers.map(
                       (dates) => ({
@@ -264,14 +267,22 @@ const RoomDescription = (props) => {
                         currentDate >= dates.startDate &&
                         currentDate <= dates.endDate
                     );
-
+                    const afterDaysToday = availableDates.some(
+                      (dates) =>
+                        currentDate > dateToday && currentDate < dates.endDate
+                    );
+                    console.log(afterDaysToday);
                     const isDateUnavailable = invailableDates.some(
                       (dates) =>
                         currentDate >= dates.startDate &&
                         currentDate <= dates.endDate
                     );
 
-                    if (isDateAvailable && !isDateUnavailable) {
+                    if (
+                      isDateAvailable &&
+                      !isDateUnavailable &&
+                      afterDaysToday
+                    ) {
                       return {
                         disabled: false,
                         style: { color: "black" },
