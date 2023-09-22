@@ -56,7 +56,7 @@ const RoomDescription = (props) => {
   // const [dates, setDates] = useState([]);
   const params = useParams();
   // console.log("Parametros", params);
-  const [values, setValues] = useState([new DateObject()]);
+  const [values, setValues] = useState([null]);
   //
   const { rooms, getRoomRequest } = useRoom();
 
@@ -153,6 +153,20 @@ const RoomDescription = (props) => {
 
   function handleClick() {
     console.log(values[0], values[1], params.id, user.id);
+    
+    if(values[0] === null || values[0] === undefined){
+      alert("Por favor selecciona una fecha de inicio")
+    }
+    else if(values[1] === undefined || values[1] === null){
+      alert("Por favor selecciona una fecha de fin")
+    }
+    else if(values[0] === values[1]){
+      alert("Por favor selecciona una fecha de fin diferente a la de inicio")
+    }
+    else if(values[0] === undefined && values[1] === undefined){
+      alert("Por favor selecciona una fecha de inicio y una fecha de fin")
+    }
+
     createRoomUserReservationRequest({
       startDate: values[0],
       endDate: values[1],
@@ -249,7 +263,7 @@ const RoomDescription = (props) => {
                     const dateToday = new Date();
                     console.log(dateToday);
                     console.log(currentDate);
-
+                       
                     const invailableDates = extractedDatesUsers.map(
                       (dates) => ({
                         startDate: new Date(dates.startDate),
@@ -272,6 +286,8 @@ const RoomDescription = (props) => {
                         currentDate > dateToday && currentDate < dates.endDate
                     );
                     console.log(afterDaysToday);
+                    console.log(extractedDatesUsers)
+                    
                     const isDateUnavailable = invailableDates.some(
                       (dates) =>
                         currentDate >= dates.startDate &&
