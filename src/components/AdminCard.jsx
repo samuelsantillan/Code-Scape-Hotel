@@ -5,6 +5,23 @@ import Swal from "sweetalert2";
 function AdminCard({ room }) {
   const { deleteRoomRequest } = useAdmin();
 
+  const handleDeleteRoom = () => {
+    Swal.fire({
+      title: "¿Estas seguro?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, eliminar habitación",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("¡Eliminado!", "Tu habitación ha sido eliminada.", "success");
+        deleteRoomRequest(room._id);
+      }
+    });
+  };
+
   return (
     <>
       <div className="card mb-3">
@@ -17,34 +34,13 @@ function AdminCard({ room }) {
               <h5 className="card-title">{room.nameHabitation}</h5>
               <p className="card-text">{room.description}</p>
               <p className="card-text">
-                <small className="text-body-secondary">
+                <small className="text-muted">
                   {room.price} USD / Noche
                 </small>
               </p>
             </div>
-            <button
-              onClick={() => {
-                Swal.fire({
-                  title: "¿Estas seguro?",
-                  icon: "warning",
-                  showCancelButton: true,
-                  confirmButtonColor: "#3085d6",
-                  cancelButtonColor: "#d33",
-                  confirmButtonText: "Si, eliminar habitación",
-                  cancelButtonText: "Cancelar",
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    Swal.fire(
-                      "¡Eliminado!",
-                      "Tu habitación ha sido eliminada.",
-                      "success"
-                    );
-                    deleteRoomRequest(room._id);
-                  }
-                });
-              }}
-              className="btn btn-danger m-1"
-            >
+
+            <button onClick={handleDeleteRoom} className="btn btn-danger m-1">
               Eliminar
             </button>
             <button className="btn btn-info">

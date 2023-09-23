@@ -21,7 +21,7 @@ const months = [
 ];
 const weekDays = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
 const AdminCalendar = ({ onCalendarChange }) => {
-  const [values, setValues] = useState([new DateObject()]);
+  const [values, setValues] = useState([]);
   const windowSize = useWindowSize(); 
 
   const handleDateChange = (date) => {
@@ -63,11 +63,11 @@ const AdminCalendar = ({ onCalendarChange }) => {
             format="MMM DD"
             names={{
               selectedDates: "Hotel information:",
-              from: "Departure date:",
-              to: "Return date:",
-              selectDate: "select",
+              from: "Fecha de ingreso:",
+              to: "Fecha de salida:",
+              selectDate: "seleccionar",
               close: "Close",
-              separator: ",",
+              separator: "-",
             }}
           />,
         ]}

@@ -37,7 +37,6 @@ input
 @media (min-width: 998px) {
     .rowFormAdmin.row {
         width: 80vw;
-        padding: 5%;
     }
 }
 
