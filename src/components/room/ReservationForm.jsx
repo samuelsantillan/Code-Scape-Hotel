@@ -1,108 +1,98 @@
 import React, { useState } from "react";
-import { Form, Button, Container, Col, Card, Row } from "react-bootstrap";
+import { Col, Card, Row } from "react-bootstrap";
 import NavbarComponent from "../Navbar/NavbarComponent";
 import Footer from "../Footer/Footer";
 import "./ReservationForm.css";
+import PaymentForm from "./PaymentForm";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import logoBeige from "../../assets/svg/logoBeige.svg";
 
 const ReservationForm = () => {
-  const [contactInfo, setContactInfo] = useState({
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
-    email: "",
-  });
-
-  const [paymentInfo, setPaymentInfo] = useState({
-    cardNumber: "",
-    expirationDate: "",
-    cardName: "",
-  });
-
-  const handleContactInfoChange = (e) => {
-    const { name, value } = e.target;
-    setContactInfo((prevInfo) => ({
-      ...prevInfo,
-      [name]: value,
-    }));
-  };
-
-  const handlePaymentInfoChange = (e) => {
-    const { name, value } = e.target;
-    setPaymentInfo((prevInfo) => ({
-      ...prevInfo,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Contact Info:", contactInfo);
-    console.log("Payment Info:", paymentInfo);
-  };
-
   return (
-    <div>
-      <section className="heroSection-payInformation">
-        <div className="title-payInformation fadeInText">
-          <h1 className="titleGallery-payInformation">Información de pago</h1>
-          <div className="line-payInformation" />
-        </div>
-      </section>
-      <div class="container">
-        <Row class="row-sm-flex payInformation">
-          <Col md={6} col-sm-12>
-            <Form xs={12} md={6} col-sm-6 onSubmit={handleSubmit}>
-              <Form.Group controlId="cardNumber">
-                <Form.Label>Número de tarjeta</Form.Label>
-                <Form.Control
-                  className="payInformation"
-                  type="text"
-                  name="cardNumber"
-                  value={paymentInfo.cardNumber}
-                  onChange={handlePaymentInfoChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group controlId="expirationDate">
-                <Form.Label>Fecha de expiración</Form.Label>
-                <Form.Control
-                  className="payInformation"
-                  type="text"
-                  name="expirationDate"
-                  value={paymentInfo.expirationDate}
-                  onChange={handlePaymentInfoChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group controlId="cardName">
-                <Form.Label>Nombre en la tarjeta</Form.Label>
-                <Form.Control
-                  className="payInformation"
-                  type="text"
-                  name="cardName"
-                  value={paymentInfo.cardName}
-                  onChange={handlePaymentInfoChange}
-                  required
-                />
-              </Form.Group>
-              <Button variant="primary" type="submit" className="text-center">
-                Enviar
-              </Button>
+    <>
+      <nav className="navAlternative d-flex">
+        <a href="/">
+          <img src={logoBeige} alt="logo" />
+        </a>
+      </nav>
+      <Row className=" reservationRow">
+        <Col lg="12" xs="12">
+          <h1 className="text-center my-4">Reserva</h1>
+        </Col>
+        <Col lg="8" xs="12">
+         
+          <Card className="m-3 p-4">
+            <h4>Información Personal</h4>
+            <Form>
+              <div>
+                <Row>
+                  <Col lg="6" xs="12" className="col-12 my-3">
+                    <Form.Group controlId="formFirstName">
+                      <Form.Control type="text" placeholder="Nombre" />
+                    </Form.Group>
+                  </Col>
+                  <Col lg="6" xs="12" className="col-12 my-3">
+                    <Form.Group controlId="formLastName">
+                      <Form.Control type="text" placeholder="Apellido" />
+                    </Form.Group>
+                  </Col>
+                </Row>
+              </div>
+              <div className="mb-3">
+                <Row>
+                  <Col lg="6" xs="12" className="col-12 my-3">
+                    <Form.Group controlId="formMobileNumber">
+                      <Form.Control
+                        type="text"
+                        placeholder="Número de celular"
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col lg="6" xs="12" className="col-12 my-3">
+                    <Form.Group controlId="formEmail">
+                      <Form.Control type="email" placeholder="Email" />
+                    </Form.Group>
+                  </Col>
+                </Row>
+              </div>
             </Form>
-          </Col>
-          <div className="payInfo">
-          <Col md={6} col-sm-12 col-sm-6 className="d-flex align-items-center justify-content-center text-center">
-            <div className="">
-              <Card.Body>
-                <h3>Aquí va el precio total</h3>
-                <p className="lead">7 noches por 700 USD</p>
-              </Card.Body>
+          </Card>
+          <Card className=" m-3 p-4">
+            <h4 className="mb-3">Información de pago</h4>
+
+            <PaymentForm />
+          </Card>
+        </Col>
+        <Col lg="4" xs="12">
+          <Card className=" m-3  p-4">
+            <h4>Resumen de la Reserva</h4>
+            <div className="d-flex justify-content-between">
+              <p>Fecha de llegada</p>
+              <p>Fecha de salida</p>
             </div>
-          </Col>
-          </div>
-        </Row>
-      </div>
-    </div>
+            <div className="d-flex justify-content-between">
+              <p>Adultos: </p>
+              <p>Niños: </p>
+            </div>
+            <div className="d-flex justify-content-between">
+              <p>Habitación</p>
+              <p>Precio</p>
+            </div>
+            <hr />
+            <div className="d-flex justify-content-between">
+              <p>Total: </p>
+            </div>
+          </Card>
+        </Col>
+        <div className="d-flex justify-content-center my-3">
+          <Button variant="secondary" className="">
+            Completar reserva
+          </Button>
+        </div>
+      </Row>
+      <Footer />
+    </>
   );
 };
 
