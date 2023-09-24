@@ -59,21 +59,17 @@ const Footer = () => {
       setEmail("");
     } catch (e) {
       console.error("Error al enviar la suscripción");
-      Swal.fire({
-        title: "¡Hubo un error!",
-        text: "Por favor intentar nuevamente más tarde",
-    if (email.trim() === '') {
-      Swal.fire({
-        title: "Error",
-        text: "El campo de correo electrónico no puede estar vacío",
-        icon: "error",
-        color: '#faf8f4',
-        background: '#1d130c'
-      });
-      setEmail("");
+      if (email.trim() === '') {
+        Swal.fire({
+          title: "Error",
+          text: "El campo de correo electrónico no puede estar vacío",
+          icon: "error",
+          color: '#faf8f4',
+          background: '#1d130c'
+        });
+        return;
     }
-  };
-      return;
+    setEmail("");
     }
     if (!emailIsValid) {
       Swal.fire({
@@ -142,11 +138,7 @@ const Footer = () => {
                   onChange={handleEmailChange}
                 />
               </label>
-              <button type="submit" className='btnNewsletter' onClick={handleSubscribe} disabled={!emailIsValid}> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{ color: "#ecd3bc", }} /></button>
-                  required
-                />
-              </label>
-              <button type="submit" className='btnNewsletter' onClick={handleSubscribe}> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{ color: "#ecd3bc", }} /></button>
+              <button type="submit" className='btnNewsletter' onClick={handleSubscribe} disabled={!emailIsValid}> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{ color: "#ecd3bc", }} required /></button>
               {!emailIsValid && email.length > 0 && <p className="errorText">El formato del correo electrónico no es válido</p>}
             </div>
             <div className="p-1">+54 1038681 422229 / 421753</div>

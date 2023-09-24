@@ -22,10 +22,10 @@
   font-family: var(--cormorant);
   font-weight: 800;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
 }
 
-.titleSectionAbout{
+.titleSectionAbout {
   font-family: var(--cormorant);
   font-size: 4rem;
 }
@@ -97,16 +97,24 @@
 .imgclass {
   overflow: hidden;
 }
-.aboutRow{
+
+.aboutRow {
   width: 80vw;
 }
+
 @media (min-width: 768px) {
+
+  .titleAbout {
+    font-size: 40px;
+  }
+
   .info-box {
     width: 50%;
     padding: 10px;
     margin-bottom: 30px;
   }
-  .aboutRow{
+
+  .aboutRow {
     width: 60vw;
   }
 }
