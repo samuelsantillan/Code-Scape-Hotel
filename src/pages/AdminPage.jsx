@@ -92,64 +92,76 @@ function AdminPage() {
 
   return (
     <>
-      <form className="row rowFormAdmin gy-3" onSubmit={handleSubmitForm}>
-        <div className="col-md-12 justify-content-center">
-          <h1 className="text-center title">Agregar habitación</h1>
+        <div className="col-md-12 text-center m-4">
+          <h1>Agregar habitación</h1>
         </div>
+      <form className="row rowFormAdmin " onSubmit={handleSubmitForm}>
+
         <div className="col-md-6">
-          <label htmlFor="inputRoomName" className="form-label">
-            Nombre de Habitación
-          </label>
-          <input
-            {...register("roomName", { required: true })}
-            type="text"
-            placeholder="Nombre"
-            name="roomName"
-            className="form-control"
-          ></input>
+          <div className="mb-3">
+            <label htmlFor="inputRoomName" className="form-label">
+              Nombre de Habitación
+            </label>
+            <input
+              {...register("roomName", { required: true })}
+              type="text"
+              id="inputRoomName"
+              className="form-control"
+              placeholder="Nombre"
+            />
+          </div>
         </div>
+
         <div className="col-md-6">
-          <label htmlFor="inputRoomType" className="form-label">
-            Tipo de Habitación
-          </label>
-          <select
-            className="form-select selectRoomAdmin"
-            aria-label="Default select example"
-            {...register("roomType")}
-            onChange={(e) => setValue("roomType", e.target.value)}
-          >
-            <option value="Estandar">Estandar</option>
-            <option value="Suite-Ejecutiva">Suite-Ejecutiva</option>
-            <option value="Suite-Presidencial">Suite-Presidencial</option>
-            <option value="Familiar">Familiar</option>
-          </select>
+          <div className="mb-3">
+            <label htmlFor="inputRoomType" className="form-label">
+              Tipo de Habitación
+            </label>
+            <select
+              className="form-select "
+              aria-label="Default select example"
+              {...register("roomType")}
+              onChange={(e) => setValue("roomType", e.target.value)}
+            >
+              <option value="Estandar">Estandar</option>
+              <option value="Suite-Ejecutiva">Suite-Ejecutiva</option>
+              <option value="Suite-Presidencial">Suite-Presidencial</option>
+              <option value="Familiar">Familiar</option>
+            </select>
+          </div>
         </div>
+
         <div className="col-md-6">
-          <label htmlFor="inputRoomPrice" className="form-label">
-            Precio de Habitación
-          </label>
-          <input
-            {...register("roomPrice", { required: true })}
-            type="text"
-            name="roomPrice"
-            className="form-control"
-            placeholder="Precio"
-          ></input>
+          <div className="mb-3">
+            <label htmlFor="inputRoomPrice" className="form-label">
+              Precio de Habitación
+            </label>
+            <input
+              {...register("roomPrice", { required: true })}
+              type="text"
+              id="inputRoomPrice"
+              className="form-control"
+              placeholder="Precio"
+            />
+          </div>
         </div>
+
         <div className="col-md-6">
-          <label htmlFor="inputRoomNumber" className="form-label">
-            Número de Habitación
-          </label>
-          <input
-            {...register("roomNumber", { required: true })}
-            type="text"
-            name="roomNumber"
-            className="form-control"
-            placeholder="Número"
-            {...(isUpdateRoom && { disabled: true })}
-          ></input>
+          <div className="mb-3">
+            <label htmlFor="inputRoomNumber" className="form-label">
+              Número de Habitación
+            </label>
+            <input
+              {...register("roomNumber", { required: true })}
+              type="text"
+              id="inputRoomNumber"
+              className="form-control"
+              placeholder="Número"
+              {...(isUpdateRoom && { disabled: true })}
+            />
+          </div>
         </div>
-        <div className="col-md-12 d-flex align-items-center justify-content-center">
+        <div className="col-md-12 d-flex align-items-center justify-content-center my-4">
           <AdminCalendar onCalendarChange={handleCalendarChange} />
         </div>
 
@@ -166,12 +178,15 @@ function AdminPage() {
           <FileUploadComponent />
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
-          <input type="submit" className="btn btnCargar" value="CARGAR HABITACIÓN"/>
+          <input
+            type="submit"
+            className="btn btnCargar"
+            value="CARGAR HABITACIÓN"
+          />
         </div>
       </form>
     </>
   );
-
 }
 
 export default AdminPage;

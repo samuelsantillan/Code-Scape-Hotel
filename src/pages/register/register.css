@@ -298,7 +298,7 @@ nav.navAlternative img {
   form {
     margin-bottom: 0;
     padding: 0 !important;
-    width: 40rem;
+    /* width: 40rem; */
   }
   .main-container-register {
     height: 100vh;

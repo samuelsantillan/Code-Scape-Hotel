@@ -56,7 +56,7 @@ const RoomDescription = (props) => {
   // const [dates, setDates] = useState([]);
   const params = useParams();
   // console.log("Parametros", params);
-  const [values, setValues] = useState([new DateObject()]);
+  const [values, setValues] = useState([null]);
   //
   const { rooms, getRoomRequest } = useRoom();
 
@@ -152,12 +152,26 @@ const RoomDescription = (props) => {
   const numberOfMonths = windowWidth < 768 ? 1 : 2;
 
   function handleClick() {
-    console.log(values[0],values[1], params.id, user.id);
+    console.log(values[0], values[1], params.id, user.id);
+    
+    if(values[0] === null || values[0] === undefined){
+      alert("Por favor selecciona una fecha de inicio")
+    }
+    else if(values[1] === undefined || values[1] === null){
+      alert("Por favor selecciona una fecha de fin")
+    }
+    else if(values[0] === values[1]){
+      alert("Por favor selecciona una fecha de fin diferente a la de inicio")
+    }
+    else if(values[0] === undefined && values[1] === undefined){
+      alert("Por favor selecciona una fecha de inicio y una fecha de fin")
+    }
+
     createRoomUserReservationRequest({
       startDate: values[0],
-      endDate : values[1], 
-      idRoom:  params.id, 
-      idUser : user.id
+      endDate: values[1],
+      idRoom: params.id,
+      idUser: user.id,
     });
   }
 
@@ -246,7 +260,10 @@ const RoomDescription = (props) => {
                         .toString()
                         .padStart(2, "0")}-${date.day}`
                     );
-
+                    const dateToday = new Date();
+                    console.log(dateToday);
+                    console.log(currentDate);
+                       
                     const invailableDates = extractedDatesUsers.map(
                       (dates) => ({
                         startDate: new Date(dates.startDate),
@@ -264,14 +281,24 @@ const RoomDescription = (props) => {
                         currentDate >= dates.startDate &&
                         currentDate <= dates.endDate
                     );
-
+                    const afterDaysToday = availableDates.some(
+                      (dates) =>
+                        currentDate > dateToday && currentDate < dates.endDate
+                    );
+                    console.log(afterDaysToday);
+                    console.log(extractedDatesUsers)
+                    
                     const isDateUnavailable = invailableDates.some(
                       (dates) =>
                         currentDate >= dates.startDate &&
                         currentDate <= dates.endDate
                     );
 
-                    if (isDateAvailable && !isDateUnavailable) {
+                    if (
+                      isDateAvailable &&
+                      !isDateUnavailable &&
+                      afterDaysToday
+                    ) {
                       return {
                         disabled: false,
                         style: { color: "black" },
@@ -295,6 +322,7 @@ const RoomDescription = (props) => {
                 <div className="text-center my-5">
                   {isAuthenticated ? (
                     <Link
+                      to="/ReservationForm"
                       onClick={handleClick}
                       className="btn btn-details"
                       style={{ textDecoration: "none" }}

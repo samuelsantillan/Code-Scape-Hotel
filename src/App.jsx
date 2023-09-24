@@ -117,9 +117,7 @@ const App = () => {
                     <Route
                       path="/ReservationForm"
                       element={
-                        <Layout>
                           <ReservationForm />
-                        </Layout>
                       }
                     />
                     <Route path="/login" element={<Login />} />
