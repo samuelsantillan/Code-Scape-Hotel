@@ -148,7 +148,7 @@ const ContentSection = () => {
                     <Container>
                         <Row className='restaurantRow'>
                             <Col xs={12} lg={6} className='restaurantImages imgCol col p-0 d-flex justify-content-center'>
-                                <FadeIn delay={1}>
+                                <FadeIn>
                                     <div className="restaurantCol">
                                         <div
                                             className="image-wrapper"

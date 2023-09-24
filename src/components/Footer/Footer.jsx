@@ -21,6 +21,47 @@ const Footer = () => {
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
+    const formData = {
+      email: email,
+    };
+    try {
+      const response = await fetch("http://localhost:3000/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        console.log("Suscripto correctamente");
+        Swal.fire({
+          title: "¡Te suscribiste correctamente!",
+          text: "Gracias por suscribirte! Pronto recibirás las últimas novedades y ofertas exclusivas",
+          icon: "success",
+          color: '#faf8f4',
+          background: '#1d130c'
+        }
+
+        );
+        setEmail("");
+      } else {
+        console.error("Error al enviar suscripcion");
+        Swal.fire({
+          title: "Hubo un error!",
+          text: "Por favor intentar nuevamente",
+          icon: "error",
+          color: '#faf8f4',
+          background: '#1d130c'
+        }
+
+        );
+      }
+      setEmail("");
+    } catch (e) {
+      console.error("Error al enviar la suscripción");
+      Swal.fire({
+        title: "¡Hubo un error!",
+        text: "Por favor intentar nuevamente más tarde",
     if (email.trim() === '') {
       Swal.fire({
         title: "Error",
@@ -29,6 +70,9 @@ const Footer = () => {
         color: '#faf8f4',
         background: '#1d130c'
       });
+      setEmail("");
+    }
+  };
       return;
     }
     if (!emailIsValid) {
@@ -83,7 +127,6 @@ const Footer = () => {
       setEmail("");
     }
   };
-
   return (
     <footer>
       <Container className='footerContainer' fluid>
@@ -97,6 +140,9 @@ const Footer = () => {
                   className="inputNewsletter"
                   value={email}
                   onChange={handleEmailChange}
+                />
+              </label>
+              <button type="submit" className='btnNewsletter' onClick={handleSubscribe} disabled={!emailIsValid}> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{ color: "#ecd3bc", }} /></button>
                   required
                 />
               </label>
