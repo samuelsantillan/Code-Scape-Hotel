@@ -47,7 +47,13 @@ const Contact = () => {
                     message: "",
                 });
             } else {
-                Swal.fire("Hubo un error!", "Por favor intentar nuevamente", "error");
+                Swal.fire({
+                    title: "Hubo un error!",
+                    text: "Por favor intentar nuevamente",
+                    icon: "error",
+                    color: '#faf8f4',
+                    background: '#1d130c'
+                });
                 console.error("Error al enviar el formulario");
             }
             setFormData({
@@ -56,6 +62,13 @@ const Contact = () => {
                 message: "",
             });
         } catch (e) {
+            Swal.fire({
+                title: "Hubo un error!",
+                text: "Por favor intentar nuevamente",
+                icon: "error",
+                color: '#faf8f4',
+                background: '#1d130c'
+            });
             console.error("Error al enviar el formulario");
         }
     };
