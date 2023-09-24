@@ -40,7 +40,7 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--white);
-    margin-bottom: 10%;
+    padding-bottom: 10%;
 }
 
 .gallerySectionTitle {
@@ -94,11 +94,7 @@ ul {
     padding: 0.2%;
     margin: 0;
 }
-.galleryContainer{
-    display: flex;
-    justify-content: center;
 
-}
 .imageContainer {
     width: 100%;
     height: 0;
@@ -188,27 +184,29 @@ ul {
 }
 
 @media (max-width: 998px) {
-
     .sliderWrap .btnPrev,
     .sliderWrap .btnNext {
         font-size: 1rem;
         color: var(--darkBrown);
         background-color: var(--lightBeige);
     }
+    
 }
 @media  (max-width: 768px) {
     .scrollCategory{
-        max-width: 340px;
-        margin: 10px auto;
+        max-width: 330px;
         overflow: hidden;
     }
-    .galleryContainer{
-        margin: 0;
-        padding: 0;
+    .fa-chevron-left, .fa-chevron-right {
+        display: block;
+        color: var(--brownB);
+        position: relative;
+        top: 5px;
+        left: 1px;
     }
-    .galleryContainer .row{
-        width: 100vw;
-        margin: 0;
-        padding: 0;
+
+    .categories.btnGroup li:first-child button {
+        padding-left: 10px;
     }
+    
 }
