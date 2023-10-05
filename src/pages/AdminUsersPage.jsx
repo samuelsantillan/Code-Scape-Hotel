@@ -18,60 +18,6 @@ import {
 import { randomId } from "@mui/x-data-grid-generator";
 import '../assets/css/admin-page.css';
 
-// const UserRole = {
-//   ADMIN: {
-//     name: "admin",
-//     value: "0",
-//   },
-//   USER: {
-//     name: "user",
-//     value: "1",
-//   },
-// };
-
-// const initialRows = [
-//   {
-//     _id: randomId(),
-//     username: "test12",
-//     email: "test12@test.com",
-//     password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
-//     role: UserRole.ADMIN.name,
-//     state: true,
-//     createdAt: randomCreatedDate(),
-//     updatedAt: randomCreatedDate(),
-//   },
-//   {
-//     _id: randomId(),
-//     username: "test12",
-//     email: "test12@test.com",
-//     password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
-//     role: UserRole.ADMIN.name,
-//     state: true,
-//     createdAt: randomCreatedDate(),
-//     updatedAt: randomCreatedDate(),
-//   },
-//   {
-//     _id: randomId(),
-//     username: "test12",
-//     email: "test12@test.com",
-//     password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
-//     role: UserRole.ADMIN.name,
-//     state: true,
-//     createdAt: randomCreatedDate(),
-//     updatedAt: randomCreatedDate(),
-//   },
-//   {
-//     _id: randomId(),
-//     username: "test13",
-//     email: "test12@test.com",
-//     password: "$2a$10$fsIhietA0ubG0Q7lkWF6QOiFWk8qvKV99lf45Q34m.aIjo8Jzddly",
-//     role: UserRole.ADMIN.name,
-//     state: true,
-//     createdAt: randomCreatedDate(),
-//     updatedAt: randomCreatedDate(),
-//   },
-// ];
-
 function EditToolbar(props) {
   const { setRows, setRowModesModel, setCreateUserState } = props;
 
@@ -159,7 +105,7 @@ export default function AdminUsersPage() {
 
   const handleEditClick = (id) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
-    alert("se clickeo");
+    // alert("se clickeo");
     console.log(id);
   };
 
@@ -241,20 +187,7 @@ export default function AdminUsersPage() {
       headerAlign: "left",
       editable: true,
     },
-    {
-      field: "password",
-      headerName: "password",
-      width: 220,
-      editable: true,
-    },
-    // {
-    //   field: "role",
-    //   headerName: "role",
-    //   width: 220,
-    //   editable: true,
-    //   type: "singleSelect",
-    //   valueOptions: ["1", "0"],
-    // },
+
     {
       field: "role",
       headerName: "role",
@@ -269,20 +202,6 @@ export default function AdminUsersPage() {
       editable: true,
       type: "boolean",
     },
-    // {
-    //   field: "createdAt",
-    //   headerName: "createdAt",
-    //   type: "date",
-    //   width: 180,
-    //   editable: true,
-    // },
-    // {
-    //   field: "updatedAt",
-    //   headerName: "updatedAt",
-    //   type: "date",
-    //   width: 180,
-    //   editable: true,
-    // },
     {
       field: "actions",
       type: "actions",

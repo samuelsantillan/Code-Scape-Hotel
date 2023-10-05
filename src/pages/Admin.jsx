@@ -11,12 +11,15 @@ import AdminUsersPage from "./AdminUsersPage";
 import NewComponentTest from "./NewComponentTest";
 import SideNavAdmin from "../components/SideNavAdmin";
 import "../assets/css/admin-page.css";
+import UploadContainer from "./UploadContainer";
+
 function Admin() {
   return (
     <>
       <SideNavAdmin />
       <Container fluid className="containerAdminPage ">
         <Routes>
+           <Route path="/:id" element={<AdminPage />} />
           <Route path="/" element={<AdminPage />} />
           <Route path="/rooms" element={<AdminRoomsPage />} />
           <Route
@@ -30,6 +33,7 @@ function Admin() {
               </Container>
             }
           />
+          <Route path="/test" element={<UploadContainer />} />
         </Routes>
       </Container>
     </>
