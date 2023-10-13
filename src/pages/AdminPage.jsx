@@ -15,14 +15,11 @@ function AdminPage() {
   const navigate = useNavigate();
   const params = useParams();
   const { room } = useAdmin();
-  console.log(room);
   const handleCalendarChange = (calendarDates) => {
     setCalendarValues(calendarDates);
-    console.log(calendarDates);
   };
 
   useEffect(() => {
-    console.log(params);
     async function loadRoom() {
       if (params.id) {
         const room = await getRoomRequest(params.id);
@@ -32,7 +29,6 @@ function AdminPage() {
         setValue("roomNumber", room.numberHabitation);
         setValue("roomDetails", room.description);
         setIsUpdateRoom(true);
-        // setCalendarValues(room.availableDates);
       }
     }
     loadRoom();
@@ -44,27 +40,7 @@ function AdminPage() {
     const roomPrice = formData.roomPrice;
     const roomNumber = formData.roomNumber;
     const roomDetails = formData.roomDetails;
-    // const res = await roomRequest({
-    //   nameHabitation: roomName,
-    //   type: roomType,
-    //   price:  roomPrice,
-    //   numberHabitation : roomNumber,
-    //   description:  roomDetails,
-    //   availableDates : calendarValues,
-    //   photo : "image.jpg"
-    // }
 
-    // ).then((res) => {
-    //   alert("Habitacion creada con exito ");
-    //   console.log(res);
-
-    // }).catch((err) => {
-    //   console.log(err);
-    //   if(err.response.status === 400){
-    //     alert("El numero de habitacion ya esta registrado");
-    //   }
-
-    // });
     if (params.id) {
       updateRoomRequest(params.id, {
         nameHabitation: roomName,

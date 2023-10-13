@@ -56,12 +56,6 @@ const ReservationForm = () => {
         formattedEndDate,
         email }),
       });
-  
-      if (response.ok) {
-        console.log("Correo de confirmación enviado con éxito");
-      } else {
-        console.error("Error al enviar el correo de confirmación");
-      }
     } catch (error) {
       console.error("Error al enviar el correo de confirmación:", error);
     }

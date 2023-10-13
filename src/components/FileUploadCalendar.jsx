@@ -9,9 +9,7 @@ const FileUploadComponent = () => {
   const fileParams = ({ meta }) => {
     return { url: sendImages };
   };
-  const onFileChange = ({ meta, file }, status) => {
-    console.log(status, meta, file);
-  };
+  
   const onSubmit = (files, allFiles) => {
     allFiles.forEach((f) => f.remove());
   };
