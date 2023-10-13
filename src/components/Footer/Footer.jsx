@@ -33,7 +33,6 @@ const Footer = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        console.log("Suscripto correctamente");
         Swal.fire({
           title: "¡Te suscribiste correctamente!",
           text: "Gracias por suscribirte! Pronto recibirás las últimas novedades y ofertas exclusivas",
@@ -92,7 +91,6 @@ const Footer = () => {
 
 
       if (response.ok) {
-        console.log("Mensaje enviado y guardado en la base de datos");
         Swal.fire({
           title: "¡Suscrito Correctamente!",
           text: "¡Gracias por suscribirte! Pronto recibiras novedades y ofertas únicas",

@@ -70,11 +70,9 @@ function EditToolbar(props) {
     const id = randomId();
 
     setRows((oldRows) => {
-      console.log(oldRows);
       return [...oldRows, { id, name: "", age: "", isNew: true }];
     });
     setRowModesModel((oldModel) => {
-      console.log(oldModel)
       return ({
         ...oldModel,
         [id]: { mode: GridRowModes.Edit, fieldToFocus: "name" },
@@ -120,10 +118,6 @@ export default function NewComponentTest() {
     });
 
     const editedRow = rows.find((row) => row.id === id);
-    console.log(rows);
-    console.log(rowModesModel);
-    console.log(editedRow);
-    console.log(editedRow.isNew);
     if (editedRow.isNew) {
       setRows(rows.filter((row) => row.id !== id));
     }

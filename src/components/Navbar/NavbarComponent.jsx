@@ -22,7 +22,6 @@ const NavbarComponent = () => {
       setExpand(!expand);
     }
   };
-  console.log(user);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
