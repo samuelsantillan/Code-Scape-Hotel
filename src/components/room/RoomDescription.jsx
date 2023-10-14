@@ -43,7 +43,6 @@ const weekDays = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
 
 const RoomDescription = (props) => {
   const { isAuthenticated, user } = useAuth();
-  console.log(isAuthenticated);
   const {
     getRoomUserRequest,
     rooms: roomUser,
@@ -53,11 +52,8 @@ const RoomDescription = (props) => {
   } = useRoomUser();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(true);
-  // const [dates, setDates] = useState([]);
   const params = useParams();
-  // console.log("Parametros", params);
-  const [values, setValues] = useState([new DateObject()]);
-  //
+  const [values, setValues] = useState([null]);
   const { rooms, getRoomRequest } = useRoom();
 
   const [roomPrice, setRoomPrice] = useState();
@@ -96,7 +92,6 @@ const RoomDescription = (props) => {
 
     fetchData();
   }, [params.id]);
-  console.log(roomUsersReservation);
 
   const extractedDatesUsers = roomUsersReservation.map((item) => ({
     startDate: new Date(item.startDate).toISOString().split("T")[0],
@@ -107,7 +102,6 @@ const RoomDescription = (props) => {
     startDate: new Date(item.startDate).toISOString().split("T")[0],
     endDate: new Date(item.endDate).toISOString().split("T")[0],
   }));
-  console.log(extractedDates);
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
@@ -122,12 +116,9 @@ const RoomDescription = (props) => {
     let convertDate = date.map((dateObject) => {
       return dateObject.format("YYYY-MM-DD");
     });
-    console.log(convertDate);
     setValues(convertDate);
     if (convertDate.length === 2) {
       setRoomPrice(rooms.price * calculateDays(convertDate[0], convertDate[1]));
-      console.log(rooms.price * calculateDays(convertDate[0], convertDate[1]));
-      console.log(roomPrice);
     }
   };
   const iconServices = [
@@ -152,12 +143,25 @@ const RoomDescription = (props) => {
   const numberOfMonths = windowWidth < 768 ? 1 : 2;
 
   function handleClick() {
-    console.log(values[0],values[1], params.id, user.id);
+    
+    if(values[0] === null || values[0] === undefined){
+      alert("Por favor selecciona una fecha de inicio")
+    }
+    else if(values[1] === undefined || values[1] === null){
+      alert("Por favor selecciona una fecha de fin")
+    }
+    else if(values[0] === values[1]){
+      alert("Por favor selecciona una fecha de fin diferente a la de inicio")
+    }
+    else if(values[0] === undefined && values[1] === undefined){
+      alert("Por favor selecciona una fecha de inicio y una fecha de fin")
+    }
+
     createRoomUserReservationRequest({
       startDate: values[0],
-      endDate : values[1], 
-      idRoom:  params.id, 
-      idUser : user.id
+      endDate: values[1],
+      idRoom: params.id,
+      idUser: user.id,
     });
   }
 
@@ -246,7 +250,9 @@ const RoomDescription = (props) => {
                         .toString()
                         .padStart(2, "0")}-${date.day}`
                     );
+                    const dateToday = new Date();
 
+                       
                     const invailableDates = extractedDatesUsers.map(
                       (dates) => ({
                         startDate: new Date(dates.startDate),
@@ -264,14 +270,22 @@ const RoomDescription = (props) => {
                         currentDate >= dates.startDate &&
                         currentDate <= dates.endDate
                     );
-
+                    const afterDaysToday = availableDates.some(
+                      (dates) =>
+                        currentDate > dateToday && currentDate < dates.endDate
+                    );
+                    
                     const isDateUnavailable = invailableDates.some(
                       (dates) =>
                         currentDate >= dates.startDate &&
                         currentDate <= dates.endDate
                     );
 
-                    if (isDateAvailable && !isDateUnavailable) {
+                    if (
+                      isDateAvailable &&
+                      !isDateUnavailable &&
+                      afterDaysToday
+                    ) {
                       return {
                         disabled: false,
                         style: { color: "black" },
@@ -295,6 +309,7 @@ const RoomDescription = (props) => {
                 <div className="text-center my-5">
                   {isAuthenticated ? (
                     <Link
+                      to="/ReservationForm"
                       onClick={handleClick}
                       className="btn btn-details"
                       style={{ textDecoration: "none" }}

@@ -20,16 +20,13 @@ const Register = () => {
   } = useForm();
   const navigate = useNavigate();
 
-  console.log(user);
 
   useEffect(() => {
     if (isAuthenticated) navigate("/register");
   }, [isAuthenticated]);
 
-  console.log();
 
   const onSubmit = async (value) => {
-    console.log(value);
     await signup(value);
   };
 

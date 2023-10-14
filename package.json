@@ -29,6 +29,8 @@
     "babel-plugin-macros": "^3.1.0",
     "bootstrap": "^5.3.1",
     "date-fns": "^2.30.0",
+    "formsy-react": "^2.3.0",
+    "formsy-react-components": "^2.0.0-alpha.2",
     "fortawesome": "^0.0.1-security",
     "framer-motion": "^10.16.0",
     "html5-file-selector": "^2.1.0",
@@ -38,6 +40,7 @@
     "react-bootstrap": "^2.8.0",
     "react-bootstrap-sidebar-menu": "^2.0.3",
     "react-calendar": "^4.6.0",
+    "react-credit-cards": "^0.8.3",
     "react-datepicker": "^4.16.0",
     "react-dom": "^18.2.0",
     "react-dropzone-uploader": "^2.11.0",
@@ -53,7 +56,7 @@
     "react-use": "^17.4.0",
     "sass": "^1.65.1",
     "styled-components": "^5.3.11",
-    "sweetalert2": "^11.6.13"
+    "sweetalert2": "^11.7.27"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -63,6 +66,8 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "react-formawesome": "^1.0.4",
+    "react-formawesome-core": "^1.0.1",
     "vite": "^4.4.5"
   },
   "description": "Proyecto final para certificar el cursado de Full-Stack Developer en Rolling Code School",

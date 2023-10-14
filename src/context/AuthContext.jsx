@@ -21,7 +21,6 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (values) => {
     try {
-      console.log(values);
       const res = await registerRequest(values);
       console.log(res.data);
       setUser(res.data);
@@ -109,7 +108,7 @@ export const AuthProvider = ({ children }) => {
       if (Array.isArray(err.response.data)) {
         return setErrors(err.response.data);
       }
-      console.log(err); // si hay un error en la autenticacio
+      console.log(err); 
       setErrors([err.response.data.message]);
     }
   };

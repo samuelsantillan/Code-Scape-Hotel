@@ -1,6 +1,5 @@
-import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import "./Aboutus.css"
 import ScrollToTopButton from '../scrollToTop/ScrollToTopButton';
 import { motion } from 'framer-motion';
@@ -14,7 +13,7 @@ const AboutUsPage = () => {
     >
       <section className="introSection nosotros">
         <div className="title fadeInText">
-          <h1 className="titleContact text-center ">SOBRE NOSOTROS</h1>
+          <h1 className="titleAbout text-center ">SOBRE NOSOTROS</h1>
           <div className="line" />
         </div>
       </section>

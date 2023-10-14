@@ -8,3 +8,5 @@ export const getRooms = () => axios.get(`roomGet`);
 export const getRoomUser = (id) => axios.get(`getAvailableDate/${id}`);
 
 export const getRoomUserReservation = (id) => axios.get(`roomUserReservation/${id}`);
+
+export const sendConfirmationMail = () => axios.post(`sendConfirmationEmail`);

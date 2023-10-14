@@ -1,4 +1,4 @@
-a.nav-link, a.nav-link:hover {
+a.nav-link, a.nav-link:hover, a.nav-link:focus {
   color: white;
   margin-left: 3rem;
   position: relative;
@@ -6,6 +6,7 @@ a.nav-link, a.nav-link:hover {
   display: inline-block;
   text-decoration: none;
   opacity: 1;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0) ;
 }
 
 .nav-link:after {

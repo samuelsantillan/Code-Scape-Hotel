@@ -17,12 +17,11 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (value) => {
-    console.log(value);
     signin(value);
   };
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/home");
+      navigate("/");
     }
   }, [isAuthenticated]);
 

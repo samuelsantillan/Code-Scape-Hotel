@@ -269,11 +269,12 @@ nav.navAlternative img {
   }
 }
 
+
 @media screen and (max-width: 1000px) {
   .form-register {
     margin-bottom: 0;
     padding: 0 !important;
-    width: 40rem;
+    /* width: 40rem; */
   }
   .main-container-register {
     height: auto;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
@@ -10,7 +10,6 @@ import { FaShower, FaHips, FaHotjar, FaAd } from "react-icons/fa";
 import IconContainer from "./IconContainer";
 import RoomDescription from "./RoomDescription";
 const Room = (props) => {
-  console.log("PROPS", props);
 
   const photos = props.photos;
   const roomId = props._id;

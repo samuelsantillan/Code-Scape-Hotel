@@ -1,7 +1,7 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import Swal from 'sweetalert2'
 import logoBeige from '../../assets/svg/logoBeige.svg';
 import './footerStyle.css';
 const Footer = () => {
@@ -16,12 +16,111 @@ const Footer = () => {
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setemailIsValid(emailRegex.test(email));
+    
   }
-  const handleSubscribe = () => {
-    if (emailIsValid){
-      setEmail('');
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    const formData = {
+      email: email,
+    };
+    try {
+      const response = await fetch("http://localhost:3000/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        Swal.fire({
+          title: "¡Te suscribiste correctamente!",
+          text: "Gracias por suscribirte! Pronto recibirás las últimas novedades y ofertas exclusivas",
+          icon: "success",
+          color: '#faf8f4',
+          background: '#1d130c'
+        }
+
+        );
+        setEmail("");
+      } else {
+        console.error("Error al enviar suscripcion");
+        Swal.fire({
+          title: "Hubo un error!",
+          text: "Por favor intentar nuevamente",
+          icon: "error",
+          color: '#faf8f4',
+          background: '#1d130c'
+        }
+
+        );
+      }
+      setEmail("");
+    } catch (e) {
+      console.error("Error al enviar la suscripción");
+      if (email.trim() === '') {
+        Swal.fire({
+          title: "Error",
+          text: "El campo de correo electrónico no puede estar vacío",
+          icon: "error",
+          color: '#faf8f4',
+          background: '#1d130c'
+        });
+        return;
     }
-  }
+    setEmail("");
+    }
+    if (!emailIsValid) {
+      Swal.fire({
+        title: "¡Error!",
+        text: "El formato del correo electrónico no es válido",
+        icon: "error",
+        color: '#faf8f4',
+        background: '#1d130c'
+      });
+      return;
+    }
+    try {
+      const response = await fetch("http://localhost:3000/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+
+      if (response.ok) {
+        Swal.fire({
+          title: "¡Suscrito Correctamente!",
+          text: "¡Gracias por suscribirte! Pronto recibiras novedades y ofertas únicas",
+          icon: "success",
+          color: '#faf8f4',
+          background: '#1d130c'
+        });
+        setEmail("");
+      } else {
+        const data = await response.json();
+        Swal.fire({
+          title: "¡Hubo un error!",
+          text: data.message,
+          icon: "error",
+          color: '#faf8f4',
+          background: '#1d130c'
+        });
+        setEmail("");
+      }
+    } catch (e) {
+      Swal.fire({
+        title: "Hubo un error!",
+        text: "Por favor intentar nuevamente",
+        icon: "error",
+        color: '#faf8f4',
+        background: '#1d130c'
+      });
+      setEmail("");
+    }
+  };
   return (
     <footer>
       <Container className='footerContainer' fluid>
@@ -30,15 +129,15 @@ const Footer = () => {
             <div className="p-1">Suscribite a nuestra <em>Newsletter</em></div>
             <div className="p-1">
               <label>
-              <input type="text"
-            placeholder="Correo Electrónico"
-            className="inputNewsletter"
-            value={email}
-            onChange={handleEmailChange}
-           />
+                <input type="text"
+                  placeholder="Correo Electrónico"
+                  className="inputNewsletter"
+                  value={email}
+                  onChange={handleEmailChange}
+                />
               </label>
-             <button type="submit" className='btnNewsletter' onClick={handleSubscribe}> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{color: "#ecd3bc",}} /></button>
-              
+              <button type="submit" className='btnNewsletter' onClick={handleSubscribe} disabled={!emailIsValid}> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{ color: "#ecd3bc", }} required /></button>
+              {!emailIsValid && email.length > 0 && <p className="errorText">El formato del correo electrónico no es válido</p>}
             </div>
             <div className="p-1">+54 1038681 422229 / 421753</div>
             <div className="p-1 brownText">codescape@hotel.com</div>
