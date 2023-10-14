@@ -9,7 +9,7 @@ function RoomsPage() {
   useEffect(() => {
     getRoomsRequest();
   }, []);
-
+  console.log(rooms)
   if (rooms.length === 0) return <h1>No hay habitaciones</h1>;
 
   return (
