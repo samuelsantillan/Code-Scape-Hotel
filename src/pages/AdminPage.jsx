@@ -79,7 +79,7 @@ function AdminPage() {
     const roomNumber = formData.roomNumber;
     const roomDetails = formData.roomDetails;
     sendImage();
-    if (id) {
+    // if (id) {
       // updateRoomRequest(id, {
       //   nameHabitation: roomName,
       //   type: roomType,
@@ -89,34 +89,34 @@ function AdminPage() {
       //   availableDates: calendarValues,
       //   photos: "image.jpg",
       // });
-      updateRoomWithPhoto(id, {
+      // updateRoomWithPhoto(id, {
 
-    if (params.id) {
-      updateRoomRequest(params.id, {
-        nameHabitation: roomName,
-        type: roomType,
-        price: roomPrice,
-        numberHabitation: roomNumber,
-        description: roomDetails,
-        availableDates: calendarValues,
-        photo: "image.jpg",
-      },name,file).then((response) => {
-        console.log("El resultado es : ", response);
-      });
+    // if (params.id) {
+    //   updateRoomRequest(params.id, {
+    //     nameHabitation: roomName,
+    //     type: roomType,
+    //     price: roomPrice,
+    //     numberHabitation: roomNumber,
+    //     description: roomDetails,
+    //     availableDates: calendarValues,
+    //     photo: "image.jpg",
+    //   },name,file).then((response) => {
+    //     console.log("El resultado es : ", response);
+    //   });
 
-      navigate("/admin/rooms");
-    } else {
-      createRoomWithPhoto({
-        nameHabitation: roomName,
-        type: roomType,
-        price: roomPrice,
-        numberHabitation: roomNumber,
-        description: roomDetails,
-        availableDates: calendarValues,
-        photo: "image.jpg",
-      },name,file).then((response) => {
-        console.log("El resultado es : ", response);
-      });
+    //   navigate("/admin/rooms");
+    // } else {
+    //   createRoomWithPhoto({
+    //     nameHabitation: roomName,
+    //     type: roomType,
+    //     price: roomPrice,
+    //     numberHabitation: roomNumber,
+    //     description: roomDetails,
+    //     availableDates: calendarValues,
+    //     photo: "image.jpg",
+    //   },name,file).then((response) => {
+    //     console.log("El resultado es : ", response);
+    //   });
 
 
       // createRoom({
@@ -128,8 +128,8 @@ function AdminPage() {
       //   availableDates: calendarValues,
       //   photo: "image.jpg",
       // });
-      navigate("/admin/rooms");
-    }
+  //     navigate("/admin/rooms");
+  //   }
   });
 
   return (
