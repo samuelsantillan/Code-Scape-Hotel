@@ -41,7 +41,7 @@ const Register = () => {
             </p>
           ))}
           <form
-            className={`form-register sign-up ${isSignupVisible ? "active" : ""}`}
+            className= {  `form-register sign-up ${isSignupVisible ? "active" : ""}`}
             onSubmit={handleSubmit(onSubmit)}
           >
             <h2 className="h2-register">CREAR CUENTA</h2>
@@ -113,7 +113,7 @@ const Register = () => {
               </div>
               <div className="img__btn">
 
-                <a href="/login"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+                <a href="/login"> <span >
                   Entrar
                 </span></a>
               </div>
@@ -124,7 +124,7 @@ const Register = () => {
           {" "}
           <h2 className="h2-register img-text">¿Ya tenés cuenta?</h2>
           <div className="img__btn">
-            <a href="/login"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+            <a href="/login"> <span >
               Entrar
             </span></a>
           </div>

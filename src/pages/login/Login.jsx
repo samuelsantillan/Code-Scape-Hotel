@@ -51,29 +51,31 @@ const Login = () => {
               })}
             />
             {errors.email && (
-              <p className="text-center" style={{ color: "red" }}>
+              <p className="validacion" style={{ color: "red" }}>
                 {errors.email.message}
               </p>
             )}
           </label>
           <label className="label-register">
             <span>Contraseña</span>
-            <input
-              className="input-register"
-              type="password"
-              {...register("password", {
-                required: "La contraseña es obligatoria",
-                minLength: {
-                  value: 6,
-                  message: "La contraseña debe tener al menos 6 caracteres",
-                },
-              })}
-            />
-            {errors.password && (
-              <p className="text-center" style={{ color: "red" }}>
-                {errors.password.message}
-              </p>
-            )}
+            <div style={{ marginBottom: "1rem" }}>
+  <input
+    className="input-register"
+    type="password"
+    {...register("password", {
+      required: "La contraseña es obligatoria",
+      minLength: {
+        value: 6,
+        message: "La contraseña debe tener al menos 6 caracteres",
+      },
+    })}
+  />
+  {errors.password && (
+    <p className="validacion" style={{ color: "red", marginTop: "0.5rem" }}>
+      {errors.password.message}
+    </p>
+  )}
+</div>
           </label>
           <div className="button-register">
             <button type="submit-register" className="submit-register button-register2">
@@ -83,15 +85,15 @@ const Login = () => {
         </form>
         <div className="sub-cont-register">
           <div className="img-register">
-            <div className={`img__text ${isSignupVisible ? "m--in" : "m--up"}`}>
-              <h2 className="h2-register img-text">{isSignupVisible ? "¿Ya tenés cuenta?" : "¿Sos nuevo?"}</h2>
+            <div className={`img__text `}>
+              <h2 className="h2-register img-text">"¿Sos nuevo?"</h2>
               {isSignupVisible && <p></p>}
             </div>
             <div className="img__btn">
-              <a href="/register"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+              <a href="/register"> <span>
                 registrate
               </span></a>
-              <span className={`m--in ${isSignupVisible ? "" : "inactive"}`}>
+              <span >
                 Inicia sesión
               </span>
             </div>
@@ -102,7 +104,7 @@ const Login = () => {
         {" "}
         <h2 className="h2-register img-text">¿No tenes cuenta?</h2>{" "}
         <div className="img__btn">
-          <a href="/register"> <span className={`m--up ${isSignupVisible ? "inactive" : ""}`}>
+          <a href="/register"> <span >
             Registrate
           </span></a>
         </div>
