@@ -31,7 +31,6 @@ const Contact = () => {
                 body: JSON.stringify(formData),
             });
             if (response.ok) {
-                console.log("Mensaje enviado y guardado en la base de datos");
                 Swal.fire({
                     title: "Enviado Correctamente!",
                     text: "Te responderemos pronto!",

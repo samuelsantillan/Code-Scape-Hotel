@@ -17,7 +17,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (value) => {
-    console.log(value);
     signin(value);
   };
   useEffect(() => {

@@ -25,20 +25,6 @@ function EditToolbar(props) {
     setCreateUserState(true);
     const _id = randomId();
     setRows((oldRows) => {
-      console.log(oldRows);
-      console.log([
-        ...oldRows,
-        {
-          _id,
-          username: "",
-          email: "",
-          password: "",
-          role: 0,
-
-          state: true,
-          isNew: true,
-        },
-      ]);
       return [
         ...oldRows,
         {
@@ -62,7 +48,7 @@ function EditToolbar(props) {
   return (
     <GridToolbarContainer>
       <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        Add record
+        Agregar Usuario
       </Button>
     </GridToolbarContainer>
   );
@@ -87,16 +73,14 @@ export default function AdminUsersPage() {
 
   const [createUserState, setCreateUserState] = React.useState(false);
 
-  console.log(rows);
   const [rowModesModel, setRowModesModel] = React.useState({});
   const [idElementModified, setIdElementModified] = React.useState(null);
   React.useEffect(() => {
     if (idElementModified) {
       console.log(idElementModified);
     }
-  }, [idElementModified]); // Envuelve idElementModified en un array
+  }, [idElementModified]); 
 
-  // console.log(users);
   const handleRowEditStop = (params, event) => {
     if (params.reason === GridRowEditStopReasons.rowFocusOut) {
       event.defaultMuiPrevented = true;
@@ -105,8 +89,6 @@ export default function AdminUsersPage() {
 
   const handleEditClick = (id) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
-    // alert("se clickeo");
-    console.log(id);
   };
 
   const handleSaveClick = (id) => () => {
@@ -121,13 +103,27 @@ export default function AdminUsersPage() {
   };
 
   const handleDeleteClick = (id) => () => {
-    console.log(rows);
     // setRows(rows.filter((row) => row.id !== id));
     Swal.fire({
-      title: `Se eliminó correctamente el elemento con ID: ${id}!`,
-      icon: 'error',
+      title: `Seguro que quieres eliminar el usuario con ID:${id} `,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
       color: '#faf8f4',
-      background: '#1d130c'
+      background: '#1d130c',
+      confirmButtonText: 'Si,eliminar',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Eliminado!',
+          text: `Se eliminó correctamente el elemento con ID: ${id}!`,
+          icon: 'success',
+          color: '#faf8f4',
+          background: '#1d130c'
+        })
+      }
     })
     setIdElementModified(id);
     deleteUserRequest(id);
@@ -140,33 +136,21 @@ export default function AdminUsersPage() {
     });
 
     const editedRow = rows.find((row) => row._id === id);
-    console.log(rows);
-    console.log(rowModesModel);
-    console.log(editedRow);
     if (editedRow.isNew) {
       setRows(rows.filter((row) => row._id !== id));
     }
   };
 
   const processRowUpdate = (newRow) => {
-    console.log(newRow);
     if (createUserState) {
       setCreateUserState(false);
       const updatedRow = { ...newRow, isNew: false };
       setRows(rows.map((row) => (row._id === newRow._id ? updatedRow : row)));
-      console.log(updatedRow);
-      console.log(idElementModified);
-      console.log("processRowUpdate");
-      console.log(newRow);
       createUserRequest(newRow);
       return updatedRow;
     } else {
       const updatedRow = { ...newRow, isNew: false };
       setRows(rows.map((row) => (row._id === newRow._id ? updatedRow : row)));
-      console.log(updatedRow);
-      console.log(idElementModified);
-      console.log("processRowUpdate");
-      console.log(newRow);
       updateUserRequest(idElementModified, newRow);
       return updatedRow;
     }
@@ -177,27 +161,32 @@ export default function AdminUsersPage() {
   };
 
   const columns = [
-    { field: "username", headerName: "username", width: 180, editable: true },
+    { field: "username", headerName: "Usuario", width: 180, editable: true },
     {
       field: "email",
-      headerName: "email",
+      headerName: "Correo",
       type: "email",
       width: 220,
       align: "left",
       headerAlign: "left",
       editable: true,
     },
-
+    {
+      field: "password",
+      headerName: "Contraseña",
+      width: 220,
+      editable: false,
+    },
     {
       field: "role",
-      headerName: "role",
+      headerName: "Rol",
       width: 220,
       editable: true,
       type: "number",
     },
     {
       field: "state",
-      headerName: "state",
+      headerName: "Estado",
       width: 220,
       editable: true,
       type: "boolean",
@@ -205,7 +194,7 @@ export default function AdminUsersPage() {
     {
       field: "actions",
       type: "actions",
-      headerName: "Actions",
+      headerName: "Acciones",
       width: 100,
       cellClassName: "actions",
       getActions: ({ id }) => {
@@ -222,7 +211,7 @@ export default function AdminUsersPage() {
             />,
             <GridActionsCellItem
               icon={<CancelIcon />}
-              label="Cancel"
+              label="Cancelar"
               className="textPrimary"
               onClick={handleCancelClick(id)}
               color="inherit"
@@ -233,14 +222,14 @@ export default function AdminUsersPage() {
         return [
           <GridActionsCellItem
             icon={<EditIcon />}
-            label="Edit"
+            label="Editar"
             className="textPrimary"
             onClick={handleEditClick(id)}
             color="inherit"
           />,
           <GridActionsCellItem
             icon={<DeleteIcon />}
-            label="Delete"
+            label="Eliminar"
             onClick={handleDeleteClick(id)}
             color="inherit"
           />,

@@ -18,15 +18,12 @@ function AdminPage() {
   const navigate = useNavigate();
   const { id } = useParams();
   const { room } = useAdmin();
-
   const [name, setName] = useState("habitation");
   const [file, setFile] = useState(null);
   const [pathImage, setPathImage] = useState("");
 
-  console.log(room);
   const handleCalendarChange = (calendarDates) => {
     setCalendarValues(calendarDates);
-    console.log(calendarDates);
   };
 
   const sendImage = (e) => {
@@ -60,7 +57,6 @@ function AdminPage() {
   };
 
   useEffect(() => {
-    console.log(id);
     async function loadRoom() {
       if (id) {
         const room = await getRoomRequest(id);
@@ -94,6 +90,9 @@ function AdminPage() {
       //   photos: "image.jpg",
       // });
       updateRoomWithPhoto(id, {
+
+    if (params.id) {
+      updateRoomRequest(params.id, {
         nameHabitation: roomName,
         type: roomType,
         price: roomPrice,
