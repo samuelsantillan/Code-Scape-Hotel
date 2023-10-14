@@ -1,15 +1,9 @@
-:root {
-  --color-primary: #ECD3BC;
-  --color-secondary: #977043;
-  --color-tertiary: #2B1C12;
-}
-
 .error-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: var(--color-primary); /* Utilizamos el color primario */
+  background-color: var(--lightBeige);
 }
 
 .error-content {
@@ -19,7 +13,7 @@
 .color404 {
   font-size: 8rem;
   margin-bottom: 1rem;
-  color: var(--color-secondary); /* Utilizamos el color secundario */
+  color: var(--lightBrown); 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   animation: bounce 1.5s infinite;
 }
@@ -36,17 +30,16 @@
   }
 }
 
-/* Estilos adicionales para el botón */
-button {
-  background-color: var(--color-tertiary) !important; /* Utilizamos el color terciario para el fondo del botón */
+.btnBrown {
+  background-color: var(--lightBrown) !important; 
   border: none;
-  color: white;
+  color: var(--white);
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 1s;
 }
 
 button:hover {
-  background-color: var(--color-secondary) !important; /* Utilizamos el color secundario al pasar el cursor sobre el botón */
+  background-color: #2B1C12 !important; 
 }

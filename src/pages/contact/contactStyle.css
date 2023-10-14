@@ -112,7 +112,7 @@
     z-index: 1;
 }
 
-.form-control {
+.form-control.contact {
     background-color: rgb(50, 36, 27);
     color: var(--lightBeige);
     border-radius: 5px;
@@ -121,14 +121,14 @@
     margin: 20px 0px;
 }
 
-.form-control:focus {
+.form-control.contact:focus {
     background-color: var(--brown);
     color: var(--white);
     font-weight: 600;
     transition: 0.5s;
 }
 
-.form-control:focus::placeholder {
+.form-control.contact:focus::placeholder {
     transition: 0.5s;
     font-weight: 500;
 }

@@ -1,4 +1,3 @@
-import React from "react"
 import "../Error404/Error404.css"
 import Button from 'react-bootstrap/Button'
 
@@ -9,7 +8,7 @@ function error() {
       <div className="error-container">
         <div className="error-content">
           <h1 className="color404">404</h1>
-          <h5>Oops! La página que estás buscando no fue encontrada.</h5><a href="/"><Button variant="Secondary text-white">Volver a página de inicio</Button></a>
+          <h5>Oops! La página que estás buscando no fue encontrada.</h5><a href="/"><Button variant="btnBrown Secondary text-white">Volver a página de inicio</Button></a>
           {' '}
         </div>
       </div>
