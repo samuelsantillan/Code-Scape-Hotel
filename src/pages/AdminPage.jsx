@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import Previews from "../components/DropImage";
 import AdminCalendar from "../components/AdminCalendar";
 import FileUploadComponent from "../components/FileUploadCalendar";
 import { useAdmin } from "../context/AdminContext";
@@ -175,7 +175,7 @@ function AdminPage() {
           ></textarea>
         </div>
         <div className="col-12 mt-5">
-          <FileUploadComponent />
+          <Previews />
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
           <input
