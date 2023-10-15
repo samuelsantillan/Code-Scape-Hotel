@@ -1,14 +1,16 @@
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Previews from "../components/DropImage";
 import AdminCalendar from "../components/AdminCalendar";
-import FileUploadComponent from "../components/FileUploadCalendar";
 import { useAdmin } from "../context/AdminContext";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/admin-page.css";
+
 function AdminPage() {
+  const [imageURL, setImageURL] = useState(""); 
   const [calendarValues, setCalendarValues] = useState([]);
+  const [selectedImages, setSelectedImages] = useState([]);
   const { register, handleSubmit, setValue } = useForm();
   const { createRoom, getRoomRequest, updateRoomRequest } = useAdmin();
   const [isUpdateRoom, setIsUpdateRoom] = useState(false);
@@ -16,13 +18,12 @@ function AdminPage() {
   const params = useParams();
   const { room } = useAdmin();
   console.log(room);
+
   const handleCalendarChange = (calendarDates) => {
     setCalendarValues(calendarDates);
-    console.log(calendarDates);
   };
 
   useEffect(() => {
-    console.log(params);
     async function loadRoom() {
       if (params.id) {
         const room = await getRoomRequest(params.id);
@@ -32,39 +33,33 @@ function AdminPage() {
         setValue("roomNumber", room.numberHabitation);
         setValue("roomDetails", room.description);
         setIsUpdateRoom(true);
-        // setCalendarValues(room.availableDates);
       }
     }
     loadRoom();
   }, []);
 
+  const handleImageUpload = async (imageUrl) => {
+    setImageURL(imageUrl);
+    setSelectedImages((prevImages) => [...prevImages, { preview: imageUrl }]);
+    console.log("En adminPage recibimos selectedImages:", selectedImages);
+    console.log("En adminPage recibimos imageUrl:", imageUrl);
+  };
+  
+  const handleFileRemove = (fileToRemove) => {
+    setSelectedImages((prevImages) =>
+      prevImages.filter((file) => file !== fileToRemove)
+    );
+  };
+
   const handleSubmitForm = handleSubmit(async (formData) => {
+    console.log("Ingresamos a handleSubmitForm")
+
     const roomName = formData.roomName;
     const roomType = formData.roomType;
     const roomPrice = formData.roomPrice;
     const roomNumber = formData.roomNumber;
     const roomDetails = formData.roomDetails;
-    // const res = await roomRequest({
-    //   nameHabitation: roomName,
-    //   type: roomType,
-    //   price:  roomPrice,
-    //   numberHabitation : roomNumber,
-    //   description:  roomDetails,
-    //   availableDates : calendarValues,
-    //   photo : "image.jpg"
-    // }
 
-    // ).then((res) => {
-    //   alert("Habitacion creada con exito ");
-    //   console.log(res);
-
-    // }).catch((err) => {
-    //   console.log(err);
-    //   if(err.response.status === 400){
-    //     alert("El numero de habitacion ya esta registrado");
-    //   }
-
-    // });
     if (params.id) {
       updateRoomRequest(params.id, {
         nameHabitation: roomName,
@@ -73,7 +68,7 @@ function AdminPage() {
         numberHabitation: roomNumber,
         description: roomDetails,
         availableDates: calendarValues,
-        photo: "image.jpg",
+        photos: [imageURL], // Agrega imageURL a la matriz de imágenes
       });
       navigate("/admin/rooms");
     } else {
@@ -84,7 +79,7 @@ function AdminPage() {
         numberHabitation: roomNumber,
         description: roomDetails,
         availableDates: calendarValues,
-        photo: "image.jpg",
+        photos: [imageURL], // Agrega imageURL a la matriz de imágenes
       });
       navigate("/admin/rooms");
     }
@@ -92,11 +87,10 @@ function AdminPage() {
 
   return (
     <>
-        <div className="col-md-12 text-center m-4">
-          <h1>Agregar habitación</h1>
-        </div>
+      <div className="col-md-12 text-center m-4">
+        <h1>Agregar habitación</h1>
+      </div>
       <form className="row rowFormAdmin " onSubmit={handleSubmitForm}>
-
         <div className="col-md-6">
           <div className="mb-3">
             <label htmlFor="inputRoomName" className="form-label">
@@ -175,12 +169,16 @@ function AdminPage() {
           ></textarea>
         </div>
         <div className="col-12 mt-5">
-          <Previews />
+          <Previews
+            uploadedImages={selectedImages}
+            onImageUpload={handleImageUpload}
+            onFileRemove={handleFileRemove}
+          />
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
           <input
             type="submit"
-            className="btn btnCargar"
+            className="btn btnCargar my-5 "
             value="CARGAR HABITACIÓN"
           />
         </div>

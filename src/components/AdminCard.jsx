@@ -1,6 +1,8 @@
 import { useAdmin } from "../context/AdminContext";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import imageSrc from "../assets/presidencial1.jpg";
+import { Col, Row } from "react-bootstrap";
 
 function AdminCard({ room }) {
   const { deleteRoomRequest } = useAdmin();
@@ -25,29 +27,31 @@ function AdminCard({ room }) {
   return (
     <>
       <div className="card mb-3">
-        <div className="row g-0">
-          <div className="col-md-4">
-            {/* <img src="..." alt="..." classNameName="img-fluid rounded-start" /> */}
-          </div>
-          <div className="col-md-8">
+        <Row className="row">
+          <Col lg="8" xs="12">
+            <img
+              src={imageSrc}
+              classNameName="img-fluid rounded-start"
+              style={{ width: "400px" }}
+            />
+          </Col>
+          <Col lg="4" xs="12">
             <div className="card-body">
-              <h5 className="card-title">{room.nameHabitation}</h5>
-              <p className="card-text">{room.description}</p>
+              <h5 className="">{room.nameHabitation}</h5>
+              <p className="card-text my-5">{room.description}</p>
               <p className="card-text">
-                <small className="text-muted">
-                  {room.price} USD / Noche
-                </small>
+                <small className="text-muted">{room.price} USD / Noche</small>
               </p>
             </div>
 
             <button onClick={handleDeleteRoom} className="btn btn-danger m-1">
               Eliminar
             </button>
-            <button className="btn btn-info">
+            <button className="btn btn-info ">
               <Link to={`/admin/${room._id}`}>Editar</Link>
             </button>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </div>
     </>
   );

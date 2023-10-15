@@ -29,6 +29,7 @@
     "babel-plugin-macros": "^3.1.0",
     "bootstrap": "^5.3.1",
     "date-fns": "^2.30.0",
+    "firebase": "^10.5.0",
     "formsy-react": "^2.3.0",
     "formsy-react-components": "^2.0.0-alpha.2",
     "fortawesome": "^0.0.1-security",
