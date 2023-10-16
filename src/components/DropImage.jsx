@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase/config";
+import { PulseLoader } from "react-spinners";
 
 const containerStyle = {
   display: "flex",
@@ -56,8 +57,13 @@ const deleteButton = {
   background: "rgba(255, 255, 255, 0.8)",
 };
 
+const buttonStyle = {
+  marginTop: "10px", // Ajusta el margen superior para separar el botón de las vistas previas
+};
+
 function Previews({ onImageUpload }) {
   const [files, setFiles] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -84,13 +90,13 @@ function Previews({ onImageUpload }) {
   };
 
   useEffect(() => {
-    // Asegurarse de revocar las URI de datos para evitar pérdidas de memoria
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
   }, [files]);
 
   const handleImageUpload = async (imageFile) => {
-    const storage = getStorage(); // Obtén una referencia al almacenamiento de Firebase
-    const storageRef = ref(storage, "images/" + imageFile.name); // Crea una referencia al archivo en el almacenamiento
+    setLoading(true);
+    const storage = getStorage();
+    const storageRef = ref(storage, "images/" + imageFile.name);
 
     try {
       await uploadBytes(storageRef, imageFile);
@@ -99,6 +105,8 @@ function Previews({ onImageUpload }) {
     } catch (error) {
       console.log("Error al cargar la imagen: ", error);
       throw error;
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -118,16 +126,22 @@ function Previews({ onImageUpload }) {
               <img
                 src={file.preview}
                 style={img}
-                // Revoke data uri after image is loaded
                 onLoad={() => {
                   URL.revokeObjectURL(file.preview);
                 }}
               />
             </div>
-            <button type="button" onClick={() => handleImageUpload(file)}>Cargar Imagen</button>
           </div>
         ))}
       </aside>
+      {loading && <PulseLoader className="my-3" color="#000000" />}
+      <button
+        type="button"
+        onClick={() => handleImageUpload(files[0])}
+        style={buttonStyle}
+      >
+        Cargar Imagen
+      </button>
     </section>
   );
 }
