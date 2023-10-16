@@ -37,13 +37,6 @@ function AdminPage() {
     }
     loadRoom();
   }, []);
-
-  const handleImageUpload = async (imageUrl) => {
-    setImageURL(imageUrl);
-    setSelectedImages((prevImages) => [...prevImages, { preview: imageUrl }]);
-    console.log("En adminPage recibimos selectedImages:", selectedImages);
-    console.log("En adminPage recibimos imageUrl:", imageUrl);
-  };
   
   const handleFileRemove = (fileToRemove) => {
     setSelectedImages((prevImages) =>
@@ -51,40 +44,48 @@ function AdminPage() {
     );
   };
 
-  const handleSubmitForm = handleSubmit(async (formData) => {
-    console.log("Ingresamos a handleSubmitForm")
 
+  const handleImageUpload = async (imageUrl) => {
+    setImageURL(imageUrl);
+  };
+  
+
+  const handleSubmitForm = handleSubmit(async (formData) => {
     const roomName = formData.roomName;
     const roomType = formData.roomType;
     const roomPrice = formData.roomPrice;
     const roomNumber = formData.roomNumber;
     const roomDetails = formData.roomDetails;
-
-    if (params.id) {
-      updateRoomRequest(params.id, {
-        nameHabitation: roomName,
-        type: roomType,
-        price: roomPrice,
-        numberHabitation: roomNumber,
-        description: roomDetails,
-        availableDates: calendarValues,
-        photos: [imageURL], // Agrega imageURL a la matriz de imágenes
-      });
+  
+    try {
+  
+      if (params.id) {
+        updateRoomRequest(params.id, {
+          nameHabitation: roomName,
+          type: roomType,
+          price: roomPrice,
+          numberHabitation: roomNumber,
+          description: roomDetails,
+          availableDates: calendarValues,
+          photos: [imageURL], 
+        });
+      } else {
+        createRoom({
+          nameHabitation: roomName,
+          type: roomType,
+          price: roomPrice,
+          numberHabitation: roomNumber,
+          description: roomDetails,
+          availableDates: calendarValues,
+          photos: [imageURL], 
+        });
+      }
       navigate("/admin/rooms");
-    } else {
-      createRoom({
-        nameHabitation: roomName,
-        type: roomType,
-        price: roomPrice,
-        numberHabitation: roomNumber,
-        description: roomDetails,
-        availableDates: calendarValues,
-        photos: [imageURL], // Agrega imageURL a la matriz de imágenes
-      });
-      navigate("/admin/rooms");
+    } catch (error) {
+      console.error("Error al cargar la imagen o enviar los datos: ", error);
     }
   });
-
+  
   return (
     <>
       <div className="col-md-12 text-center m-4">
@@ -176,6 +177,7 @@ function AdminPage() {
           />
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
+          
           <input
             type="submit"
             className="btn btnCargar my-5 "

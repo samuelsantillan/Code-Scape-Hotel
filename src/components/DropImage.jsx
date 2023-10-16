@@ -98,6 +98,7 @@ function Previews({ onImageUpload }) {
       onImageUpload(imageUrl);
     } catch (error) {
       console.log("Error al cargar la imagen: ", error);
+      throw error;
     }
   };
 
@@ -123,7 +124,7 @@ function Previews({ onImageUpload }) {
                 }}
               />
             </div>
-            <button onClick={() => handleImageUpload(file)}>Cargar</button>
+            <button type="button" onClick={() => handleImageUpload(file)}>Cargar Imagen</button>
           </div>
         ))}
       </aside>
