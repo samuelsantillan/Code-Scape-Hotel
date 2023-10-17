@@ -17,8 +17,8 @@ function Admin() {
       <SideNavAdmin />
       <Container fluid className="containerAdminPage ">
         <Routes>
-          <Route path="/" element={<AdminPage />} />
-          <Route path="/rooms" element={<AdminRoomsPage />} />
+          <Route path="/" element={<AdminRoomsPage />} />
+          <Route path="/rooms" element={<AdminPage />} />
           <Route
             path="/user"
             element={

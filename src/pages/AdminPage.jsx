@@ -80,7 +80,7 @@ function AdminPage() {
           photos: [imageURL], 
         });
       }
-      navigate("/admin/rooms");
+      navigate("/admin/");
     } catch (error) {
       console.error("Error al cargar la imagen o enviar los datos: ", error);
     }

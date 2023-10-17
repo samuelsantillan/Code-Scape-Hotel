@@ -34,10 +34,10 @@ const SideNavAdmin = () => {
                     title="Habitaciones"
                     id={`offcanvasNavbarDropdown-expand-${false}`}
                   >
-                    <NavDropdown.Item href="/admin" className='itemDropNav'>
+                    <NavDropdown.Item href="/admin/rooms" className='itemDropNav'>
                       1.1 Nueva habitación
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/admin/rooms" className='itemDropNav' >
+                    <NavDropdown.Item href="/admin/" className='itemDropNav' >
                       1.2 Ver habitaciones
                     </NavDropdown.Item>
                   </NavDropdown>
