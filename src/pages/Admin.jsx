@@ -11,6 +11,8 @@ import AdminUsersPage from "./AdminUsersPage";
 import NewComponentTest from "./NewComponentTest";
 import SideNavAdmin from "../components/SideNavAdmin";
 import "../assets/css/admin-page.css";
+import UploadContainer from "./UploadContainer";
+
 function Admin() {
   return (
     <>
@@ -19,6 +21,7 @@ function Admin() {
         <Routes>
           <Route path="/" element={<AdminRoomsPage />} />
           <Route path="/rooms" element={<AdminPage />} />
+           <Route path="/:id" element={<AdminPage />} />
           <Route
             path="/user"
             element={
@@ -30,6 +33,7 @@ function Admin() {
               </Container>
             }
           />
+          <Route path="/test" element={<UploadContainer />} />
         </Routes>
       </Container>
     </>

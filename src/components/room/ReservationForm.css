@@ -1,3 +1,27 @@
+
 .row.reservationRow {
     --bs-gutter-x: 0rem;
+    background-color: var(--white);
+}
+.checkoutCard {
+    background-color: var(--white);
+}
+
+.inputCheckout {
+    border-radius: 5px;
+    border: solid 1px #b7b7b7;
+    background-color: #ffff;
+    color: var(--darkBrown);
+    padding-left: 3%;
+    font-size: 18px;
+    font-weight: 500;
+    height: 50px;
+}
+
+.inputCheckout:hover, .inputCheckout:focus {
+    background-color: #1d130c1d;
+}
+
+.required {
+    color: rgb(197, 3, 3);
 }

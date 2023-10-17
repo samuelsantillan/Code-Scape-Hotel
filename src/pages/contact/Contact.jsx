@@ -31,7 +31,6 @@ const Contact = () => {
                 body: JSON.stringify(formData),
             });
             if (response.ok) {
-                console.log("Mensaje enviado y guardado en la base de datos");
                 Swal.fire({
                     title: "Enviado Correctamente!",
                     text: "Te responderemos pronto!",
@@ -139,7 +138,7 @@ const Contact = () => {
                                         <input
                                             type="email"
                                             name="email"
-                                            className="form-control px-5"
+                                            className="form-control contact px-5"
                                             id="email-input"
                                             placeholder="Correo Electrónico"
                                             pattern="^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$"
@@ -156,7 +155,7 @@ const Contact = () => {
                                         <input
                                             type="name"
                                             name="name"
-                                            className="form-control px-5"
+                                            className="form-control contact px-5"
                                             id="name-input"
                                             placeholder="Nombre Completo"
                                             pattern="^[A-Za-záéíóúñÁÉÍÓÚÑ\s]+$"
@@ -172,7 +171,7 @@ const Contact = () => {
                                         <div>
                                             <textarea
                                                 name="message"
-                                                className="form-control px-5 pt-4 textArea"
+                                                className="form-control contact px-5 pt-4 textArea"
                                                 id="text-area"
                                                 placeholder="Mensaje"
                                                 aria-label="With textarea"

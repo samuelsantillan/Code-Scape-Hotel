@@ -43,7 +43,6 @@ const weekDays = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
 
 const RoomDescription = (props) => {
   const { isAuthenticated, user } = useAuth();
-  console.log(isAuthenticated);
   const {
     getRoomUserRequest,
     rooms: roomUser,
@@ -53,11 +52,8 @@ const RoomDescription = (props) => {
   } = useRoomUser();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(true);
-  // const [dates, setDates] = useState([]);
   const params = useParams();
-  // console.log("Parametros", params);
   const [values, setValues] = useState([null]);
-  //
   const { rooms, getRoomRequest } = useRoom();
 
   const [roomPrice, setRoomPrice] = useState();
@@ -96,7 +92,6 @@ const RoomDescription = (props) => {
 
     fetchData();
   }, [params.id]);
-  console.log(roomUsersReservation);
 
   const extractedDatesUsers = roomUsersReservation.map((item) => ({
     startDate: new Date(item.startDate).toISOString().split("T")[0],
@@ -107,7 +102,6 @@ const RoomDescription = (props) => {
     startDate: new Date(item.startDate).toISOString().split("T")[0],
     endDate: new Date(item.endDate).toISOString().split("T")[0],
   }));
-  console.log(extractedDates);
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
@@ -122,12 +116,9 @@ const RoomDescription = (props) => {
     let convertDate = date.map((dateObject) => {
       return dateObject.format("YYYY-MM-DD");
     });
-    console.log(convertDate);
     setValues(convertDate);
     if (convertDate.length === 2) {
       setRoomPrice(rooms.price * calculateDays(convertDate[0], convertDate[1]));
-      console.log(rooms.price * calculateDays(convertDate[0], convertDate[1]));
-      console.log(roomPrice);
     }
   };
   const iconServices = [
@@ -152,7 +143,6 @@ const RoomDescription = (props) => {
   const numberOfMonths = windowWidth < 768 ? 1 : 2;
 
   function handleClick() {
-    console.log(values[0], values[1], params.id, user.id);
     
     if(values[0] === null || values[0] === undefined){
       alert("Por favor selecciona una fecha de inicio")
@@ -261,8 +251,7 @@ const RoomDescription = (props) => {
                         .padStart(2, "0")}-${date.day}`
                     );
                     const dateToday = new Date();
-                    console.log(dateToday);
-                    console.log(currentDate);
+
                        
                     const invailableDates = extractedDatesUsers.map(
                       (dates) => ({
@@ -285,8 +274,6 @@ const RoomDescription = (props) => {
                       (dates) =>
                         currentDate > dateToday && currentDate < dates.endDate
                     );
-                    console.log(afterDaysToday);
-                    console.log(extractedDatesUsers)
                     
                     const isDateUnavailable = invailableDates.some(
                       (dates) =>

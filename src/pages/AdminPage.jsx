@@ -7,6 +7,7 @@ import { useAdmin } from "../context/AdminContext";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/admin-page.css";
 
+
 function AdminPage() {
   const [imageURL, setImageURL] = useState(""); 
   const [calendarValues, setCalendarValues] = useState([]);
@@ -15,7 +16,7 @@ function AdminPage() {
   const { createRoom, getRoomRequest, updateRoomRequest } = useAdmin();
   const [isUpdateRoom, setIsUpdateRoom] = useState(false);
   const navigate = useNavigate();
-  const params = useParams();
+  const { id } = useParams();
   const { room } = useAdmin();
   console.log(room);
 
@@ -25,8 +26,9 @@ function AdminPage() {
 
   useEffect(() => {
     async function loadRoom() {
-      if (params.id) {
-        const room = await getRoomRequest(params.id);
+      if (id) {
+        const room = await getRoomRequest(id);
+        console.log(room);
         setValue("roomName", room.nameHabitation);
         setValue("roomType", room.type);
         setValue("roomPrice", room.price);
@@ -84,6 +86,7 @@ function AdminPage() {
     } catch (error) {
       console.error("Error al cargar la imagen o enviar los datos: ", error);
     }
+
   });
   
   return (
@@ -175,6 +178,7 @@ function AdminPage() {
             onImageUpload={handleImageUpload}
             onFileRemove={handleFileRemove}
           />
+          
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
           

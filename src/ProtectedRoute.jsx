@@ -8,8 +8,8 @@ const PRIVILEGED_ROLES = {
 
 export const ProtectedRoute = () => {
   const { isAuthenticated, loading, user } = useAuth();
-  console.log(user);
   if (loading) return <LoadingPage />;
+  if (!isAuthenticated && !loading) return <Navigate to="/login" replace />;
   if (!isAuthenticated && !loading) return <Navigate to="/login" replace />;
   if (isAuthenticated && user.role === PRIVILEGED_ROLES.USER)
     return <Navigate to="/" replace />;
