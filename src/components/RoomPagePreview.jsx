@@ -7,27 +7,33 @@ import { useParams } from "react-router-dom";
 const RoomPagePreview = () => {
 
   const params = useParams();
-  const {rooms, getRoomsRequest} = useRoom();
+  const { rooms, getRoomsRequest } = useRoom();
   const { getUserRequest } = useAuth();
 
-  console.log("Esto recibo de params",params);
+  console.log("Esto recibo de params", params);
   useEffect(() => {
     getRoomsRequest();
     getUserRequest(params._id);
   }, []);
-  
-  console.log("Esto recibo de rooms",rooms);
 
-  return ( 
+  console.log("Esto recibo de rooms", rooms);
+
+  return (
     <>
-      {rooms.map((room) =>(
+      <section className="heroSection-roomPreview">
+        <div className="title-roomPreview fadeInText">
+          <h1 className="titleGallery-roomPreview">HABITACIONES</h1>
+          <div className="line-roomPreview" />
+        </div>
+      </section>
+      {rooms.map((room) => (
         <RoomPreview
-        key={room._id}
-        _id={room._id}
-        isImageFirst = {true}
-        photos={room.photos}
-        nameHabitation={room.nameHabitation}
-        description={room.description}
+          key={room._id}
+          _id={room._id}
+          isImageFirst={true}
+          photos={room.photos}
+          nameHabitation={room.nameHabitation}
+          description={room.description}
         />
       ))}
     </>

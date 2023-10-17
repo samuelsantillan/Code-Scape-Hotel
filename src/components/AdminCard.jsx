@@ -31,7 +31,7 @@ function AdminCard({ room }) {
           <Col lg="8" xs="12">
             <img
               src={imageSrc}
-              classNameName="img-fluid rounded-start"
+              className="img-fluid rounded-start"
               style={{ width: "400px" }}
             />
           </Col>
