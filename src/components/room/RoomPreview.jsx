@@ -8,13 +8,6 @@ const RoomPreview = (props) => {
   const { IsImageFirst, photos, nameHabitation, description, _id } = props;
 
   return (
-    <div className=" ">
-      <section className="heroSection-roomPreview">
-        <div className="title-roomPreview fadeInText">
-          <h1 className="titleGallery-roomPreview">HABITACIONES</h1>
-          <div className="line-roomPreview" />
-        </div>
-      </section>
       <Container>
         <Row className="justify-content-between align-items-start  w-100  m-0 py-3">
           <Col xs={12} lg={6} className="">
@@ -34,7 +27,6 @@ const RoomPreview = (props) => {
           </Col>
         </Row>
       </Container>
-    </div>
   );
 };
 
