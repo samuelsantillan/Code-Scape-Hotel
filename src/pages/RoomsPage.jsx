@@ -1,6 +1,5 @@
-import React from "react";
 import "../App.css";
-import RoomPagePreview from "./RoomPagePreview";
+import RoomPagePreview from "../components/room/RoomPagePreview";
 import { motion } from 'framer-motion';
 
 

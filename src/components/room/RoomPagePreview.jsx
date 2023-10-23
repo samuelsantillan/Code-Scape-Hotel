@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import RoomPreview from "./room/RoomPreview";
-import { useRoom } from "../context/RoomContext";
-import { useAuth } from "../context/AuthContext";
+import { useEffect } from "react";
+import RoomPreview from "./RoomPreview";
+import { useRoom } from "../../context/RoomContext";
+import { useAuth } from "../../context/AuthContext";
 import { useParams } from "react-router-dom";
 
 const RoomPagePreview = () => {

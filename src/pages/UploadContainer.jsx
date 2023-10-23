@@ -10,9 +10,6 @@ function UploadContainer() {
           <div className="col-md-12">
             <Upload />
           </div>
-          {/* <div className="col-md-9">
-            <ListImage />
-          </div> */}
         </div>
       </div>
     </>

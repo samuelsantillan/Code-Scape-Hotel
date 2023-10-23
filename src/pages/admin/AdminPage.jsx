@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import Previews from "../components/DropImage";
-import AdminCalendar from "../components/AdminCalendar";
-import { useAdmin } from "../context/AdminContext";
+import Previews from "../../components/admin/DropImage";
+import AdminCalendar from "../../components/admin/AdminCalendar";
+import { useAdmin } from "../../context/AdminContext";
 import { useNavigate } from "react-router-dom";
-import "../assets/css/admin-page.css";
+import "../../assets/css/admin-page.css";
 
 
 function AdminPage() {

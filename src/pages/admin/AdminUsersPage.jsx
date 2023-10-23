@@ -6,7 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
-import { useAdmin } from "../context/AdminContext";
+import { useAdmin } from "../../context/AdminContext";
 import Swal from 'sweetalert2'
 import {
   GridRowModes,
@@ -16,7 +16,7 @@ import {
   GridRowEditStopReasons
 } from "@mui/x-data-grid";
 import { randomId } from "@mui/x-data-grid-generator";
-import '../assets/css/admin-page.css';
+import '../../assets/css/admin-page.css';
 
 function EditToolbar(props) {
   const { setRows, setRowModesModel, setCreateUserState } = props;

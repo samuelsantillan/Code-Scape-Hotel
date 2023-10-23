@@ -1,14 +1,12 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import logoBeige from '../assets/svg/logoBeige.svg';
+import logoBeige from '../../assets/svg/logoBeige.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import '../assets/css/sideNavAdmin.css';
+import '../../assets/css/sideNavAdmin.css';
 const SideNavAdmin = () => {
   return (
     <>

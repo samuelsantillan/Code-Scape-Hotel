@@ -1,8 +1,8 @@
-import { useAdmin } from "../context/AdminContext";
+import { useAdmin } from "../../context/AdminContext";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import imageSrc from "../assets/presidencial1.jpg";
-import "../assets/css/admin-page.css";
+import imageSrc from "../../assets/img/presidencial1.jpg";
+import "../../assets/css/AdminCalendarStyle.css";
 import { Card, Col, Row } from "react-bootstrap";
 
 function AdminCard({ room }) {
