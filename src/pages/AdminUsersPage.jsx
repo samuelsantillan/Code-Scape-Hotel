@@ -13,7 +13,7 @@ import {
   DataGrid,
   GridToolbarContainer,
   GridActionsCellItem,
-  GridRowEditStopReasons,
+  GridRowEditStopReasons
 } from "@mui/x-data-grid";
 import { randomId } from "@mui/x-data-grid-generator";
 import '../assets/css/admin-page.css';
@@ -47,7 +47,7 @@ function EditToolbar(props) {
 
   return (
     <GridToolbarContainer>
-      <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
+      <Button className="btn btnAdminUs" startIcon={<AddIcon />} onClick={handleClick}>
         Agregar Usuario
       </Button>
     </GridToolbarContainer>
@@ -68,7 +68,7 @@ export default function AdminUsersPage() {
   }, []);
 
   React.useEffect(() => {
-    setRows(users); // Actualizar el estado de rows cuando los datos de users cambian
+    setRows(users); 
   }, [users]);
 
   const [createUserState, setCreateUserState] = React.useState(false);
@@ -103,7 +103,6 @@ export default function AdminUsersPage() {
   };
 
   const handleDeleteClick = (id) => () => {
-    // setRows(rows.filter((row) => row.id !== id));
     Swal.fire({
       title: `Seguro que quieres eliminar el usuario con ID:${id} `,
       icon: 'warning',
@@ -161,41 +160,45 @@ export default function AdminUsersPage() {
   };
 
   const columns = [
-    { field: "username", headerName: "Usuario", width: 180, editable: true },
+    { field: "username",
+     headerName: "Usuario",
+      editable: true,
+      headerAlign: "center",
+      flex: 1
+    },
     {
       field: "email",
       headerName: "Correo",
       type: "email",
-      width: 220,
       align: "left",
-      headerAlign: "left",
+      flex: 1,
+      headerAlign: "center",
       editable: true,
-    },
-    {
-      field: "password",
-      headerName: "Contraseña",
-      width: 220,
-      editable: false,
     },
     {
       field: "role",
       headerName: "Rol",
-      width: 220,
       editable: true,
+      headerAlign: "center",
       type: "number",
+      align: "center",
+      flex: 1
     },
     {
       field: "state",
       headerName: "Estado",
-      width: 220,
       editable: true,
+      headerAlign: "center",
       type: "boolean",
+      align: "center",
+      flex: 1
     },
     {
       field: "actions",
       type: "actions",
       headerName: "Acciones",
-      width: 100,
+      headerAlign: "center",
+      flex: 1,
       cellClassName: "actions",
       getActions: ({ id }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
@@ -242,7 +245,7 @@ export default function AdminUsersPage() {
     <>
       <Box
         sx={{
-          height: 500,
+          height: "100%",
           width: "100%",
           "& .actions": {
             color: "text.secondary",
@@ -252,7 +255,7 @@ export default function AdminUsersPage() {
           },
         }}
       >
-        <DataGrid
+        <DataGrid className="data-grid-container"
           rows={rows}
           getRowId={(rows) => rows._id}
           columns={columns}

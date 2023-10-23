@@ -82,7 +82,6 @@ function Previews({ onImageUpload }) {
         })
       );
 
-      // Agregar las nuevas imágenes a la matriz existente en lugar de reemplazarla
       setFiles((prevFiles) => [...prevFiles, ...newFiles]);
     },
   });

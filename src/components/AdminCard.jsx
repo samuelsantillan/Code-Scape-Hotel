@@ -2,7 +2,8 @@ import { useAdmin } from "../context/AdminContext";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import imageSrc from "../assets/presidencial1.jpg";
-import { Col, Row } from "react-bootstrap";
+import "../assets/css/admin-page.css";
+import { Card, Col, Row } from "react-bootstrap";
 
 function AdminCard({ room }) {
   const { deleteRoomRequest } = useAdmin();
@@ -26,33 +27,33 @@ function AdminCard({ room }) {
 
   return (
     <>
-      <div className="card mb-3">
-        <Row className="row">
-          <Col lg="8" xs="12">
-            <img
-              src={imageSrc}
-              className="img-fluid rounded-start"
-              style={{ width: "400px" }}
-            />
-          </Col>
-          <Col lg="4" xs="12">
-            <div className="card-body">
-              <h5 className="">{room.nameHabitation}</h5>
-              <p className="card-text my-5">{room.description}</p>
-              <p className="card-text">
-                <small className="text-muted">{room.price} USD / Noche</small>
-              </p>
-            </div>
-
-            <button onClick={handleDeleteRoom} className="btn btn-danger m-1">
-              Eliminar
-            </button>
-            <button className="btn btn-info ">
-              <Link to={`/admin/${room._id}`}>Editar</Link>
-            </button>
-          </Col>
-        </Row>
-      </div>
+      <Card lg="5" md="10" xs="12" className="mb-3 roomAdminCard">
+      <Row >
+        <Col lg="7" md="12" xs="12">
+        <Card.Img
+          src={imageSrc}
+          className="img-fluid rounded-start"
+        />
+        </Col>
+        <Col lg="5" md="10" xs="12">
+        <Card.Body className="roomCardBody">
+          <Card.Title>{room.nameHabitation} </Card.Title>
+          <div>
+          <Card.Text>
+            {room.description}
+          </Card.Text>
+          <Card.Text>Precio: {room.price} USD / Noche</Card.Text>
+          <button className="btn btnEditar">
+            <Link to={`/admin/${room._id}`}>Editar</Link>
+          </button>
+          <button onClick={handleDeleteRoom} className="btn btnEliminar m-1">
+            Eliminar
+          </button>
+          </div>
+        </Card.Body >
+        </Col>
+      </Row>
+      </Card>
     </>
   );
 }

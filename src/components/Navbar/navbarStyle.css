@@ -9,18 +9,6 @@ a.nav-link, a.nav-link:hover, a.nav-link:focus {
   text-shadow: 1px 1px 2px rgb(0, 0, 0) ;
 }
 
-.nav-link:after {
-  content: "";
-  position: absolute;
-  bottom: 20%;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: white;
-  transition: left .8s;
-  color: white;
-}
-
 .nav-link:hover:after {
   left: 0;
 }
@@ -50,7 +38,7 @@ button.navbar-toggler {
   background: var(--lightBeige);
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 990px) {
   .offcanvas.offcanvasNav {
     background-color: #18100bdc;
   }
@@ -69,6 +57,17 @@ button.navbar-toggler {
   .offcanvas-header .btn-close {
     background-color: #ecd3bc;
   }
+  .nav-link:after {
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: left .8s;
+    color: white;
+  }
 }
 
 @media screen and (min-width: 993px) {
@@ -78,4 +77,18 @@ button.navbar-toggler {
     padding-left: 3rem;
   }
 
+}
+
+@media (min-width: 1200px) {
+  .nav-link:after {
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: left .8s;
+    color: white;
+  }
 }
