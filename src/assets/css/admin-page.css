@@ -5,35 +5,99 @@
     color: #ecd3bc;
     width: 50%;
 }
-.title-color-userPage{
+
+.title-color-userPage {
     color: var(--darkBrown);
     font-family: var(--cormorant);
 }
 
-.containerUserPage{
-    background-color: var(--brown);
+.data-grid-container .MuiDataGrid-footerContainer .MuiTablePagination-selectLabel {
+    display: none;
+}
+
+.data-grid-container .MuiDataGrid-footerContainer .MuiTablePagination-select:before {
+    content: "Filas por página: ";
+}
+Button.btnAdminUs{
+    color: var(--darkBrown);
+}
+.containerUserPage {
+    background-color: var(--darkbrown);
     min-height: 95vh;
 }
-.containerAdminPage{
+.data-grid-container{
+    background-color: var(--lightBeige);
+    color: var(--darkestBrown);
+}
+.data-grid-container.css-5wly58-MuiDataGrid-root .MuiDataGrid-withBorderColor {
+    border-color: var(--brown);
+}
+.containerAdminPage {
     background-color: var(--darkBrown);
     color: var(--lightBeige);
 }
-input
-.title {
+
+.rowFormAdmin input,
+.rowFormAdmin textarea,
+.rowFormAdmin select {
+    background-color: var(--lightBeige);
+}
+
+input .title {
     font-family: 'Cormorant Garamond';
 }
+
 .selectRoomAdmin {
     height: 4rem;
     margin: 20px 0px;
     color: var(--lightBeige);
     background-color: #6e5137;
 }
+
 .containerAdminPage {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
+.roomAdminCard {
+    background-color: var(--darkestBrown);
+    color: var(--lightBeige);
+}
+
+.roomCardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.card .btnEliminar {
+    font-weight: bold;
+    background-color: var(--brown);
+    color: var(--darkBrown);
+}
+
+.card .btnEditar {
+    background-color: var(--lightBeige);
+    font-weight: bold;
+}
+
+.btnEditar a {
+    color: var(--darkestBrown);
+}
+
+.card img {
+    width: 100%;
+}
+
+.btnHabitaciones {
+    background-color: var(--brown);
+    color: var(--lightBeige);
+    font-weight: 900;
+}
+
 @media (min-width: 998px) {
     .rowFormAdmin.row {
         width: 80vw;
@@ -41,15 +105,17 @@ input
 }
 
 @media (max-width: 998px) {
-    .rowFormAdmin.row{
+    .rowFormAdmin.row {
         width: 100%;
     }
-    .dzu-dropzone{
-        margin:0;
+
+    .dzu-dropzone {
+        margin: 0;
         padding: 0;
         width: 100% !important;
     }
-    .btnCargar{
+
+    .btnCargar {
         font-size: 10px;
     }
 }
