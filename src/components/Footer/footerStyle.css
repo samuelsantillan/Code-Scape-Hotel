@@ -56,6 +56,10 @@ footer {
 .socialLink {
     padding: 0.7vw;
 }
+.locationLink {
+    display: inline-flex;
+    align-items: center;
+}
 
 .socialLink:hover, .locationLink:hover {
     color: var(--lightBeige);

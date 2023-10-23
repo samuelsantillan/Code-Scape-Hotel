@@ -16,7 +16,7 @@ const Footer = () => {
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setemailIsValid(emailRegex.test(email));
-    
+
   }
 
   const handleSubscribe = async (e) => {
@@ -67,8 +67,8 @@ const Footer = () => {
           background: '#1d130c'
         });
         return;
-    }
-    setEmail("");
+      }
+      setEmail("");
     }
     if (!emailIsValid) {
       Swal.fire({
@@ -167,11 +167,10 @@ const Footer = () => {
           </section>
 
           <section className="mt-3 col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex flex-column justify-content-center justify-content-md-around align-items-center align-items-md-end text-center text-md-center">
-            <div className="p-2 d-flex align-items-center justify-content-end">
-              <p className="lightBrownText">Ruta 68 y Ruta 40, 4400 Cafayate, Argentina</p>
-            </div>
-            <div className="p-2 d-flex align-items-center justify-content-end">
-              <a href="https://goo.gl/maps/y52oLiUj8wVceMyr8" className="lightBrownText locationLink">CÓMO LLEGAR <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></a>
+
+            <p className="lightBrownText">Ruta 68 y Ruta 40, 4400 Cafayate, Argentina</p>
+            <div className="p-2 d-flex align-items-center">
+            <a href="https://goo.gl/maps/y52oLiUj8wVceMyr8" className="lightBrownText locationLink">CÓMO LLEGAR <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></a>
             </div>
             <div className="p-2 d-flex align-items-center">
               <ul className="list-unstyled m-0 d-flex">
