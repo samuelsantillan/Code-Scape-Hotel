@@ -52,13 +52,18 @@ const deleteButton = {
   position: "absolute",
   top: 0,
   right: 0,
-  padding: "4px",
+  padding: "5px",
   cursor: "pointer",
   background: "rgba(255, 255, 255, 0.8)",
 };
 
 const buttonStyle = {
-  marginTop: "10px", // Ajusta el margen superior para separar el botón de las vistas previas
+  marginTop: "10px",
+  background: "#6e5137",
+  color: "#ecd3bc",
+  padding: "6px 6px",
+  borderRadius: "10px",
+
 };
 
 function Previews({ onImageUpload }) {
@@ -112,7 +117,21 @@ function Previews({ onImageUpload }) {
 
   return (
     <section style={containerStyle}>
-      <div {...getRootProps({ className: "dropzone" })}>
+      <div
+        {...getRootProps({ className: "dropzone" })}
+        style={{
+          border: "2px dashed gray", 
+          borderRadius: "10px",
+          padding: "40px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          backgroundColor: "#f7f7f7",
+          color: "#555555",
+          outline: "none",
+          transition: "border 0.24s ease-in-out",
+        }}
+      >
         <input {...getInputProps()} />
         <p>Suelte los archivos, o haga clic para buscarlos</p>
       </div>
@@ -135,13 +154,14 @@ function Previews({ onImageUpload }) {
         ))}
       </aside>
       {loading && <PulseLoader className="my-3" color="#000000" />}
-      <button
+      {files.length > 0 && <button
         type="button"
         onClick={() => handleImageUpload(files[0])}
         style={buttonStyle}
       >
         Cargar Imagen
-      </button>
+      </button>}
+      
     </section>
   );
 }
