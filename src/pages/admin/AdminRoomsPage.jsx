@@ -1,6 +1,5 @@
 import { useAdmin } from "../../context/AdminContext";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { AdminCard } from "../../components/admin/AdminCard";
 
 function RoomsPage() {
