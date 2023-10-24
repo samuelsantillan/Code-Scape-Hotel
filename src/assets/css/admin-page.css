@@ -21,6 +21,9 @@
 Button.btnAdminUs{
     color: var(--darkBrown);
 }
+Button.btnAdminUs:hover{
+    color: var(--lightBeige);
+}
 .containerUserPage {
     background-color: var(--darkbrown);
     min-height: 95vh;
@@ -96,6 +99,11 @@ input .title {
     background-color: var(--brown);
     color: var(--lightBeige);
     font-weight: 900;
+}
+.btnHabitaciones:hover{
+    background-color: var(--darkBrown);
+    color: var(--lightBeige);
+    font-weight: bold;
 }
 
 @media (min-width: 998px) {
