@@ -23,6 +23,7 @@ import { useRoom } from "../../context/RoomContext";
 import { useAuth } from "../../context/AuthContext";
 import { useRoomUser } from "../../context/RoomUserContext";
 import "./RoomDescription.css";
+import LoadingPage  from '../../pages/loading/LoadingPage'
 import { DateObject } from "react-multi-date-picker";
 import Room from "./Room";
 const months = [
@@ -168,7 +169,7 @@ const RoomDescription = (props) => {
   return (
     <div>
       {isLoading ? (
-        <p>Loading...</p>
+        <LoadingPage />
       ) : (
         <div className="container-room-description">
           <header className="mosaic-header">
