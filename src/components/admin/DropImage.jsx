@@ -1,6 +1,7 @@
 import{ useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {storage} from '../firebase/config'
 import { PulseLoader } from "react-spinners";
 
 const containerStyle = {

@@ -16,8 +16,9 @@ function AdminPage() {
   const { createRoom, getRoomRequest, updateRoomRequest } = useAdmin();
   const [isUpdateRoom, setIsUpdateRoom] = useState(false);
   const navigate = useNavigate();
-  const { id } = useParams();
+  const params = useParams();
   const { room } = useAdmin();
+  console.log(room);
 
   const handleCalendarChange = (calendarDates) => {
     setCalendarValues(calendarDates);
@@ -25,8 +26,9 @@ function AdminPage() {
 
   useEffect(() => {
     async function loadRoom() {
-      if (id) {
+      if (params.id) {
         const room = await getRoomRequest(id);
+        console.log(room);
         setValue("roomName", room.nameHabitation);
         setValue("roomType", room.type);
         setValue("roomPrice", room.price);
@@ -36,7 +38,7 @@ function AdminPage() {
       }
     }
     loadRoom();
-  }, []);
+  }, [params.id, setValue]);
   
   const handleFileRemove = (fileToRemove) => {
     setSelectedImages((prevImages) =>
@@ -59,7 +61,7 @@ function AdminPage() {
   
     try {
   
-      if (params.id) {
+      if (isUpdateRoom) {
         updateRoomRequest(params.id, {
           nameHabitation: roomName,
           type: roomType,
@@ -92,7 +94,7 @@ function AdminPage() {
       <div className="col-md-12 text-center m-4">
         <h1>Agregar habitación</h1>
       </div>
-      <form className="row rowFormAdmin" onSubmit={handleSubmitForm}>
+      <form className="row rowFormAdmin " onSubmit={handleSubmitForm}>
         <div className="col-md-6">
           <div className="mb-3">
             <label htmlFor="inputRoomName" className="form-label">
@@ -102,8 +104,8 @@ function AdminPage() {
               {...register("roomName", { required: true })}
               type="text"
               id="inputRoomName"
-              name="inputRoomName"
               className="form-control"
+              placeholder="Nombre"
             />
           </div>
         </div>
@@ -115,8 +117,6 @@ function AdminPage() {
             </label>
             <select
               className="form-select "
-              id="inputRoomType"
-              name="inputRoomType"
               aria-label="Default select example"
               {...register("roomType")}
               onChange={(e) => setValue("roomType", e.target.value)}
@@ -138,8 +138,8 @@ function AdminPage() {
               {...register("roomPrice", { required: true })}
               type="text"
               id="inputRoomPrice"
-              name="inputRoomPrice"
               className="form-control"
+              placeholder="Precio"
             />
           </div>
         </div>
@@ -153,8 +153,8 @@ function AdminPage() {
               {...register("roomNumber", { required: true })}
               type="text"
               id="inputRoomNumber"
-              name="inputRoomNumber"
               className="form-control"
+              placeholder="Número"
               {...(isUpdateRoom && { disabled: true })}
             />
           </div>
@@ -164,12 +164,12 @@ function AdminPage() {
         </div>
 
         <div className="col-12">
-          <label htmlFor="roomDetails">Detalles de Habitación</label>
+          <label htmlFor="inputRoomDetails">Detalles de Habitación</label>
           <textarea
             {...register("roomDetails", { required: true })}
             name="roomDetails"
-            id="roomDetails"
             className="form-control"
+            placeholder="Detalles"
           ></textarea>
         </div>
         <div className="col-12 mt-5">
