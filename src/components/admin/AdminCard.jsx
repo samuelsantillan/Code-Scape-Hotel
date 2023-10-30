@@ -26,35 +26,30 @@ function AdminCard({ room }) {
   };
 
   return (
-    <>
-      <Card lg="5" md="10" xs="12" className="mb-3 roomAdminCard">
-      <Row >
-        <Col lg="7" md="12" xs="12">
-        <Card.Img
-          src={imageSrc}
-          className="img-fluid rounded-start"
-        />
+    <Card className="roomAdminCard mb-3 fixed-height-card">
+      <Row>
+        <Col lg={4} md={12} xs={12}>
+          <Card.Img src={room.photos} className="img-fluid rounded-start" />
         </Col>
-        <Col lg="5" md="10" xs="12">
-        <Card.Body className="roomCardBody">
-          <Card.Title>{room.nameHabitation} </Card.Title>
-          <div>
-          <Card.Text>
-            {room.description}
-          </Card.Text>
-          <Card.Text>Precio: {room.price} USD / Noche</Card.Text>
-          <button className="btn btnEditar">
-            <Link to={`/admin/${room._id}`}>Editar</Link>
-          </button>
-          <button onClick={handleDeleteRoom} className="btn btnEliminar m-1">
-            Eliminar
-          </button>
-          </div>
-        </Card.Body >
+        <Col lg={5} md={10} xs={12}>
+          <Card.Body className="roomCardBody">
+            <Card.Title>{room.nameHabitation}</Card.Title>
+            <div>
+              <Card.Text>{room.description}</Card.Text>
+              <Card.Text>Precio: {room.price} USD / Noche</Card.Text>
+              <div className="btn-group" role="group">
+                <button className="btn btnEditar">
+                  <Link to={`/admin/${room._id}`}>Editar</Link>
+                </button>
+                <button onClick={handleDeleteRoom} className="btn btnEliminar">
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </Card.Body>
         </Col>
       </Row>
-      </Card>
-    </>
+    </Card>
   );
 }
 
