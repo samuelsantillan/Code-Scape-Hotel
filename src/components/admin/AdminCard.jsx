@@ -9,6 +9,7 @@ function AdminCard({ room }) {
   const { deleteRoomRequest } = useAdmin();
 
   const handleDeleteRoom = () => {
+
     Swal.fire({
       title: "¿Estas seguro?",
       icon: "warning",

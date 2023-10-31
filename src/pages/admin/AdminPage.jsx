@@ -6,20 +6,24 @@ import AdminCalendar from "../../components/admin/AdminCalendar";
 import { useAdmin } from "../../context/AdminContext";
 import { useNavigate } from "react-router-dom";
 import "../../assets/css/admin-page.css";
-
+import { PulseLoader } from "react-spinners";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function AdminPage() {
-  const [imageURL, setImageURL] = useState(""); 
+  // const [imageURL, setImageURL] = useState("");
   const [calendarValues, setCalendarValues] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
   const { register, handleSubmit, setValue } = useForm();
   const { createRoom, getRoomRequest, updateRoomRequest } = useAdmin();
   const [isUpdateRoom, setIsUpdateRoom] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [ImageCompleted, setImageCompleted] = useState(false);
+  const [validate, setValidate] = useState(false);
   const navigate = useNavigate();
   const params = useParams();
   const { room } = useAdmin();
   console.log(room);
-
+  const [files, setFiles] = useState([]);
   const handleCalendarChange = (calendarDates) => {
     setCalendarValues(calendarDates);
   };
@@ -27,7 +31,7 @@ function AdminPage() {
   useEffect(() => {
     async function loadRoom() {
       if (params.id) {
-        const room = await getRoomRequest(id);
+        const room = await getRoomRequest(params.id);
         console.log(room);
         setValue("roomName", room.nameHabitation);
         setValue("roomType", room.type);
@@ -39,28 +43,46 @@ function AdminPage() {
     }
     loadRoom();
   }, [params.id, setValue]);
-  
+
   const handleFileRemove = (fileToRemove) => {
     setSelectedImages((prevImages) =>
       prevImages.filter((file) => file !== fileToRemove)
     );
   };
 
+  const handleImageUploaded = async (imageFile, formData) => {
+    setLoading(true);
+    let imageUrl = "";
 
-  const handleImageUpload = async (imageUrl) => {
-    setImageURL(imageUrl);
+    const storage = getStorage();
+    const storageRef = ref(storage, "images/" + imageFile.name);
+    try {
+      await uploadBytes(storageRef, imageFile);
+      imageUrl = await getDownloadURL(storageRef);
+      console.log("URL de la imagen:", imageUrl);
+    } catch (error) {
+      console.log("Error al cargar la imagen: ", error);
+      throw error;
+    }
+
+    // En este punto, imageUrl tiene un valor
+    if (imageUrl !== "") {
+      setImageCompleted(true);
+      console.log(imageUrl);
+      imageComplete(formData, imageUrl);
+    }else{
+      alert("La imagen no se ha cargado correctamente");
+    }
   };
-  
 
-  const handleSubmitForm = handleSubmit(async (formData) => {
+  const imageComplete = (formData, imageUrl) => {
     const roomName = formData.roomName;
     const roomType = formData.roomType;
     const roomPrice = formData.roomPrice;
     const roomNumber = formData.roomNumber;
     const roomDetails = formData.roomDetails;
-  
+    console.log(imageUrl);
     try {
-  
       if (isUpdateRoom) {
         updateRoomRequest(params.id, {
           nameHabitation: roomName,
@@ -69,26 +91,40 @@ function AdminPage() {
           numberHabitation: roomNumber,
           description: roomDetails,
           availableDates: calendarValues,
-          photos: [imageURL], 
+          photos: [imageUrl],
         });
       } else {
-        createRoom({
-          nameHabitation: roomName,
-          type: roomType,
-          price: roomPrice,
-          numberHabitation: roomNumber,
-          description: roomDetails,
-          availableDates: calendarValues,
-          photos: [imageURL], 
-        });
+        if (imageUrl !== "") {
+          createRoom({
+            nameHabitation: roomName,
+            type: roomType,
+            price: roomPrice,
+            numberHabitation: roomNumber,
+            description: roomDetails,
+            availableDates: calendarValues,
+            photos: [imageUrl],
+          });
+          setTimeout(() => {
+            setLoading(false);
+            navigate("/admin/");
+          }, 3000);
+        } else {
+          alert("La imagen no se ha cargado correctamente");
+        }
       }
-      navigate("/admin/");
     } catch (error) {
       console.error("Error al cargar la imagen o enviar los datos: ", error);
     }
+  };
 
+  const handleSubmitForm = handleSubmit(async (formData) => {
+    if (files.length > 0) {
+      handleImageUploaded(files[0], formData);
+    } else {
+      alert("Debe agregar al menos una imagen");
+    }
   });
-  
+
   return (
     <>
       <div className="col-md-12 text-center m-4">
@@ -175,18 +211,23 @@ function AdminPage() {
         <div className="col-12 mt-5">
           <Previews
             uploadedImages={selectedImages}
-            onImageUpload={handleImageUpload}
+            // onImageUpload={handleImageUpload}
             onFileRemove={handleFileRemove}
+            files={files}
+            setFiles={setFiles}
+            loading={loading}
+            setLoading={setLoading}
           />
-          
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
-          
-          <input
-            type="submit"
-            className="btn btnCargar my-5 "
-            value="CARGAR HABITACIÓN"
-          />
+          {loading && <PulseLoader className="my-3" color="#000000" />}
+          {files.length > 0 && (
+            <input
+              type="submit"
+              className="btn btnCargar my-5 "
+              value="CARGAR HABITACIÓN"
+            />
+          )}
         </div>
       </form>
     </>

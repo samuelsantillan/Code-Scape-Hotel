@@ -22,9 +22,11 @@ export function AdminProvider({ children }) {
   const [rooms, setRooms] = useState([]);
   const [users, setUsers] = useState([]);
 
+
+  
   const createRoom = async (room) => {
     const res = await roomRequest(room);
-    console.log("Lo que se va a enviar a la db es: ",res);
+    console.log(res);
   };
 
   const createUserRequest = async (user) => {

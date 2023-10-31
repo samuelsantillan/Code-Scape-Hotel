@@ -2,7 +2,8 @@ import{ useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {storage} from '../firebase/config'
-import { PulseLoader } from "react-spinners";
+
+
 
 const containerStyle = {
   display: "flex",
@@ -66,15 +67,13 @@ const buttonStyle = {
 
 };
 
-function Previews({ onImageUpload }) {
-  const [files, setFiles] = useState([]);
-  const [loading, setLoading] = useState(false);
+function Previews({ onImageUpload , files, setFiles, loading, setLoading}) {
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/*": [],
     },
-    multiple: true,
+    multiple: false,
     onDrop: (acceptedFiles) => {
       const newFiles = acceptedFiles.map((file) =>
         Object.assign(file, {
@@ -97,26 +96,12 @@ function Previews({ onImageUpload }) {
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
   }, [files]);
 
-  const handleImageUpload = async (imageFile) => {
-    setLoading(true);
-    const storage = getStorage();
-    const storageRef = ref(storage, "images/" + imageFile.name);
 
-    try {
-      await uploadBytes(storageRef, imageFile);
-      const imageUrl = await getDownloadURL(storageRef);
-      onImageUpload(imageUrl);
-    } catch (error) {
-      console.log("Error al cargar la imagen: ", error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <section style={containerStyle}>
-      <div
+    {
+      files.length == 0 && <div
         {...getRootProps({ className: "dropzone" })}
         style={{
           border: "2px dashed gray", 
@@ -134,6 +119,8 @@ function Previews({ onImageUpload }) {
         <input {...getInputProps()} />
         <p>Suelte los archivos, o haga clic para buscarlos</p>
       </div>
+    }
+      
       <aside style={thumbsContainer}>
         {files.map((file) => (
           <div style={thumb} key={file.name}>
@@ -152,15 +139,6 @@ function Previews({ onImageUpload }) {
           </div>
         ))}
       </aside>
-      {loading && <PulseLoader className="my-3" color="#000000" />}
-      {files.length > 0 && <button
-        type="button"
-        onClick={() => handleImageUpload(files[0])}
-        style={buttonStyle}
-      >
-        Cargar Imagen
-      </button>}
-      
     </section>
   );
 }
