@@ -2,7 +2,6 @@ import axios from "./axios";
 
 
 
-// export const roomRequest = room => axios.post(`roomCreate`, room);
 
 export const getUsers = () => axios.get(`getUsers`);
 

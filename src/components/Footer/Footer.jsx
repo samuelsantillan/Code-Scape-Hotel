@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2'
 import logoBeige from '../../assets/svg/logoBeige.svg';
+import axios from "./../../api/axios";
 import './footerStyle.css';
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -21,54 +22,16 @@ const Footer = () => {
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
-    const formData = {
-      email: email,
-    };
-    try {
-      const response = await fetch("http://localhost:3000/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+
+    if (email.trim() === '') {
+      Swal.fire({
+        title: "Error",
+        text: "El campo de correo electrónico no puede estar vacío",
+        icon: "error",
+        color: '#faf8f4',
+        background: '#1d130c'
       });
-      if (response.ok) {
-        Swal.fire({
-          title: "¡Te suscribiste correctamente!",
-          text: "Gracias por suscribirte! Pronto recibirás las últimas novedades y ofertas exclusivas",
-          icon: "success",
-          color: '#faf8f4',
-          background: '#1d130c'
-        }
-
-        );
-        setEmail("");
-      } else {
-        console.error("Error al enviar suscripcion");
-        Swal.fire({
-          title: "Hubo un error!",
-          text: "Por favor intentar nuevamente",
-          icon: "error",
-          color: '#faf8f4',
-          background: '#1d130c'
-        }
-
-        );
-      }
-      setEmail("");
-    } catch (e) {
-      console.error("Error al enviar la suscripción");
-      if (email.trim() === '') {
-        Swal.fire({
-          title: "Error",
-          text: "El campo de correo electrónico no puede estar vacío",
-          icon: "error",
-          color: '#faf8f4',
-          background: '#1d130c'
-        });
-        return;
-      }
-      setEmail("");
+      return;
     }
     if (!emailIsValid) {
       Swal.fire({
@@ -80,47 +43,45 @@ const Footer = () => {
       });
       return;
     }
+    const formData = {
+      email: email
+    };
+
     try {
-      const response = await fetch("http://localhost:3000/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      const response = await axios.post('newsletter', formData);
 
-
-      if (response.ok) {
+      if (response.status === 200) {
         Swal.fire({
-          title: "¡Suscrito Correctamente!",
-          text: "¡Gracias por suscribirte! Pronto recibiras novedades y ofertas únicas",
+          title: "¡Te suscribiste correctamente!",
+          text: "¡Gracias por suscribirte! Pronto recibirás las últimas novedades y ofertas exclusivas",
           icon: "success",
           color: '#faf8f4',
           background: '#1d130c'
         });
-        setEmail("");
       } else {
-        const data = await response.json();
+        throw new Error("Hubo un error");
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 409) {
+        Swal.fire({
+          title: "¡Ya estás registrado!",
+          text: error.response.data.message,
+          color: '#faf8f4',
+          background: '#1d130c'
+        });
+      } else {
         Swal.fire({
           title: "¡Hubo un error!",
-          text: data.message,
+          text: "Por favor intentar nuevamente",
           icon: "error",
           color: '#faf8f4',
           background: '#1d130c'
         });
-        setEmail("");
       }
-    } catch (e) {
-      Swal.fire({
-        title: "Hubo un error!",
-        text: "Por favor intentar nuevamente",
-        icon: "error",
-        color: '#faf8f4',
-        background: '#1d130c'
-      });
+    } finally{
       setEmail("");
     }
-  };
+  }
   return (
     <footer>
       <Container className='footerContainer' fluid>
@@ -134,6 +95,7 @@ const Footer = () => {
                   className="inputNewsletter"
                   value={email}
                   onChange={handleEmailChange}
+                  required
                 />
               </label>
               <button type="submit" className='btnNewsletter' onClick={handleSubscribe} disabled={!emailIsValid}> <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="xl" style={{ color: "#ecd3bc", }} required /></button>
@@ -170,7 +132,7 @@ const Footer = () => {
 
             <p className="lightBrownText">Ruta 68 y Ruta 40, 4400 Cafayate, Argentina</p>
             <div className="p-2 d-flex align-items-center">
-            <a href="https://goo.gl/maps/y52oLiUj8wVceMyr8" className="lightBrownText locationLink">CÓMO LLEGAR <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></a>
+              <a href="https://goo.gl/maps/y52oLiUj8wVceMyr8" className="lightBrownText locationLink">CÓMO LLEGAR <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></a>
             </div>
             <div className="p-2 d-flex align-items-center">
               <ul className="list-unstyled m-0 d-flex">
@@ -184,5 +146,4 @@ const Footer = () => {
     </footer>
   );
 }
-
-export default Footer;
+export default Footer

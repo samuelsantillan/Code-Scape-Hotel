@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 import FadeIn from "../../animations/FadeIn";
 import ScrollToTopButton from "../../components/scrollToTop/ScrollToTopButton";
 import { motion } from 'framer-motion';
+import axios from './../../api/axios'
 import "./contactStyle.css";
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -23,17 +24,11 @@ const Contact = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:3000/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
-            if (response.ok) {
+            const response = await axios.post('contact', formData);
+            if (response.status === 200) {
                 Swal.fire({
-                    title: "Enviado Correctamente!",
-                    text: "Te responderemos pronto!",
+                    title: "¡Enviado Correctamente!",
+                    text: "Te responderemos pronto",
                     icon: "success",
                     color: '#faf8f4',
                     background: '#1d130c'
@@ -47,13 +42,12 @@ const Contact = () => {
                 });
             } else {
                 Swal.fire({
-                    title: "Hubo un error!",
+                    title: "¡Hubo un error!",
                     text: "Por favor intentar nuevamente",
                     icon: "error",
                     color: '#faf8f4',
                     background: '#1d130c'
                 });
-                console.error("Error al enviar el formulario");
             }
             setFormData({
                 email: "",
@@ -62,13 +56,12 @@ const Contact = () => {
             });
         } catch (e) {
             Swal.fire({
-                title: "Hubo un error!",
+                title: "¡Error!",
                 text: "Por favor intentar nuevamente",
                 icon: "error",
                 color: '#faf8f4',
                 background: '#1d130c'
             });
-            console.error("Error al enviar el formulario");
         }
     };
 
