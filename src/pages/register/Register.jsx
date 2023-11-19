@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import "../register/register.css";
 import { registerRequest } from "../../api/auth";
 import logoBeige from "../../assets/svg/logoBeige.svg";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import Footer from "../../components/Footer/Footer";
-// TODO  -> nombre es el usuario (Cambiarlo)
 
 const Register = () => {
   const [isSignupVisible, setIsSignupVisible] = useState(false);
@@ -27,21 +27,28 @@ const Register = () => {
 
 
   const onSubmit = async (value) => {
-    await signup(value);
-  };
+    try {
+      await signup(value, navigate);
+    } catch (e) {
+      Swal.fire({
+        title: "¡Hubo un error!",
+        text: "Por favor intentar nuevamente",
+        icon: "error",
+        color: '#faf8f4',
+        background: '#1d130c'
+      });
+    }
+
+  }
 
   return (
     <>
       <nav className="navAlternative d-flex"><a href="/"><img src={logoBeige} alt="logo" /></a></nav>
       <div className="main-container-register">
         <div className={`cont-register ${isSignupVisible ? "s--signup" : ""}`}>
-          {RegisterErrors.map((error, i) => (
-            <p key={i} className="text-center" style={{ color: "red" }}>
-              {error}
-            </p>
-          ))}
+
           <form
-            className= {  `form-register sign-up ${isSignupVisible ? "active" : ""}`}
+            className={`form-register sign-up ${isSignupVisible ? "active" : ""}`}
             onSubmit={handleSubmit(onSubmit)}
           >
             <h2 className="h2-register">CREAR CUENTA</h2>
@@ -49,7 +56,13 @@ const Register = () => {
               <span>Nombre</span>
               <input
                 className="input-register"
-                {...register("username", { required: "El nombre es obligatorio" })}
+                {...register("username", {
+                  required: "El nombre es obligatorio",
+                  pattern: {
+                    value: /^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+$/, // Expresión regular que permite letras, espacios y letras con tilde
+                    message: "Ingrese un nombre válido sin números ni signos",
+                  },
+                })}
                 type="text"
                 autoFocus
               />
@@ -94,6 +107,11 @@ const Register = () => {
                 </p>
               )}
             </label>
+            {RegisterErrors.map((error, i) => (
+              <p key={i} className="text-center" style={{ color: "red" }}>
+                {error}
+              </p>
+            ))}
             <div className="button-register">
               <button
                 type="submit-register"
