@@ -290,7 +290,6 @@ const RoomDescription = (props) => {
                       return {
                         disabled: false,
                         style: { color: "black" },
-                        onClick: () => console.log("You clicked me!"),
                       };
                     } else {
                       return {

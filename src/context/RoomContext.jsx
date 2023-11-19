@@ -20,15 +20,12 @@ export default function RoomProvider({ children }) {
   
   
   const createRoom = async (room) => {
-    console.log("room created");
     const res = await roomRequest(room);
-    console.log(res);
   };
 
   const updateRoomRequest = async (id, room) => {
     try{
       const res = await updateRoom(id, room);
-      console.log(res);
     }catch(error){
       console.log(error);
     }
@@ -37,7 +34,6 @@ export default function RoomProvider({ children }) {
   const getRoomRequest = async (id) => {
     try {
       const res = await getRoom(id);
-      console.log(res);
       setRooms(res.data);
       return res.data;
     } catch (error) {
@@ -57,7 +53,6 @@ export default function RoomProvider({ children }) {
   const deleteRoomRequest = async (id) => {
     try {
       const res = await deleteRoom(id);
-      console.log(res);
       if (res.status === 200) {
         setRooms(rooms.filter((room) => room._id !== id));
       }

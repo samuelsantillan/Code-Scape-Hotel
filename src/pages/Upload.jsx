@@ -24,11 +24,8 @@ export const Upload = ({ setImages, images }) => {
         reader.onload = function load() {
           setPathImage(reader.result);
         };
-        console.log(file);
         setFile(file);
         alert("Imagen cargada correctamente");
-        console.log(file);
-        console.log(pathImage);
       } else {
         console.log("El archivo no es una imagen");
       }

@@ -26,18 +26,15 @@ export function AdminProvider({ children }) {
   
   const createRoom = async (room) => {
     const res = await roomRequest(room);
-    console.log(res);
   };
 
   const createUserRequest = async (user) => {
     const res = await createUser(user);
-    console.log(res);
   };
 
   const updateRoomRequest = async (id, room) => {
     try {
       const res = await updateRoom(id, room);
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -45,7 +42,6 @@ export function AdminProvider({ children }) {
   const updateUserRequest = async (id, user) => {
     try {
       const res = await updateUser(id, user);
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +51,6 @@ export function AdminProvider({ children }) {
   const getRoomRequest = async (id) => {
     try {
       const res = await getRoom(id);
-      console.log(res);
       return res.data;
     } catch (error) {
       console.log(error);
@@ -74,7 +69,6 @@ export function AdminProvider({ children }) {
   const deleteRoomRequest = async (id) => {
     try {
       const res = await deleteRoom(id);
-      console.log(res);
       if (res.status === 200) {
         setRooms(rooms.filter((room) => room._id !== id));
       }
@@ -86,7 +80,6 @@ export function AdminProvider({ children }) {
   const deleteUserRequest = async (id) => {
     try {
       const res = await deleteUser(id);
-      console.log(res);
 
       if (res.status === 200) {
         setUsers(users.filter((user) => user._id !== id));

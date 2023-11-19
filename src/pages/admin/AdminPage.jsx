@@ -22,7 +22,6 @@ function AdminPage() {
   const navigate = useNavigate();
   const params = useParams();
   const { room } = useAdmin();
-  console.log(room);
   const [files, setFiles] = useState([]);
   const handleCalendarChange = (calendarDates) => {
     setCalendarValues(calendarDates);
@@ -32,7 +31,6 @@ function AdminPage() {
     async function loadRoom() {
       if (params.id) {
         const room = await getRoomRequest(params.id);
-        console.log(room);
         setValue("roomName", room.nameHabitation);
         setValue("roomType", room.type);
         setValue("roomPrice", room.price);
@@ -59,7 +57,6 @@ function AdminPage() {
     try {
       await uploadBytes(storageRef, imageFile);
       imageUrl = await getDownloadURL(storageRef);
-      console.log("URL de la imagen:", imageUrl);
     } catch (error) {
       console.log("Error al cargar la imagen: ", error);
       throw error;
@@ -68,7 +65,6 @@ function AdminPage() {
     // En este punto, imageUrl tiene un valor
     if (imageUrl !== "") {
       setImageCompleted(true);
-      console.log(imageUrl);
       imageComplete(formData, imageUrl);
     }else{
       alert("La imagen no se ha cargado correctamente");
@@ -81,7 +77,6 @@ function AdminPage() {
     const roomPrice = formData.roomPrice;
     const roomNumber = formData.roomNumber;
     const roomDetails = formData.roomDetails;
-    console.log(imageUrl);
     try {
       if (isUpdateRoom) {
         updateRoomRequest(params.id, {

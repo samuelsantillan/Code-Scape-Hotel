@@ -10,13 +10,11 @@ const RoomPagePreview = () => {
   const { rooms, getRoomsRequest } = useRoom();
   const { getUserRequest } = useAuth();
 
-  console.log("Esto recibo de params", params);
   useEffect(() => {
     getRoomsRequest();
     getUserRequest(params._id);
   }, []);
 
-  console.log("Esto recibo de rooms", rooms);
 
   return (
     <>

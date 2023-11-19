@@ -24,7 +24,6 @@ export default function RoomProvider({ children }) {
   const createRoomUserReservationRequest = async (room) => {
     try {
       const res = await createRoomUserReservation(room);
-      console.log(res);
       return res.data;
     } catch (error) {
       console.log(error);
@@ -34,7 +33,6 @@ export default function RoomProvider({ children }) {
   const getRoomUserRequest = async (id) => {
     try {
       const res = await getRoomUser(id);
-      console.log(res);
       setRooms(res.data);
       return res.data;
     } catch (error) {
@@ -45,8 +43,7 @@ export default function RoomProvider({ children }) {
   const getRoomUserValidateReservationRequest = async (id) => {
     try {
       const res = await getRoomUserReservation(id);
-      console.log(id);
-      console.log(res);
+
       setRoomUser(res.data);
       return res.data;
     } catch (error) {
