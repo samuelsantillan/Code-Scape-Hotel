@@ -23,7 +23,7 @@ import { useRoom } from "../../context/RoomContext";
 import { useAuth } from "../../context/AuthContext";
 import { useRoomUser } from "../../context/RoomUserContext";
 import "./RoomDescription.css";
-import LoadingPage  from '../../pages/loading/LoadingPage'
+import LoadingPage from "../../pages/loading/LoadingPage";
 import { DateObject } from "react-multi-date-picker";
 import Room from "./Room";
 const months = [
@@ -58,41 +58,41 @@ const RoomDescription = (props) => {
   const { rooms, getRoomRequest } = useRoom();
 
   const [roomPrice, setRoomPrice] = useState();
+  const [numbersOfDays, setNumberOfDays] = useState(1);
 
   function calculateDays(dateStart, dateEnd) {
     const start = new Date(dateStart);
     const end = new Date(dateEnd);
 
-    // Calcular la diferencia en milisegundos
     const differenceBetweenMiliSeconds = end - start;
 
-    // Convertir la diferencia a días
     const differenceBetweenDays =
       differenceBetweenMiliSeconds / (1000 * 60 * 60 * 24);
 
     return differenceBetweenDays;
   }
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Primero, indicamos que la carga está en progreso
         setIsLoading(true);
 
-        // Luego, realizamos las solicitudes
         await getRoomRequest(params.id);
         await getRoomUserRequest(params.id);
         await getRoomUserValidateReservationRequest(params.id);
-        // Finalmente, indicamos que la carga ha terminado
         setIsLoading(false);
       } catch (error) {
-        // Manejo de errores si es necesario
         setIsLoading(false);
       }
     };
 
     fetchData();
   }, [params.id]);
+
+  useEffect(() => {
+    if (rooms.price) {
+      setRoomPrice(rooms.price);
+    }
+  }, [rooms.price]);
 
   const extractedDatesUsers = roomUsersReservation.map((item) => ({
     startDate: new Date(item.startDate).toISOString().split("T")[0],
@@ -119,9 +119,12 @@ const RoomDescription = (props) => {
     });
     setValues(convertDate);
     if (convertDate.length === 2) {
-      setRoomPrice(rooms.price * calculateDays(convertDate[0], convertDate[1]));
+      const updatedNumberOfDays = calculateDays(convertDate[0], convertDate[1]);
+      setNumberOfDays(updatedNumberOfDays);
+      setRoomPrice((prevPrice) => rooms.price * updatedNumberOfDays);
     }
   };
+
   const iconServices = [
     {
       icon: <FaWifi />,
@@ -144,18 +147,14 @@ const RoomDescription = (props) => {
   const numberOfMonths = windowWidth < 768 ? 1 : 2;
 
   function handleClick() {
-    
-    if(values[0] === null || values[0] === undefined){
-      alert("Por favor selecciona una fecha de inicio")
-    }
-    else if(values[1] === undefined || values[1] === null){
-      alert("Por favor selecciona una fecha de fin")
-    }
-    else if(values[0] === values[1]){
-      alert("Por favor selecciona una fecha de fin diferente a la de inicio")
-    }
-    else if(values[0] === undefined && values[1] === undefined){
-      alert("Por favor selecciona una fecha de inicio y una fecha de fin")
+    if (values[0] === null || values[0] === undefined) {
+      alert("Por favor selecciona una fecha de inicio");
+    } else if (values[1] === undefined || values[1] === null) {
+      alert("Por favor selecciona una fecha de fin");
+    } else if (values[0] === values[1]) {
+      alert("Por favor selecciona una fecha de fin diferente a la de inicio");
+    } else if (values[0] === undefined && values[1] === undefined) {
+      alert("Por favor selecciona una fecha de inicio y una fecha de fin");
     }
 
     createRoomUserReservationRequest({
@@ -175,7 +174,7 @@ const RoomDescription = (props) => {
           <header className="mosaic-header">
             <div className="mosaic-header__logo"></div>
             <div className="mosaic-header__items">
-              {rooms.photos.map((image, index) => (
+              {rooms.photos[0].map((image, index) => (
                 <div
                   key={index}
                   className={`mosaic-header__item mosaic-header__item--${
@@ -199,7 +198,10 @@ const RoomDescription = (props) => {
             <Col xs={12} md={6} className="data-room px-md-5">
               <div className="d-flex justify-content-between">
                 <h1>{rooms.nameHabitation}</h1>
-                <h2 className="">$ {roomPrice}</h2>
+                <div className="d-flex">
+                  <h2 className="">${roomPrice}  </h2>
+                  <h5>/{numbersOfDays} noches</h5>
+                </div>
               </div>
               <h4>{rooms.type}</h4>
               <p className="pt-3">{rooms.description}</p>
@@ -253,7 +255,6 @@ const RoomDescription = (props) => {
                     );
                     const dateToday = new Date();
 
-                       
                     const invailableDates = extractedDatesUsers.map(
                       (dates) => ({
                         startDate: new Date(dates.startDate),
@@ -275,7 +276,7 @@ const RoomDescription = (props) => {
                       (dates) =>
                         currentDate > dateToday && currentDate < dates.endDate
                     );
-                    
+
                     const isDateUnavailable = invailableDates.some(
                       (dates) =>
                         currentDate >= dates.startDate &&

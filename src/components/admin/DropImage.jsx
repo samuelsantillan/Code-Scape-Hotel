@@ -1,9 +1,7 @@
-import{ useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import {storage} from '../firebase/config'
-
-
+import { storage } from "../firebase/config";
 
 const containerStyle = {
   display: "flex",
@@ -64,16 +62,12 @@ const buttonStyle = {
   color: "#ecd3bc",
   padding: "6px 6px",
   borderRadius: "10px",
-
 };
 
-function Previews({ onImageUpload , files, setFiles, loading, setLoading}) {
-
+function Previews({ onImageUpload, files, setFiles, loading, setLoading }) {
   const { getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "image/*": [],
-    },
-    multiple: false,
+    accept: "image/*",
+    multiple: true,
     onDrop: (acceptedFiles) => {
       const newFiles = acceptedFiles.map((file) =>
         Object.assign(file, {
@@ -96,31 +90,29 @@ function Previews({ onImageUpload , files, setFiles, loading, setLoading}) {
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
   }, [files]);
 
-
-
   return (
     <section style={containerStyle}>
-    {
-      files.length == 0 && <div
-        {...getRootProps({ className: "dropzone" })}
-        style={{
-          border: "2px dashed gray", 
-          borderRadius: "10px",
-          padding: "40px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          backgroundColor: "#f7f7f7",
-          color: "#555555",
-          outline: "none",
-          transition: "border 0.24s ease-in-out",
-        }}
-      >
-        <input {...getInputProps()} />
-        <p>Suelte los archivos, o haga clic para buscarlos</p>
-      </div>
-    }
-      
+      {files.length == 0 && (
+        <div
+          {...getRootProps({ className: "dropzone" })}
+          style={{
+            border: "2px dashed gray",
+            borderRadius: "10px",
+            padding: "40px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            backgroundColor: "#f7f7f7",
+            color: "#555555",
+            outline: "none",
+            transition: "border 0.24s ease-in-out",
+          }}
+        >
+          <input {...getInputProps()} />
+          <p>Suelte los archivos, o haga clic para buscarlos</p>
+        </div>
+      )}
+
       <aside style={thumbsContainer}>
         {files.map((file) => (
           <div style={thumb} key={file.name}>

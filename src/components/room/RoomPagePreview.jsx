@@ -14,7 +14,7 @@ const RoomPagePreview = () => {
     getRoomsRequest();
     getUserRequest(params._id);
   }, []);
-
+  console.log("Esto muestra rooms", rooms);
 
   return (
     <>
@@ -29,7 +29,7 @@ const RoomPagePreview = () => {
           key={room._id}
           _id={room._id}
           isImageFirst={true}
-          photos={room.photos}
+          photos={room.photos[0]}
           nameHabitation={room.nameHabitation}
           description={room.description}
         />
