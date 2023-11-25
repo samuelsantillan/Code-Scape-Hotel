@@ -16,7 +16,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Container, Navbar, Row, Col } from "react-bootstrap";
 import "../Navbar/navbarStyle.css";
 import { Calendar } from "react-multi-date-picker";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./Room.css";
 import { useParams } from "react-router-dom";
 import { useRoom } from "../../context/RoomContext";
@@ -146,6 +146,8 @@ const RoomDescription = (props) => {
 
   const numberOfMonths = windowWidth < 768 ? 1 : 2;
 
+  const navigate =useNavigate();
+
   function handleClick() {
     if (values[0] === null || values[0] === undefined) {
       alert("Por favor selecciona una fecha de inicio");
@@ -163,6 +165,14 @@ const RoomDescription = (props) => {
       idRoom: params.id,
       idUser: user.id,
     });
+
+    navigate("/ReservationForm",{
+      state: {
+        roomPrice: roomPrice,
+        numbersOfDays: numbersOfDays,
+      },
+    });
+    
   }
 
   return (
@@ -198,7 +208,7 @@ const RoomDescription = (props) => {
             <Col xs={12} md={6} className="data-room px-md-5">
               <div className="d-flex justify-content-between">
                 <h1>{rooms.nameHabitation}</h1>
-                <div className="d-flex">
+                <div className="d-flex ">
                   <h2 className="">${roomPrice}  </h2>
                   <h5>/{numbersOfDays} noches</h5>
                 </div>

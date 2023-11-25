@@ -7,8 +7,17 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import logoBeige from "../../assets/svg/logoBeige.svg";
 import Swal from 'sweetalert2';
+import { useLocation } from "react-router-dom";
 
 const ReservationForm = () => {
+
+  const location = useLocation();
+
+  const roomPrice = location.state ? location.state.roomPrice : null;
+  const numberOfDays = location.state ? location.state.numberOfDays : null;
+
+  console.log("El precio es:", roomPrice);
+
   const [contactInfo, setContactInfo] = useState({
     firstName: "",
     lastName: "",
@@ -280,7 +289,8 @@ const ReservationForm = () => {
         <Col lg="4" xs="12">
           <Card className=" m-3  p-4 checkoutCard">
             <h4>Resumen de la Reserva</h4>
-            {/* ... Contenido del resumen de la reserva */}
+            <p>El monto total es de: {roomPrice} USD</p>
+            <p>Por {numberOfDays} noches</p>
           </Card>
         </Col>
         <div className="d-flex justify-content-center my-3">

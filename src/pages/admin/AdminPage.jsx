@@ -213,7 +213,7 @@ function AdminPage() {
           />
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
-          {loading && <PulseLoader className="my-3" color="#000000" />}
+          {loading && <PulseLoader className="my-3" color="#FFFFFF" />}
           {files.length > 0 && (
             <input
               type="submit"
