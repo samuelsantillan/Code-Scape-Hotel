@@ -77,7 +77,6 @@ export default function AdminUsersPage() {
   const [idElementModified, setIdElementModified] = React.useState(null);
   React.useEffect(() => {
     if (idElementModified) {
-      console.log(idElementModified);
     }
   }, [idElementModified]); 
 

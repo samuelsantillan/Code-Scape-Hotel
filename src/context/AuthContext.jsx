@@ -50,7 +50,6 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
       setIsAuthenticated(false);
     }catch(err){
-      console.log(err);
     }
 
   };
@@ -98,7 +97,6 @@ export const AuthProvider = ({ children }) => {
       const res = await getUser(id);
       setUser(res.data);
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -114,7 +112,6 @@ export const AuthProvider = ({ children }) => {
       if (Array.isArray(err.response.data)) {
         return setErrors(err.response.data);
       }
-      console.log(err); 
       setErrors([err.response.data.message]);
     }
   };

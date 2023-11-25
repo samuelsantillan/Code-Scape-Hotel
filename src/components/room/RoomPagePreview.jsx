@@ -15,7 +15,6 @@ const RoomPagePreview = () => {
     getUserRequest(params._id);
   }, []);
 
-
   return (
     <>
       <section className="heroSection-roomPreview">
@@ -29,7 +28,7 @@ const RoomPagePreview = () => {
           key={room._id}
           _id={room._id}
           isImageFirst={true}
-          photos={room.photos}
+          photos={room.photos[0]}
           nameHabitation={room.nameHabitation}
           description={room.description}
         />

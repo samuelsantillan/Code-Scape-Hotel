@@ -27,7 +27,6 @@ export default function RoomProvider({ children }) {
     try{
       const res = await updateRoom(id, room);
     }catch(error){
-      console.log(error);
     }
   };
 
@@ -37,7 +36,6 @@ export default function RoomProvider({ children }) {
       setRooms(res.data);
       return res.data;
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -46,7 +44,6 @@ export default function RoomProvider({ children }) {
       const res = await getRooms();
       setRooms(res.data);
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -57,7 +54,6 @@ export default function RoomProvider({ children }) {
         setRooms(rooms.filter((room) => room._id !== id));
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -66,7 +62,6 @@ export default function RoomProvider({ children }) {
       const res = await getUsers();
       setUsers(res.data);
     } catch (error) {
-      console.log(error);
     }
   }
 

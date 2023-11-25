@@ -48,27 +48,24 @@ function AdminPage() {
     );
   };
 
-  const handleImageUploaded = async (imageFile, formData) => {
+  const handleImageUploaded = async (formData) => {
     setLoading(true);
-    let imageUrl = "";
-
     const storage = getStorage();
-    const storageRef = ref(storage, "images/" + imageFile.name);
-    try {
-      await uploadBytes(storageRef, imageFile);
-      imageUrl = await getDownloadURL(storageRef);
+    const storageRef = ref(storage, "images");
+    const imageUrls = [];
+    for (const file of files){
+      try {
+        const fileRef = ref(storageRef, `${file.name}`);
+        await uploadBytes(fileRef, file);
+        const imageUrl = await getDownloadURL(fileRef);
+        imageUrls.push(imageUrl)
     } catch (error) {
-      console.log("Error al cargar la imagen: ", error);
+      setLoading(false);
       throw error;
     }
-
-    // En este punto, imageUrl tiene un valor
-    if (imageUrl !== "") {
-      setImageCompleted(true);
-      imageComplete(formData, imageUrl);
-    }else{
-      alert("La imagen no se ha cargado correctamente");
-    }
+  }
+  setLoading(false);
+  imageComplete(formData, imageUrls)
   };
 
   const imageComplete = (formData, imageUrl) => {
@@ -114,7 +111,7 @@ function AdminPage() {
 
   const handleSubmitForm = handleSubmit(async (formData) => {
     if (files.length > 0) {
-      handleImageUploaded(files[0], formData);
+      handleImageUploaded(formData);
     } else {
       alert("Debe agregar al menos una imagen");
     }
@@ -215,7 +212,7 @@ function AdminPage() {
           />
         </div>
         <div className="col-12 mt-5 d-flex align-item-center justify-content-center">
-          {loading && <PulseLoader className="my-3" color="#000000" />}
+          {loading && <PulseLoader className="my-3" color="#FFFFFF" />}
           {files.length > 0 && (
             <input
               type="submit"

@@ -114,7 +114,7 @@ const AboutUsPage = () => {
                 <Card.Img variant="top" src="/img/Alvaro.png" /></div>
               <Card.Footer className="card-footer">
                 <div>
-                  <p>Alvaro Safe</p>
+                  <p>Alvaro Zafe</p>
                   <div className="social-icons">
                     <a href="https://www.linkedin.com">
                       <FaLinkedin />
