@@ -36,14 +36,12 @@ export function AdminProvider({ children }) {
     try {
       const res = await updateRoom(id, room);
     } catch (error) {
-      console.log(error);
     }
   };
   const updateUserRequest = async (id, user) => {
     try {
       const res = await updateUser(id, user);
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -53,7 +51,6 @@ export function AdminProvider({ children }) {
       const res = await getRoom(id);
       return res.data;
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -62,7 +59,6 @@ export function AdminProvider({ children }) {
       const res = await getRooms();
       setRooms(res.data);
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -73,7 +69,6 @@ export function AdminProvider({ children }) {
         setRooms(rooms.filter((room) => room._id !== id));
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -85,7 +80,6 @@ export function AdminProvider({ children }) {
         setUsers(users.filter((user) => user._id !== id));
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -94,7 +88,6 @@ export function AdminProvider({ children }) {
       const res = await getUsers();
       setUsers(res.data);
     } catch (error) {
-      console.log(error);
     }
   };
 

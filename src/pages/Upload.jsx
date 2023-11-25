@@ -10,7 +10,6 @@ export const Upload = ({ setImages, images }) => {
   const sendImage = (e) => {
     e.preventDefault();
     uploadServices(name, file).then((response) => {
-      console.log("El resultado es : ", response);
     });
   };
 
@@ -27,7 +26,6 @@ export const Upload = ({ setImages, images }) => {
         setFile(file);
         alert("Imagen cargada correctamente");
       } else {
-        console.log("El archivo no es una imagen");
       }
     }
   };

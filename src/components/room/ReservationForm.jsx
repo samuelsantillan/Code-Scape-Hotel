@@ -16,7 +16,6 @@ const ReservationForm = () => {
   const roomPrice = location.state ? location.state.roomPrice : null;
   const numberOfDays = location.state ? location.state.numberOfDays : null;
 
-  console.log("El precio es:", roomPrice);
 
   const [contactInfo, setContactInfo] = useState({
     firstName: "",

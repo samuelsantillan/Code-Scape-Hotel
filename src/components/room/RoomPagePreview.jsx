@@ -14,7 +14,6 @@ const RoomPagePreview = () => {
     getRoomsRequest();
     getUserRequest(params._id);
   }, []);
-  console.log("Esto muestra rooms", rooms);
 
   return (
     <>

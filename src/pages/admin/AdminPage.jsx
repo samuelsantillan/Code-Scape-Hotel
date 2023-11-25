@@ -60,7 +60,6 @@ function AdminPage() {
         const imageUrl = await getDownloadURL(fileRef);
         imageUrls.push(imageUrl)
     } catch (error) {
-      console.log("Error al cargar la imagen: ", error);
       setLoading(false);
       throw error;
     }
