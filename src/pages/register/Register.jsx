@@ -126,15 +126,15 @@ const Register = () => {
             <div className="img-register">
               <div className={`img__text "m--in" : "m--up"}`}>
                 <h2 className="h2-register img-text"> ¿Ya tenés cuenta?</h2>
+                <div className="img__btn">
 
+<a href="/login"> <span >
+  Entrar
+</span></a>
+</div>
                 {isSignupVisible && <p></p>}
               </div>
-              <div className="img__btn">
-
-                <a href="/login"> <span >
-                  Entrar
-                </span></a>
-              </div>
+              
             </div>
           </div>
         </div>

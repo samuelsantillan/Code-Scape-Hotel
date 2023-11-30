@@ -267,6 +267,8 @@ nav.navAlternative img {
   .img-text {
     padding-top: 50%;
   }
+  .img__btn {
+    margin-top: 20vh !important;}
 }
 
 

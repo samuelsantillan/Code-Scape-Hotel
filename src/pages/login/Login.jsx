@@ -86,10 +86,9 @@ const Login = () => {
         <div className="sub-cont-register">
           <div className="img-register">
             <div className={`img__text `}>
-              <h2 className="h2-register img-text">"¿Sos nuevo?"</h2>
+              <h2 className="h2-register img-text">¿Sos nuevo?</h2>
               {isSignupVisible && <p></p>}
-            </div>
-            <div className="img__btn">
+              <div className="img__btn">
               <a href="/register"> <span>
                 registrate
               </span></a>
@@ -97,6 +96,8 @@ const Login = () => {
                 Inicia sesión
               </span>
             </div>
+            </div>
+           
           </div>
         </div>
       </div>
